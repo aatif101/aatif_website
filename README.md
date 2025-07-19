@@ -1,4 +1,4 @@
-# aatif's Cosmic Portfolio
+# aatif's  Portfolio
 
 A dark, cosmic terminal-themed personal portfolio website built with React and Tailwind CSS.
 
