@@ -1,15 +1,6 @@
-# aatif's Cosmic Portfolio
+# aatif's  Portfolio
 
 A dark, cosmic terminal-themed personal portfolio website built with React and Tailwind CSS.
-
-## Features
-
-- 🌌 Dark cosmic theme with terminal aesthetics
-- 🪐 Animated orbiting tech logos around central name
-- 📱 Fully responsive design
-- ⚡ Smooth animations and transitions
-- 🎨 Mathematical symbols matrix rain background
-- 🚀 Modern tech stack
 
 ## Tech Stack
 
