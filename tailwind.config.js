@@ -25,19 +25,9 @@ module.exports = {
         mono: ['JetBrains Mono', 'Monaco', 'Consolas', 'monospace'],
       },
       animation: {
-        'orbit': 'orbit 20s linear infinite',
-        'orbit-reverse': 'orbit-reverse 25s linear infinite',
         'pulse-glow': 'pulse-glow 2s ease-in-out infinite alternate',
       },
       keyframes: {
-        orbit: {
-          '0%': { transform: 'rotate(0deg) translateX(150px) rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg) translateX(150px) rotate(-360deg)' },
-        },
-        'orbit-reverse': {
-          '0%': { transform: 'rotate(360deg) translateX(120px) rotate(-360deg)' },
-          '100%': { transform: 'rotate(0deg) translateX(120px) rotate(0deg)' },
-        },
         'pulse-glow': {
           '0%': { 
             boxShadow: '0 0 20px rgba(99, 102, 241, 0.5), 0 0 40px rgba(99, 102, 241, 0.3)',

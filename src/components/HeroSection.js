@@ -1,5 +1,4 @@
 import React from 'react';
-import OrbitingLogos from './OrbitingLogos';
 
 const HeroSection = () => {
   return (
@@ -10,9 +9,6 @@ const HeroSection = () => {
           <h1 className="text-8xl md:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cosmic-purple via-cosmic-blue to-cosmic-green animate-pulse-glow">
             aatif
           </h1>
-          
-          {/* Orbiting Logos */}
-          <OrbitingLogos />
         </div>
         
         {/* Subtitle */}
