@@ -49,18 +49,20 @@ const HeroSection = () => {
     <section className="min-h-screen flex flex-col items-center justify-center relative pt-20">
       {/* Text Animation Section */}
       <div className="text-center z-10 mb-16">
-        <div className="space-y-4">
-          <h1 className="text-4xl md:text-6xl font-bold text-white">
+        <div className="relative">
+          {/* Hello Wanderer - positioned right above the "I" */}
+          <div className="absolute -top-8 left-0 text-lg md:text-xl text-gray-400 font-light">
             Hello Wanderer,
-          </h1>
-          <div className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cosmic-purple via-cosmic-blue to-cosmic-green">
+          </div>
+          {/* Main text - I am Aatif */}
+          <div className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cosmic-purple via-cosmic-blue to-cosmic-green">
             I am <span className="inline-block min-w-[200px] text-left">{displayText}<span className="animate-pulse">|</span></span>
           </div>
         </div>
       </div>
 
       {/* Scrolling Logos Bar */}
-      <div className="w-full overflow-hidden bg-gray-900/50 py-8">
+      <div className="w-full overflow-hidden py-8">
         <div className="flex animate-scroll space-x-16">
           {/* First set of logos */}
           <div className="flex items-center space-x-16 shrink-0">
@@ -103,19 +105,6 @@ const HeroSection = () => {
             {/* Claude */}
             <div className="h-12 w-16 flex items-center justify-center">
               <span className="text-white font-bold text-lg">Claude</span>
-            </div>
-
-            {/* Real Madrid */}
-            <div className="h-12 w-12 flex items-center justify-center">
-              <svg viewBox="0 0 24 24" className="h-10 w-10 fill-white">
-                <path d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm0 2.25c5.383 0 9.75 4.367 9.75 9.75s-4.367 9.75-9.75 9.75S2.25 17.383 2.25 12 6.617 2.25 12 2.25z"/>
-                <text x="12" y="16" textAnchor="middle" className="fill-white text-xs font-bold">RM</text>
-              </svg>
-            </div>
-
-            {/* F1 */}
-            <div className="h-12 w-16 flex items-center justify-center">
-              <span className="text-white font-bold text-2xl">F1</span>
             </div>
           </div>
 
@@ -160,19 +149,6 @@ const HeroSection = () => {
             {/* Claude */}
             <div className="h-12 w-16 flex items-center justify-center">
               <span className="text-white font-bold text-lg">Claude</span>
-            </div>
-
-            {/* Real Madrid */}
-            <div className="h-12 w-12 flex items-center justify-center">
-              <svg viewBox="0 0 24 24" className="h-10 w-10 fill-white">
-                <path d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm0 2.25c5.383 0 9.75 4.367 9.75 9.75s-4.367 9.75-9.75 9.75S2.25 17.383 2.25 12 6.617 2.25 12 2.25z"/>
-                <text x="12" y="16" textAnchor="middle" className="fill-white text-xs font-bold">RM</text>
-              </svg>
-            </div>
-
-            {/* F1 */}
-            <div className="h-12 w-16 flex items-center justify-center">
-              <span className="text-white font-bold text-2xl">F1</span>
             </div>
           </div>
         </div>
