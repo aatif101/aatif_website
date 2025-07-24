@@ -3,6 +3,8 @@ import './index.css';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
+import EducationSection from './components/EducationSection';
+import CourseworkSection from './components/CourseworkSection';
 import ResumeSection from './components/ResumeSection';
 import ProjectsSection from './components/ProjectsSection';
 import Footer from './components/Footer';
@@ -16,8 +18,10 @@ function App() {
       <main>
         <HeroSection />
         <AboutSection />
-        <ResumeSection />
+        <EducationSection />
+        <CourseworkSection />
         <ProjectsSection />
+        <ResumeSection />
       </main>
       <Footer />
     </div>

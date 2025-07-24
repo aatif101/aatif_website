@@ -8,15 +8,18 @@ const Header = () => {
           <div className="text-terminal-green font-mono font-bold">
             ~/aatif
           </div>
-          <div className="hidden md:flex space-x-8">
-            <a href="#about" className="text-gray-300 hover:text-terminal-green transition-colors">
+          <div className="hidden md:flex space-x-6">
+            <a href="#about" className="text-gray-300 hover:text-terminal-green transition-colors font-mono text-sm">
               about
             </a>
-            <a href="#resume" className="text-gray-300 hover:text-terminal-green transition-colors">
-              resume
+            <a href="#education" className="text-gray-300 hover:text-terminal-green transition-colors font-mono text-sm">
+              timeline
             </a>
-            <a href="#projects" className="text-gray-300 hover:text-terminal-green transition-colors">
+            <a href="#projects" className="text-gray-300 hover:text-terminal-green transition-colors font-mono text-sm">
               projects
+            </a>
+            <a href="#resume" className="text-gray-300 hover:text-terminal-green transition-colors font-mono text-sm">
+              resume
             </a>
           </div>
         </div>
