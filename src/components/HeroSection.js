@@ -48,7 +48,7 @@ const HeroSection = () => {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center relative pt-20">
       {/* Text Animation Section */}
-      <div className="text-center z-10 mb-16">
+      <div className="text-center z-10 mb-8">
         <div className="relative">
           {/* Hello Wanderer - positioned right above the "I" */}
           <div className="absolute -top-8 left-0 text-lg md:text-xl text-gray-400 font-light">
@@ -61,11 +61,23 @@ const HeroSection = () => {
         </div>
       </div>
 
+      {/* Technologies Heading */}
+      <div className="text-center z-10 mb-6">
+        <h2 className="text-lg md:text-xl text-gray-400 font-mono font-light">
+          🧰 Technologies I Use
+        </h2>
+      </div>
+
+      {/* Horizontal separator line */}
+      <div className="w-full max-w-4xl mb-8">
+        <div className="h-px bg-white bg-opacity-10"></div>
+      </div>
+
       {/* Scrolling Logos Bar */}
-      <div className="w-full overflow-hidden py-8">
-        <div className="flex animate-scroll space-x-16">
+      <div className="w-full overflow-hidden py-6">
+        <div className="flex animate-scroll space-x-20">
           {/* First set of logos */}
-          <div className="flex items-center space-x-16 shrink-0">
+          <div className="flex items-center space-x-20 shrink-0">
             {/* AWS */}
             <div className="h-12 w-20 flex items-center justify-center">
               <img src="/logos/aws.svg" alt="AWS" className="h-10 w-auto" />
@@ -118,7 +130,7 @@ const HeroSection = () => {
           </div>
 
           {/* Duplicate set for seamless loop */}
-          <div className="flex items-center space-x-16 shrink-0">
+          <div className="flex items-center space-x-20 shrink-0">
             {/* AWS */}
             <div className="h-12 w-20 flex items-center justify-center">
               <img src="/logos/aws.svg" alt="AWS" className="h-10 w-auto" />
@@ -169,6 +181,14 @@ const HeroSection = () => {
               <img src="/logos/grafana.svg" alt="Grafana" className="h-10 w-10" />
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="text-center z-10 mt-8 mb-4">
+        <div className="flex flex-col items-center animate-bounce">
+          <span className="text-gray-400 text-sm font-light mb-2">scroll to see more</span>
+          <span className="text-gray-400 text-xl">↓</span>
         </div>
       </div>
 
