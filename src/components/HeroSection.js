@@ -6,25 +6,27 @@ const HeroSection = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
 
-  // New state for phrase animation
+  // Phrase animation uses same timing states as name animation
   const [phraseText, setPhraseText] = useState('');
-  const [phraseIndex, setPhraseIndex] = useState(0);
-  const [isPhraseDeleting, setIsPhraseDeleting] = useState(false);
-  const [isPhrasePaused, setIsPhrasePaused] = useState(false);
 
   const names = ['Aatif', 'عاطف', 'आतिफ', '阿提夫'];
   const phrases = [
-    'i build stuff.',
-    'i can solve your math homework.',
-    'i can help you with your project.',
-    'please hire me.',
-    'a good guy.'
+    'i build stuff',
+    'hire me maybe?',
+    'clean code, bad jokes.',
+    'good guy. great engineer.'
   ];
 
-  // Name animation effect
+  // Check if current name contains Hindi characters (for dynamic spacing)
+  const currentName = names[currentIndex];
+  const isHindiActive = currentName === 'आतिफ';
+
+  // Synchronized animation effect for both name and phrase
   useEffect(() => {
     const currentName = names[currentIndex];
-    const typeSpeed = isDeleting ? 100 : 150;
+    const currentPhrase = phrases[currentIndex % phrases.length];
+    const nameTypeSpeed = isDeleting ? 100 : 150;
+    const phraseTypeSpeed = isDeleting ? 40 : 70; // Faster phrase animation
     const pauseTime = isDeleting ? 500 : 2000;
 
     if (isPaused) {
@@ -40,7 +42,8 @@ const HeroSection = () => {
       return () => clearTimeout(pauseTimer);
     }
 
-    const timer = setTimeout(() => {
+    // Name animation timer
+    const nameTimer = setTimeout(() => {
       if (!isDeleting) {
         if (displayText.length < currentName.length) {
           setDisplayText(currentName.slice(0, displayText.length + 1));
@@ -54,51 +57,33 @@ const HeroSection = () => {
           setIsPaused(true);
         }
       }
-    }, typeSpeed);
+    }, nameTypeSpeed);
 
-    return () => clearTimeout(timer);
-  }, [displayText, currentIndex, isDeleting, isPaused, names]);
-
-  // Phrase animation effect
-  useEffect(() => {
-    const currentPhrase = phrases[phraseIndex];
-    const typeSpeed = isPhraseDeleting ? 60 : 100;
-    const pauseTime = isPhraseDeleting ? 800 : 2500;
-
-    if (isPhrasePaused) {
-      const pauseTimer = setTimeout(() => {
-        setIsPhrasePaused(false);
-        if (!isPhraseDeleting) {
-          setIsPhraseDeleting(true);
-        } else {
-          setIsPhraseDeleting(false);
-          setPhraseIndex((prev) => (prev + 1) % phrases.length);
-        }
-      }, pauseTime);
-      return () => clearTimeout(pauseTimer);
-    }
-
-    const timer = setTimeout(() => {
-      if (!isPhraseDeleting) {
-        if (phraseText.length < currentPhrase.length) {
+    // Phrase animation timer (starts after name begins typing)
+    const phraseTimer = setTimeout(() => {
+      if (!isDeleting) {
+        // Only start phrase after name has typed at least 2 characters
+        if (displayText.length >= 2 && phraseText.length < currentPhrase.length) {
           setPhraseText(currentPhrase.slice(0, phraseText.length + 1));
-        } else {
-          setIsPhrasePaused(true);
         }
       } else {
         if (phraseText.length > 0) {
           setPhraseText(phraseText.slice(0, -1));
         } else {
-          setIsPhrasePaused(true);
+          // Reset phrase when both animations complete
+          setPhraseText('');
         }
       }
-    }, typeSpeed);
+    }, phraseTypeSpeed);
 
-    return () => clearTimeout(timer);
-  }, [phraseText, phraseIndex, isPhraseDeleting, isPhrasePaused, phrases]);
+    return () => {
+      clearTimeout(nameTimer);
+      clearTimeout(phraseTimer);
+    };
+  }, [displayText, phraseText, currentIndex, isDeleting, isPaused, names, phrases]);
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center relative">
+    <section className={`min-h-screen flex flex-col items-center justify-center relative ${isHindiActive ? 'pt-16' : 'pt-8'}`}>
       {/* Main Content Container - Better vertical centering */}
       <div className="flex flex-col items-center justify-center space-y-6 z-10">
         
@@ -111,8 +96,10 @@ const HeroSection = () => {
 
         {/* Main text - I am Aatif */}
         <div className="text-center">
-          <div className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cosmic-purple via-cosmic-blue to-cosmic-green">
-            I am <span className="inline-block min-w-[200px] text-left">{displayText}<span className="animate-pulse">|</span></span>
+          <div className={`text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cosmic-purple via-cosmic-blue to-cosmic-green ${isHindiActive ? 'leading-loose' : 'leading-relaxed'}`}>
+            I am <span className="inline-block min-w-[240px] text-left" style={{ paddingTop: isHindiActive ? '0.5rem' : '0' }}>
+              {displayText}<span className="animate-pulse">|</span>
+            </span>
           </div>
         </div>
 
