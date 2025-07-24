@@ -25,8 +25,8 @@ const HeroSection = () => {
   useEffect(() => {
     const currentName = names[currentIndex];
     const currentPhrase = phrases[currentIndex % phrases.length];
-    const nameTypeSpeed = isDeleting ? 100 : 150;
-    const phraseTypeSpeed = isDeleting ? 40 : 70; // Faster phrase animation
+    const nameTypeSpeed = isDeleting ? 80 : 100; // Faster name animation
+    const phraseTypeSpeed = isDeleting ? 40 : 70; // Keep phrase speed same
     const pauseTime = isDeleting ? 500 : 2000;
 
     if (isPaused) {
@@ -48,7 +48,10 @@ const HeroSection = () => {
         if (displayText.length < currentName.length) {
           setDisplayText(currentName.slice(0, displayText.length + 1));
         } else {
-          setIsPaused(true);
+          // Name finished, but don't pause until phrase is also ready
+          if (phraseText.length >= currentPhrase.length) {
+            setIsPaused(true);
+          }
         }
       } else {
         if (displayText.length > 0) {
@@ -65,6 +68,9 @@ const HeroSection = () => {
         // Only start phrase after name has typed at least 2 characters
         if (displayText.length >= 2 && phraseText.length < currentPhrase.length) {
           setPhraseText(currentPhrase.slice(0, phraseText.length + 1));
+        } else if (phraseText.length >= currentPhrase.length && displayText.length >= currentName.length) {
+          // Both finished, trigger pause
+          setIsPaused(true);
         }
       } else {
         if (phraseText.length > 0) {
