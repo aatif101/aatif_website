@@ -14,7 +14,7 @@ const HeroSection = () => {
     'i build stuff',
     'hire me maybe?',
     'clean code, bad jokes.',
-    'good guy. great engineer.'
+    'good guy.'
   ];
 
   // Check if current name contains Hindi characters (for dynamic spacing)
