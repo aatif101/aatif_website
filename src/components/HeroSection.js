@@ -62,11 +62,11 @@ const HeroSection = () => {
       }
     }, nameTypeSpeed);
 
-    // Phrase animation timer (starts simultaneously with name)
+    // Phrase animation timer (starts after name is complete)
     const phraseTimer = setTimeout(() => {
       if (!isDeleting) {
-        // Start phrase immediately when name starts
-        if (phraseText.length < currentPhrase.length) {
+        // Start phrase only after name is completely typed
+        if (displayText.length >= currentName.length && phraseText.length < currentPhrase.length) {
           setPhraseText(currentPhrase.slice(0, phraseText.length + 1));
         } else if (phraseText.length >= currentPhrase.length && displayText.length >= currentName.length) {
           // Both finished, trigger pause
