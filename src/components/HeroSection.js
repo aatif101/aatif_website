@@ -6,8 +6,23 @@ const HeroSection = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
 
-  const names = ['Aatif', 'عاطف', 'आतिफ', '阿提夫'];
+  // New state for phrase animation
+  const [phraseText, setPhraseText] = useState('');
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [isPhraseDeleting, setIsPhraseDeleting] = useState(false);
+  const [isPhrasePaused, setIsPhrasePaused] = useState(false);
 
+  const names = ['Aatif', 'عاطف', 'आतिफ', '阿提夫'];
+  const phrases = [
+    'a DevOps explorer.',
+    'an open-source contributor.',
+    'building infra pipelines at 2 a.m.',
+    'fluent in Linux & bash.',
+    'dreaming of the cloud.',
+    'rooting for Real Madrid.'
+  ];
+
+  // Name animation effect
   useEffect(() => {
     const currentName = names[currentIndex];
     const typeSpeed = isDeleting ? 100 : 150;
@@ -45,6 +60,44 @@ const HeroSection = () => {
     return () => clearTimeout(timer);
   }, [displayText, currentIndex, isDeleting, isPaused, names]);
 
+  // Phrase animation effect
+  useEffect(() => {
+    const currentPhrase = phrases[phraseIndex];
+    const typeSpeed = isPhraseDeleting ? 50 : 80;
+    const pauseTime = isPhraseDeleting ? 500 : 3000;
+
+    if (isPhrasePaused) {
+      const pauseTimer = setTimeout(() => {
+        setIsPhrasePaused(false);
+        if (!isPhraseDeleting) {
+          setIsPhraseDeleting(true);
+        } else {
+          setIsPhraseDeleting(false);
+          setPhraseIndex((prev) => (prev + 1) % phrases.length);
+        }
+      }, pauseTime);
+      return () => clearTimeout(pauseTimer);
+    }
+
+    const timer = setTimeout(() => {
+      if (!isPhraseDeleting) {
+        if (phraseText.length < currentPhrase.length) {
+          setPhraseText(currentPhrase.slice(0, phraseText.length + 1));
+        } else {
+          setIsPhrasePaused(true);
+        }
+      } else {
+        if (phraseText.length > 0) {
+          setPhraseText(phraseText.slice(0, -1));
+        } else {
+          setIsPhrasePaused(true);
+        }
+      }
+    }, typeSpeed);
+
+    return () => clearTimeout(timer);
+  }, [phraseText, phraseIndex, isPhraseDeleting, isPhrasePaused, phrases]);
+
   return (
     <section className="min-h-screen flex flex-col items-center justify-center relative pt-20">
       {/* Text Animation Section */}
@@ -61,134 +114,12 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Technologies Heading */}
-      <div className="text-center z-10 mb-6">
-        <h2 className="text-lg md:text-xl text-gray-400 font-mono font-light">
-          🧰 Technologies I Use
-        </h2>
-      </div>
-
-      {/* Horizontal separator line */}
-      <div className="w-full max-w-4xl mb-8">
-        <div className="h-px bg-white bg-opacity-10"></div>
-      </div>
-
-      {/* Scrolling Logos Bar */}
-      <div className="w-full overflow-hidden py-6">
-        <div className="flex animate-scroll space-x-20">
-          {/* First set of logos */}
-          <div className="flex items-center space-x-20 shrink-0">
-            {/* AWS */}
-            <div className="h-12 w-20 flex items-center justify-center">
-              <img src="/logos/aws.svg" alt="AWS" className="h-10 w-auto" />
-            </div>
-
-            {/* Kubernetes */}
-            <div className="h-12 w-12 flex items-center justify-center">
-              <img src="/logos/kubernetes.svg" alt="Kubernetes" className="h-10 w-10" />
-            </div>
-
-            {/* Docker */}
-            <div className="h-12 w-16 flex items-center justify-center">
-              <img src="/logos/docker.svg" alt="Docker" className="h-10 w-auto" />
-            </div>
-
-            {/* Linux */}
-            <div className="h-12 w-12 flex items-center justify-center">
-              <img src="/logos/linux.svg" alt="Linux" className="h-10 w-10" />
-            </div>
-
-            {/* Python */}
-            <div className="h-12 w-12 flex items-center justify-center">
-              <img src="/logos/python.svg" alt="Python" className="h-10 w-10" />
-            </div>
-
-            {/* React */}
-            <div className="h-12 w-12 flex items-center justify-center">
-              <img src="/logos/react.svg" alt="React" className="h-10 w-10" />
-            </div>
-
-            {/* Claude */}
-            <div className="h-12 w-16 flex items-center justify-center">
-              <img src="/logos/claude.svg" alt="Claude" className="h-10 w-auto" />
-            </div>
-
-            {/* Ansible */}
-            <div className="h-12 w-12 flex items-center justify-center">
-              <img src="/logos/ansible.svg" alt="Ansible" className="h-10 w-10" />
-            </div>
-
-            {/* Jenkins */}
-            <div className="h-12 w-12 flex items-center justify-center">
-              <img src="/logos/jenkins.svg" alt="Jenkins" className="h-10 w-10" />
-            </div>
-
-            {/* Grafana */}
-            <div className="h-12 w-12 flex items-center justify-center">
-              <img src="/logos/grafana.svg" alt="Grafana" className="h-10 w-10" />
-            </div>
-          </div>
-
-          {/* Duplicate set for seamless loop */}
-          <div className="flex items-center space-x-20 shrink-0">
-            {/* AWS */}
-            <div className="h-12 w-20 flex items-center justify-center">
-              <img src="/logos/aws.svg" alt="AWS" className="h-10 w-auto" />
-            </div>
-
-            {/* Kubernetes */}
-            <div className="h-12 w-12 flex items-center justify-center">
-              <img src="/logos/kubernetes.svg" alt="Kubernetes" className="h-10 w-10" />
-            </div>
-
-            {/* Docker */}
-            <div className="h-12 w-16 flex items-center justify-center">
-              <img src="/logos/docker.svg" alt="Docker" className="h-10 w-auto" />
-            </div>
-
-            {/* Linux */}
-            <div className="h-12 w-12 flex items-center justify-center">
-              <img src="/logos/linux.svg" alt="Linux" className="h-10 w-10" />
-            </div>
-
-            {/* Python */}
-            <div className="h-12 w-12 flex items-center justify-center">
-              <img src="/logos/python.svg" alt="Python" className="h-10 w-10" />
-            </div>
-
-            {/* React */}
-            <div className="h-12 w-12 flex items-center justify-center">
-              <img src="/logos/react.svg" alt="React" className="h-10 w-10" />
-            </div>
-
-            {/* Claude */}
-            <div className="h-12 w-16 flex items-center justify-center">
-              <img src="/logos/claude.svg" alt="Claude" className="h-10 w-auto" />
-            </div>
-
-            {/* Ansible */}
-            <div className="h-12 w-12 flex items-center justify-center">
-              <img src="/logos/ansible.svg" alt="Ansible" className="h-10 w-10" />
-            </div>
-
-            {/* Jenkins */}
-            <div className="h-12 w-12 flex items-center justify-center">
-              <img src="/logos/jenkins.svg" alt="Jenkins" className="h-10 w-10" />
-            </div>
-
-            {/* Grafana */}
-            <div className="h-12 w-12 flex items-center justify-center">
-              <img src="/logos/grafana.svg" alt="Grafana" className="h-10 w-10" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="text-center z-10 mt-8 mb-4">
-        <div className="flex flex-col items-center animate-bounce">
-          <span className="text-gray-400 text-sm font-light mb-2">scroll to see more</span>
-          <span className="text-gray-400 text-xl">↓</span>
+      {/* Phrase Animation Section */}
+      <div className="text-center z-10 mb-16">
+        <div className="text-xl md:text-2xl font-mono text-gray-300 min-h-[2rem] flex items-center justify-center">
+          <span className="inline-block min-w-[400px] text-center">
+            {phraseText}<span className="animate-pulse text-green-400">_</span>
+          </span>
         </div>
       </div>
 
