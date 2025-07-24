@@ -25,7 +25,7 @@ const HeroSection = () => {
   useEffect(() => {
     const currentName = names[currentIndex];
     const currentPhrase = phrases[currentIndex % phrases.length];
-    const nameTypeSpeed = isDeleting ? 80 : 100; // Faster name animation
+    const nameTypeSpeed = isDeleting ? 50 : 60; // Much faster name animation
     const phraseTypeSpeed = isDeleting ? 40 : 70; // Keep phrase speed same
     const pauseTime = isDeleting ? 500 : 2000;
 
