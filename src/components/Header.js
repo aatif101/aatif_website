@@ -13,7 +13,7 @@ const Header = () => {
               about
             </a>
             <a href="#education" className="text-gray-300 hover:text-terminal-green transition-colors font-mono text-sm">
-              timeline
+              education
             </a>
             <a href="#projects" className="text-gray-300 hover:text-terminal-green transition-colors font-mono text-sm">
               projects
