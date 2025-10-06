@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import FloatingSocialButtons from './FloatingSocialButtons/FloatingSocialButtons';
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');
@@ -6,27 +7,16 @@ const HeroSection = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Phrase animation uses same timing states as name animation
-  const [phraseText, setPhraseText] = useState('');
-
   const names = ['Aatif', 'عاطف', 'आतिफ', '阿提夫'];
-  const phrases = [
-    'i build stuff',
-    'hire me maybe?',
-    'clean code, bad jokes.',
-    'good guy.'
-  ];
 
   // Check if current name contains Hindi characters (for dynamic spacing)
   const currentName = names[currentIndex];
   const isHindiActive = currentName === 'आतिफ';
 
-  // Synchronized animation effect for both name and phrase
+  // Name animation effect
   useEffect(() => {
     const currentName = names[currentIndex];
-    const currentPhrase = phrases[currentIndex % phrases.length];
-    const nameTypeSpeed = isDeleting ? 70 : 90; // Smoother name animation
-    const phraseTypeSpeed = isDeleting ? 40 : 70; // Keep phrase speed same
+    const nameTypeSpeed = isDeleting ? 70 : 90;
     const pauseTime = isDeleting ? 500 : 2000;
 
     if (isPaused) {
@@ -48,10 +38,7 @@ const HeroSection = () => {
         if (displayText.length < currentName.length) {
           setDisplayText(currentName.slice(0, displayText.length + 1));
         } else {
-          // Name finished, but don't pause until phrase is also ready
-          if (phraseText.length >= currentPhrase.length) {
-            setIsPaused(true);
-          }
+          setIsPaused(true);
         }
       } else {
         if (displayText.length > 0) {
@@ -62,31 +49,8 @@ const HeroSection = () => {
       }
     }, nameTypeSpeed);
 
-    // Phrase animation timer (starts after name is complete)
-    const phraseTimer = setTimeout(() => {
-      if (!isDeleting) {
-        // Start phrase only after name is completely typed
-        if (displayText.length >= currentName.length && phraseText.length < currentPhrase.length) {
-          setPhraseText(currentPhrase.slice(0, phraseText.length + 1));
-        } else if (phraseText.length >= currentPhrase.length && displayText.length >= currentName.length) {
-          // Both finished, trigger pause
-          setIsPaused(true);
-        }
-      } else {
-        if (phraseText.length > 0) {
-          setPhraseText(phraseText.slice(0, -1));
-        } else {
-          // Reset phrase when both animations complete
-          setPhraseText('');
-        }
-      }
-    }, phraseTypeSpeed);
-
-    return () => {
-      clearTimeout(nameTimer);
-      clearTimeout(phraseTimer);
-    };
-  }, [displayText, phraseText, currentIndex, isDeleting, isPaused, names, phrases]);
+    return () => clearTimeout(nameTimer);
+  }, [displayText, currentIndex, isDeleting, isPaused, names]);
 
   return (
     <section className={`min-h-screen flex flex-col items-center justify-center relative ${isHindiActive ? 'pt-16' : 'pt-8'}`}>
@@ -109,14 +73,8 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Phrase Animation Section */}
-        <div className="text-center mt-4">
-          <div className="text-lg md:text-xl font-mono text-gray-300 min-h-[1.5rem] flex items-center justify-center">
-            <span className="inline-block min-w-[320px] text-center">
-              {phraseText}<span className="animate-pulse text-green-400 font-bold">|</span>
-            </span>
-          </div>
-        </div>
+        {/* Social Buttons - positioned below the name */}
+        <FloatingSocialButtons />
 
       </div>
 

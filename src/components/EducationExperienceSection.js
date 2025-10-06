@@ -4,7 +4,9 @@ const EducationExperienceSection = () => {
   const coursework = [
     "Data Structures & Algorithms",
     "Operating Systems", 
-    "Computer Security",
+    "Network Analysis and ML",
+    "Advanced OOP in C++",
+    "Secure Coding",
     "Database Design",
     "Intro to AI",
     "Software Engineering"
@@ -12,28 +14,28 @@ const EducationExperienceSection = () => {
 
   const experiences = [
     {
-      year: "2025",
-      organization: "TEDxUSF",
-      role: "Secretary",
-      description: "Managed team of 28, coordinated the full TEDx event"
+      organization: "USF IT",
+      role: "Student AV Technician", 
+      dateRange: "May 2024 - Present",
+      description: "Handled classroom AV setups and tech troubleshooting"
     },
     {
-      year: "2024", 
-      organization: "Students of India Association",
-      role: "Tech Lead",
-      description: "Built event platform, handled digital ops for 1000+ users"
-    },
-    {
-      year: "2023",
       organization: "USF Student Government", 
       role: "Senator",
+      dateRange: "May 2023 - May 2024",
       description: "Participated in official hearings, helped with formal proceedings"
     },
     {
-      year: "2022",
-      organization: "USF IT",
-      role: "Student AV Technician", 
-      description: "Handled classroom AV setups and tech troubleshooting"
+      organization: "TEDxUSF",
+      role: "Secretary",
+      dateRange: "May 2024 - Nov 2024",
+      description: "Managed team of 28, coordinated the full TEDx event"
+    },
+    {
+      organization: "Students of India Association",
+      role: "Tech Lead",
+      dateRange: "Aug 2023 - April 2024",
+      description: "Built event platform, handled digital ops for 1000+ users"
     }
   ];
 
@@ -54,7 +56,7 @@ const EducationExperienceSection = () => {
                 <div className="space-y-2 text-gray-300">
                   <p>B.S. in Computer Science, 2022–2026</p>
                   <p>GPA: 3.65</p>
-                  <p>Dean's List (multiple semesters)</p>
+                  <p>USF Green and Gold Scholarship Recipient</p>
                 </div>
                 
                 <div className="mt-6">
@@ -86,12 +88,12 @@ const EducationExperienceSection = () => {
                   <div key={index} className="relative flex items-start">
                     {/* Timeline line */}
                     {index !== experiences.length - 1 && (
-                      <div className="absolute left-6 top-12 bottom-0 w-0.5 bg-cosmic-purple/30"></div>
+                      <div className="absolute left-3 top-12 bottom-0 w-0.5 bg-cosmic-purple/30"></div>
                     )}
                     
-                    {/* Year badge */}
-                    <div className="flex-shrink-0 w-12 h-12 bg-terminal-green rounded-full flex items-center justify-center text-cosmic-dark font-bold text-sm">
-                      {exp.year.slice(-2)}
+                    {/* Timeline dot */}
+                    <div className="flex-shrink-0 w-6 h-6 bg-terminal-green rounded-full flex items-center justify-center mt-2">
+                      <div className="w-2 h-2 bg-cosmic-dark rounded-full"></div>
                     </div>
                     
                     {/* Content */}
@@ -103,6 +105,9 @@ const EducationExperienceSection = () => {
                           </h3>
                           <p className="text-terminal-green font-medium">
                             {exp.role}
+                          </p>
+                          <p className="text-gray-400 text-sm">
+                            {exp.dateRange}
                           </p>
                         </div>
                         <p className="text-gray-300 text-sm leading-relaxed">

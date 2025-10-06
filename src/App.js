@@ -9,6 +9,7 @@ import ProjectsSection from './components/ProjectsSection';
 import Footer from './components/Footer';
 import MatrixRain from './components/MatrixRain';
 
+
 function App() {
   return (
     <div className="min-h-screen bg-cosmic-dark relative">
