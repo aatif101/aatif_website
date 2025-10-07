@@ -29,7 +29,7 @@ const socialButtonsData = [
   },
   {
     id: 'resume',
-    href: '/resume.pdf',
+    href: process.env.PUBLIC_URL + '/resume.pdf',
     icon: FaFileDownload,
     label: 'My Resume',
     arrowIcon: FaExternalLinkAlt,
