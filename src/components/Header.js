@@ -18,9 +18,6 @@ const Header = () => {
             <a href="#projects" className="text-gray-300 hover:text-terminal-green transition-colors font-mono text-sm">
               projects
             </a>
-            <a href="#resume" className="text-gray-300 hover:text-terminal-green transition-colors font-mono text-sm">
-              resume
-            </a>
           </div>
         </div>
       </nav>

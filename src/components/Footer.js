@@ -13,24 +13,34 @@ const Footer = () => {
           <div className="space-y-3 font-mono text-gray-300">
             <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8">
               <a 
-                href="https://github.com/yourhandle" 
+                href="https://github.com/aatif101" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-terminal-green transition-colors"
               >
-                GitHub: github.com/yourhandle
+                GitHub: github.com/aatif101
               </a>
               <a 
-                href="https://linkedin.com/in/yourhandle" 
+                href="https://www.linkedin.com/in/shaikhaatif/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-terminal-green transition-colors"
               >
-                LinkedIn: linkedin.com/in/yourhandle
+                LinkedIn: linkedin.com/in/shaikhaatif
               </a>
             </div>
-            <div className="flex justify-center">
+            <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8">
               <a 
-                href="mailto:aatif@example.com" 
+                href="mailto:smatif.t@gmail.com" 
                 className="text-gray-400 hover:text-terminal-green transition-colors"
               >
-                Email: aatif@example.com
+                Email: smatif.t@gmail.com
+              </a>
+              <a 
+                href="mailto:mohammadaatif@usf.edu" 
+                className="text-gray-400 hover:text-terminal-green transition-colors"
+              >
+                USF: mohammadaatif@usf.edu
               </a>
             </div>
           </div>
@@ -46,9 +56,6 @@ const Footer = () => {
           <div className="pt-6 border-t border-cosmic-purple/20">
             <p className="text-gray-500 font-mono text-sm">
               © 2024 aatif | Built with React & Tailwind CSS
-            </p>
-            <p className="text-gray-600 font-mono text-xs mt-2">
-              // Crafted with mathematical precision and cosmic inspiration
             </p>
           </div>
         </div>

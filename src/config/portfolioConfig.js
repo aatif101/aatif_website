@@ -29,14 +29,17 @@ export const portfolioConfig = {
             'medflow', 
             'healthhacks-project', 
             'rush', 
-            'aatif_website',     // Your portfolio site
-            'linkedinwrapped'    // LinkedIn analytics
+            'aatif_website',        // Your portfolio site
+            'linkedinwrapped',      // LinkedIn analytics
+            'stock-analyzer',       // Stock analysis project
+            'stockanalyzer',        // Alternative naming
+            'cppclr_stockanalyzer'  // C++ CLR Stock Analyzer
           ];
           return showcaseRepos.includes(repo.name.toLowerCase());
         }
       },
       display: {
-        maxProjects: 6,                // Show 6 best projects
+        maxProjects: 8,                // Show up to 8 projects
         showStats: true,
         showHomepage: true,
         showDescription: true,

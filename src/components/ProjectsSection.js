@@ -215,6 +215,11 @@ const ProjectsSection = ({ config = {}, preset = null }) => {
             <span className="text-terminal-green font-mono">$</span>
             <span className="text-gray-300 font-mono ml-2">ls -la ~/projects/</span>
           </div>
+          <div className="mb-6">
+            <p className="text-gray-400 font-mono text-xs md:text-sm">
+              // this project list is fetched from my own github (no manual inputs here :))
+            </p>
+          </div>
         </div>
 
         {/* Subtle refresh button (hidden by default) */}
