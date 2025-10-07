@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/aatif_website/static/css/main.893dd23c.css",
+    "main.js": "/aatif_website/static/js/main.f9a02200.js",
+    "index.html": "/aatif_website/index.html",
+    "main.893dd23c.css.map": "/aatif_website/static/css/main.893dd23c.css.map",
+    "main.f9a02200.js.map": "/aatif_website/static/js/main.f9a02200.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.893dd23c.css",
+    "static/js/main.f9a02200.js"
+  ]
+}
