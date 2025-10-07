@@ -1,3 +1,11 @@
+import { 
+  getCachedData, 
+  setCachedData, 
+  createConditionalHeaders, 
+  handleConditionalResponse,
+  isCacheValid 
+} from '../utils/githubCache';
+
 /**
  * GitHubService - Handles GitHub API interactions and data transformation
  * Provides methods for fetching repository data with proper error handling
@@ -7,24 +15,42 @@ class GitHubService {
   static DEFAULT_PER_PAGE = 30;
   static MAX_RETRIES = 3;
   static RETRY_DELAY = 1000; // Base delay in milliseconds
+  static RATE_LIMIT_THRESHOLD = 10; // Minimum remaining requests before warning
 
   /**
-   * Fetches public repositories for a given username
+   * Fetches public repositories for a given username with caching support
    * @param {string} username - GitHub username
    * @param {Object} options - Configuration options
    * @param {number} options.perPage - Number of repositories per page (default: 30)
    * @param {string} options.sort - Sort criteria: 'created', 'updated', 'pushed', 'full_name'
    * @param {string} options.direction - Sort direction: 'asc' or 'desc'
    * @param {string} options.type - Repository type: 'all', 'owner', 'member'
-   * @returns {Promise<Array>} Array of repository objects
+   * @param {boolean} options.useCache - Whether to use caching (default: true)
+   * @param {Object} options.config - Full configuration object for cache key generation
+   * @returns {Promise<Object>} Object with repositories array and metadata
    */
   static async fetchUserRepositories(username, options = {}) {
     const {
       perPage = this.DEFAULT_PER_PAGE,
       sort = 'updated',
       direction = 'desc',
-      type = 'owner'
+      type = 'owner',
+      useCache = true,
+      config = {}
     } = options;
+
+    // Check cache first if enabled
+    if (useCache) {
+      const cachedData = getCachedData(username, config);
+      if (cachedData && isCacheValid(cachedData, config)) {
+        return {
+          data: cachedData.data,
+          fromCache: true,
+          timestamp: cachedData.timestamp,
+          rateLimitInfo: null
+        };
+      }
+    }
 
     const url = `${this.BASE_URL}/users/${username}/repos`;
     const params = new URLSearchParams({
@@ -35,7 +61,44 @@ class GitHubService {
     });
 
     try {
-      const response = await this._makeRequestWithRetry(`${url}?${params}`);
+      // Use conditional request if we have cached data with ETag
+      const cachedData = useCache ? getCachedData(username, config) : null;
+      const headers = cachedData?.etag ? createConditionalHeaders(cachedData.etag) : {
+        'Accept': 'application/vnd.github.v3+json',
+        'User-Agent': 'Portfolio-Website'
+      };
+
+      // Add GitHub token if available
+      const token = process.env.REACT_APP_GITHUB_TOKEN || config.token;
+      if (token) {
+        headers['Authorization'] = `token ${token}`;
+        console.log('🔑 Using GitHub token for authentication');
+      } else {
+        console.log('⚠️ No GitHub token found, using unauthenticated requests');
+      }
+
+      console.log('🌐 Making GitHub API request:', `${url}?${params}`);
+      const response = await this._makeRequestWithRetry(`${url}?${params}`, { headers });
+      console.log('📡 GitHub API response status:', response.status);
+      
+      // Handle rate limiting
+      const rateLimitInfo = this._extractRateLimitInfo(response);
+      if (rateLimitInfo.remaining <= this.RATE_LIMIT_THRESHOLD) {
+        console.warn(`GitHub API rate limit warning: ${rateLimitInfo.remaining} requests remaining`);
+      }
+
+      // Handle conditional response
+      if (useCache && cachedData?.etag) {
+        const conditionalResult = handleConditionalResponse(response, cachedData);
+        if (conditionalResult.fromCache) {
+          return {
+            data: conditionalResult.data,
+            fromCache: true,
+            timestamp: cachedData.timestamp,
+            rateLimitInfo
+          };
+        }
+      }
       
       if (!response.ok) {
         throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
@@ -43,24 +106,76 @@ class GitHubService {
 
       const repositories = await response.json();
       
-      // Fetch language data for each repository
-      const repositoriesWithLanguages = await Promise.all(
-        repositories.map(async (repo) => {
-          try {
-            const languages = await this.fetchRepositoryLanguages(username, repo.name);
-            return { ...repo, languages };
-          } catch (error) {
-            console.warn(`Failed to fetch languages for ${repo.name}:`, error);
-            return { ...repo, languages: {} };
-          }
-        })
+      // Fetch language data for each repository (with rate limit awareness)
+      const repositoriesWithLanguages = await this._fetchLanguagesForRepositories(
+        username, 
+        repositories,
+        rateLimitInfo
       );
 
-      return repositoriesWithLanguages;
+      // Transform and cache the data
+      const transformedData = this.transformRepositoryData(repositoriesWithLanguages);
+      
+      if (useCache) {
+        const etag = response.headers.get('ETag');
+        setCachedData(username, transformedData, config, etag);
+      }
+
+      return {
+        data: transformedData,
+        fromCache: false,
+        timestamp: Date.now(),
+        rateLimitInfo
+      };
     } catch (error) {
+      // Try to return cached data on error
+      if (useCache) {
+        const cachedData = getCachedData(username, config);
+        if (cachedData) {
+          console.warn('Using cached data due to API error:', error.message);
+          return {
+            data: cachedData.data,
+            fromCache: true,
+            timestamp: cachedData.timestamp,
+            rateLimitInfo: null,
+            error: error.message
+          };
+        }
+      }
+      
       console.error('Error fetching repositories:', error);
       throw new Error(`Failed to fetch repositories: ${error.message}`);
     }
+  }
+
+  /**
+   * Fetches language data for multiple repositories with rate limit awareness
+   * @param {string} username - GitHub username
+   * @param {Array} repositories - Array of repository objects
+   * @param {Object} rateLimitInfo - Current rate limit information
+   * @returns {Promise<Array>} Repositories with language data
+   * @private
+   */
+  static async _fetchLanguagesForRepositories(username, repositories, rateLimitInfo) {
+    // If rate limit is low, skip language fetching to preserve API calls
+    if (rateLimitInfo && rateLimitInfo.remaining < repositories.length + 5) {
+      console.warn('Skipping language fetching due to low rate limit');
+      return repositories.map(repo => ({ ...repo, languages: {} }));
+    }
+
+    const repositoriesWithLanguages = await Promise.all(
+      repositories.map(async (repo) => {
+        try {
+          const languages = await this.fetchRepositoryLanguages(username, repo.name);
+          return { ...repo, languages };
+        } catch (error) {
+          console.warn(`Failed to fetch languages for ${repo.name}:`, error);
+          return { ...repo, languages: {} };
+        }
+      })
+    );
+
+    return repositoriesWithLanguages;
   }
 
   /**
@@ -142,20 +257,24 @@ class GitHubService {
    * Filters repositories based on provided criteria
    * @param {Array} repos - Array of repository objects
    * @param {Object} filters - Filter criteria
-   * @param {boolean} filters.excludeForked - Exclude forked repositories
-   * @param {boolean} filters.excludeArchived - Exclude archived repositories
-   * @param {number} filters.minStars - Minimum star count
-   * @param {Array} filters.includeTopics - Topics that must be present
-   * @param {Array} filters.excludeTopics - Topics to exclude
    * @returns {Array} Filtered repositories
    */
   static filterRepositories(repos, filters = {}) {
     const {
       excludeForked = true,
       excludeArchived = true,
+      excludePrivate = true,
       minStars = 0,
+      maxAge = null,
+      minSize = 0,
+      maxSize = null,
       includeTopics = [],
-      excludeTopics = []
+      excludeTopics = [],
+      includeLanguages = [],
+      excludeLanguages = [],
+      requireDescription = false,
+      requireHomepage = false,
+      customFilter = null
     } = filters;
 
     return repos.filter(repo => {
@@ -169,8 +288,39 @@ class GitHubService {
         return false;
       }
 
+      // Filter out private repos if specified
+      if (excludePrivate && repo.metadata.isPrivate) {
+        return false;
+      }
+
       // Filter by minimum stars
       if (repo.stats.stars < minStars) {
+        return false;
+      }
+
+      // Filter by repository age
+      if (maxAge !== null) {
+        const daysSinceUpdate = (Date.now() - new Date(repo.stats.lastUpdated)) / (1000 * 60 * 60 * 24);
+        if (daysSinceUpdate > maxAge) {
+          return false;
+        }
+      }
+
+      // Filter by repository size
+      if (repo.metadata.size < minSize) {
+        return false;
+      }
+      if (maxSize !== null && repo.metadata.size > maxSize) {
+        return false;
+      }
+
+      // Filter by description requirement
+      if (requireDescription && (!repo.description || repo.description === 'No description available')) {
+        return false;
+      }
+
+      // Filter by homepage requirement
+      if (requireHomepage && !repo.homepage) {
         return false;
       }
 
@@ -194,49 +344,116 @@ class GitHubService {
         }
       }
 
+      // Filter by included languages (must have at least one)
+      if (includeLanguages.length > 0) {
+        const hasIncludedLanguage = includeLanguages.some(lang => 
+          repo.metadata.language.toLowerCase().includes(lang.toLowerCase()) ||
+          repo.tech.some(t => t.toLowerCase().includes(lang.toLowerCase()))
+        );
+        if (!hasIncludedLanguage) {
+          return false;
+        }
+      }
+
+      // Filter out excluded languages
+      if (excludeLanguages.length > 0) {
+        const hasExcludedLanguage = excludeLanguages.some(lang => 
+          repo.metadata.language.toLowerCase().includes(lang.toLowerCase()) ||
+          repo.tech.some(t => t.toLowerCase().includes(lang.toLowerCase()))
+        );
+        if (hasExcludedLanguage) {
+          return false;
+        }
+      }
+
+      // Apply custom filter if provided
+      if (customFilter && typeof customFilter === 'function') {
+        if (!customFilter(repo)) {
+          return false;
+        }
+      }
+
       return true;
     });
   }
 
   /**
-   * Sorts repositories by specified criteria
+   * Sorts repositories by specified criteria with secondary sorting
    * @param {Array} repos - Array of repository objects
-   * @param {string} sortBy - Sort criteria: 'stars', 'updated', 'created', 'name'
+   * @param {string} sortBy - Sort criteria: 'stars', 'updated', 'created', 'name', 'size', 'forks'
    * @param {string} order - Sort order: 'asc' or 'desc'
+   * @param {Object} secondarySort - Secondary sort criteria
    * @returns {Array} Sorted repositories
    */
-  static sortRepositories(repos, sortBy = 'updated', order = 'desc') {
+  static sortRepositories(repos, sortBy = 'updated', order = 'desc', secondarySort = null) {
     const sortedRepos = [...repos].sort((a, b) => {
-      let valueA, valueB;
-
-      switch (sortBy) {
-        case 'stars':
-          valueA = a.stats.stars;
-          valueB = b.stats.stars;
-          break;
-        case 'created':
-          valueA = new Date(a.metadata.createdAt);
-          valueB = new Date(b.metadata.createdAt);
-          break;
-        case 'updated':
-          valueA = new Date(a.stats.lastUpdated);
-          valueB = new Date(b.stats.lastUpdated);
-          break;
-        case 'name':
-          valueA = a.name.toLowerCase();
-          valueB = b.name.toLowerCase();
-          break;
-        default:
-          valueA = new Date(a.stats.lastUpdated);
-          valueB = new Date(b.stats.lastUpdated);
+      // Primary sort
+      const primaryResult = this._compareRepositories(a, b, sortBy, order);
+      
+      // If primary sort values are equal, use secondary sort
+      if (primaryResult === 0 && secondarySort) {
+        return this._compareRepositories(a, b, secondarySort.by, secondarySort.order);
       }
-
-      if (valueA < valueB) return order === 'asc' ? -1 : 1;
-      if (valueA > valueB) return order === 'asc' ? 1 : -1;
-      return 0;
+      
+      return primaryResult;
     });
 
     return sortedRepos;
+  }
+
+  /**
+   * Compares two repositories based on specified criteria
+   * @param {Object} a - First repository
+   * @param {Object} b - Second repository
+   * @param {string} sortBy - Sort criteria
+   * @param {string} order - Sort order
+   * @returns {number} Comparison result (-1, 0, 1)
+   * @private
+   */
+  static _compareRepositories(a, b, sortBy, order) {
+    let valueA, valueB;
+
+    switch (sortBy) {
+      case 'stars':
+        valueA = a.stats.stars;
+        valueB = b.stats.stars;
+        break;
+      case 'forks':
+        valueA = a.stats.forks;
+        valueB = b.stats.forks;
+        break;
+      case 'watchers':
+        valueA = a.stats.watchers;
+        valueB = b.stats.watchers;
+        break;
+      case 'size':
+        valueA = a.metadata.size;
+        valueB = b.metadata.size;
+        break;
+      case 'created':
+        valueA = new Date(a.metadata.createdAt);
+        valueB = new Date(b.metadata.createdAt);
+        break;
+      case 'updated':
+        valueA = new Date(a.stats.lastUpdated);
+        valueB = new Date(b.stats.lastUpdated);
+        break;
+      case 'name':
+        valueA = a.name.toLowerCase();
+        valueB = b.name.toLowerCase();
+        break;
+      case 'language':
+        valueA = a.metadata.language.toLowerCase();
+        valueB = b.metadata.language.toLowerCase();
+        break;
+      default:
+        valueA = new Date(a.stats.lastUpdated);
+        valueB = new Date(b.stats.lastUpdated);
+    }
+
+    if (valueA < valueB) return order === 'asc' ? -1 : 1;
+    if (valueA > valueB) return order === 'asc' ? 1 : -1;
+    return 0;
   }
 
   /**
@@ -251,11 +468,21 @@ class GitHubService {
 
     for (let attempt = 0; attempt < this.MAX_RETRIES; attempt++) {
       try {
+        const defaultHeaders = {
+          'Accept': 'application/vnd.github.v3+json',
+          'User-Agent': 'Portfolio-Website'
+        };
+
+        // Add GitHub token if available
+        const token = process.env.REACT_APP_GITHUB_TOKEN;
+        if (token) {
+          defaultHeaders['Authorization'] = `token ${token}`;
+        }
+
         const response = await fetch(url, {
           ...options,
           headers: {
-            'Accept': 'application/vnd.github.v3+json',
-            'User-Agent': 'Portfolio-Website',
+            ...defaultHeaders,
             ...options.headers
           }
         });
@@ -291,6 +518,21 @@ class GitHubService {
     }
 
     throw lastError;
+  }
+
+  /**
+   * Extracts rate limit information from GitHub API response
+   * @param {Response} response - Fetch response object
+   * @returns {Object} Rate limit information
+   * @private
+   */
+  static _extractRateLimitInfo(response) {
+    return {
+      limit: parseInt(response.headers.get('X-RateLimit-Limit')) || 60,
+      remaining: parseInt(response.headers.get('X-RateLimit-Remaining')) || 0,
+      reset: parseInt(response.headers.get('X-RateLimit-Reset')) || 0,
+      resetDate: new Date(parseInt(response.headers.get('X-RateLimit-Reset')) * 1000)
+    };
   }
 
   /**
