@@ -7,23 +7,23 @@
 
 ### Design System
 
-- [ ] **DS-01**: Apply Inter or Space Grotesk (Google Fonts) as the sole typeface across the site
-- [ ] **DS-02**: Off-white (#fafaf8) background with near-black (#111) text throughout
-- [ ] **DS-03**: Remove all decorative visual effects (Matrix rain, gradient animations, glow effects)
-- [ ] **DS-04**: Remove floating social buttons component
-- [ ] **DS-05**: Establish consistent type scale and whitespace rhythm (line-height, letter-spacing, margins)
+- [x] **DS-01**: Apply Inter or Space Grotesk (Google Fonts) as the sole typeface across the site
+- [x] **DS-02**: Off-white (#fafaf8) background with near-black (#111) text throughout
+- [x] **DS-03**: Remove all decorative visual effects (Matrix rain, gradient animations, glow effects)
+- [x] **DS-04**: Remove floating social buttons component
+- [x] **DS-05**: Establish consistent type scale and whitespace rhythm (line-height, letter-spacing, margins)
 
 ### Header / Identity
 
-- [ ] **HDR-01**: Display full name ("Mohammad Aatif Shaikh") as the dominant typographic element
-- [ ] **HDR-02**: Display one-liner tagline derived from CV summary
-- [ ] **HDR-03**: Display a clean horizontal contact link row: location, email, LinkedIn, GitHub
-- [ ] **HDR-04**: Work authorization note visible (US F1 OPT, UAE, India)
+- [x] **HDR-01**: Display full name ("Mohammad Aatif Shaikh") as the dominant typographic element
+- [x] **HDR-02**: Display one-liner tagline derived from CV summary
+- [x] **HDR-03**: Display a clean horizontal contact link row: location, email, LinkedIn, GitHub
+- [x] **HDR-04**: Work authorization note visible (US F1 OPT, UAE, India)
 
 ### Summary
 
-- [ ] **SUMM-01**: Render the full CV summary paragraph as a prose section below the header
-- [ ] **SUMM-02**: Section flows naturally into the rest of the page — no card/box wrapper
+- [x] **SUMM-01**: Render the full CV summary paragraph as a prose section below the header
+- [x] **SUMM-02**: Section flows naturally into the rest of the page — no card/box wrapper
 
 ### Skills
 
@@ -58,10 +58,10 @@
 
 ### Layout & Navigation
 
-- [ ] **NAV-01**: Single-scroll layout — all sections on one page
-- [ ] **NAV-02**: Minimal sticky/fixed navigation with section anchors (optional, unobtrusive)
-- [ ] **NAV-03**: Smooth scroll behavior between sections
-- [ ] **NAV-04**: Site is responsive — readable on mobile without breaking the typographic rhythm
+- [x] **NAV-01**: Single-scroll layout — all sections on one page
+- [x] **NAV-02**: Minimal sticky/fixed navigation with section anchors (optional, unobtrusive)
+- [x] **NAV-03**: Smooth scroll behavior between sections
+- [x] **NAV-04**: Site is responsive — readable on mobile without breaking the typographic rhythm
 
 ### Live Links
 
@@ -95,21 +95,21 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DS-01 | Phase 1 | Pending |
-| DS-02 | Phase 1 | Pending |
-| DS-03 | Phase 1 | Pending |
-| DS-04 | Phase 1 | Pending |
-| DS-05 | Phase 1 | Pending |
-| HDR-01 | Phase 1 | Pending |
-| HDR-02 | Phase 1 | Pending |
-| HDR-03 | Phase 1 | Pending |
-| HDR-04 | Phase 1 | Pending |
-| SUMM-01 | Phase 1 | Pending |
-| SUMM-02 | Phase 1 | Pending |
-| NAV-01 | Phase 1 | Pending |
-| NAV-02 | Phase 1 | Pending |
-| NAV-03 | Phase 1 | Pending |
-| NAV-04 | Phase 1 (established) / Phase 3 (verified) | Pending |
+| DS-01 | Phase 1 | Done |
+| DS-02 | Phase 1 | Done |
+| DS-03 | Phase 1 | Done |
+| DS-04 | Phase 1 | Done |
+| DS-05 | Phase 1 | Done |
+| HDR-01 | Phase 1 | Done |
+| HDR-02 | Phase 1 | Done |
+| HDR-03 | Phase 1 | Done |
+| HDR-04 | Phase 1 | Done |
+| SUMM-01 | Phase 1 | Done |
+| SUMM-02 | Phase 1 | Done |
+| NAV-01 | Phase 1 | Done |
+| NAV-02 | Phase 1 | Done |
+| NAV-03 | Phase 1 | Done |
+| NAV-04 | Phase 1 (established) / Phase 3 (verified) | Done (Phase 1) |
 | SKILL-01 | Phase 2 | Pending |
 | SKILL-02 | Phase 2 | Pending |
 | SKILL-03 | Phase 2 | Pending |
@@ -138,4 +138,4 @@
 
 ---
 *Requirements defined: 2026-04-24*
-*Last updated: 2026-04-24 — traceability updated after roadmap creation*
+*Last updated: 2026-05-21 — Phase 1 requirements marked Done*

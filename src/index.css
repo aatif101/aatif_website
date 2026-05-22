@@ -2,154 +2,218 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Editorial Design Tokens ──────────────────────────────────────────────── */
+
+:root {
+  /* Color — warm paper editorial palette */
+  --color-paper:      #f5f1eb;
+  --color-ink:        #1a1714;
+  --color-muted:      #6b6560;
+  --color-faint:      #c8c2ba;
+  --color-oxblood:    #7a1d1d;
+  --color-accent:     #9b3b1e;
+  --color-hairline:   #ddd8d0;
+  --color-surface:    #ede9e2;
+
+  /* Typography */
+  --font-serif:       'Spectral', 'Plantin', 'Georgia', serif;
+  --font-sans:        'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Type scale (fluid) */
+  --text-xs:          0.75rem;
+  --text-sm:          0.875rem;
+  --text-base:        1.0625rem;
+  --text-lg:          1.25rem;
+  --text-xl:          1.5rem;
+  --text-2xl:         2rem;
+  --text-3xl:         2.75rem;
+  --text-4xl:         3.75rem;
+  --text-5xl:         5rem;
+
+  /* Leading */
+  --leading-tight:    1.15;
+  --leading-snug:     1.35;
+  --leading-prose:    1.7;
+
+  /* Tracking */
+  --tracking-tight:   -0.02em;
+  --tracking-wide:    0.08em;
+  --tracking-caps:    0.12em;
+
+  /* Spacing rhythm */
+  --space-1:          0.25rem;
+  --space-2:          0.5rem;
+  --space-3:          0.75rem;
+  --space-4:          1rem;
+  --space-6:          1.5rem;
+  --space-8:          2rem;
+  --space-12:         3rem;
+  --space-16:         4rem;
+  --space-24:         6rem;
+  --space-32:         8rem;
+  --space-48:         12rem;
+
+  /* Max-width column */
+  --col-prose:        68ch;
+  --col-wide:         90rem;
+
+  /* Transitions */
+  --ease-out:         cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast:    120ms;
+  --duration-base:    240ms;
+  --duration-slow:    400ms;
+}
+
+/* ─── Base Layer ────────────────────────────────────────────────────────────── */
+
 @layer base {
-  * {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: 'JetBrains Mono', monospace;
-    background: linear-gradient(135deg, #0a0a0f 0%, #05050a 100%);
-    color: #e5e7eb;
-    overflow-x: hidden;
   }
 
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-serif);
+    font-size: var(--text-base);
+    line-height: var(--leading-prose);
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    overflow-x: hidden;
+    /* Font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
+    /* Balanced text wrapping (Chrome 114+, Firefox 121+) */
+    text-wrap: pretty;
+  }
+
+  /* Headings default to serif */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-tight);
+    text-wrap: balance;
+    color: var(--color-ink);
+  }
+
+  /* Focused elements — visible, consistent, branded */
+  :focus-visible {
+    outline: 2px solid var(--color-oxblood);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Remove outline for mouse users */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Links */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Images */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* Form elements inherit typography */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* Horizontal rule — hairline */
+  hr {
+    border: none;
+    border-top: 1px solid var(--color-hairline);
   }
 }
 
-@layer components {
-  .terminal-border {
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    background: rgba(10, 10, 15, 0.8);
-    backdrop-filter: blur(10px);
-  }
+/* ─── Skip Link ─────────────────────────────────────────────────────────────── */
 
-  .cosmic-gradient {
-    background: linear-gradient(45deg, 
-      rgba(99, 102, 241, 0.1) 0%, 
-      rgba(59, 130, 246, 0.1) 25%, 
-      rgba(16, 185, 129, 0.1) 50%, 
-      rgba(245, 158, 11, 0.1) 75%, 
-      rgba(236, 72, 153, 0.1) 100%
-    );
-  }
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  z-index: 9999;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+  transition: top var(--duration-fast) var(--ease-out);
+}
 
-  .matrix-rain {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-    opacity: 0.1;
-  }
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--color-oxblood);
+  outline-offset: 2px;
+}
 
-  .animate-scroll {
-    animation: scroll-horizontal 20s linear infinite;
-    will-change: transform;
-  }
+/* ─── Reduced Motion ────────────────────────────────────────────────────────── */
 
-  .cosmic-glow {
-    box-shadow: 
-      0 0 20px rgba(99, 102, 241, 0.3),
-      0 0 40px rgba(59, 130, 246, 0.2),
-      0 0 60px rgba(16, 185, 129, 0.1);
-  }
-
-  .cosmic-glow-intense {
-    box-shadow: 
-      0 0 30px rgba(99, 102, 241, 0.6),
-      0 0 60px rgba(59, 130, 246, 0.4),
-      0 0 90px rgba(16, 185, 129, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  }
-
-  .perspective-1000 {
-    perspective: 1000px;
-  }
-
-  .transform-gpu {
-    transform: translateZ(0);
-    will-change: transform;
-  }
-
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .animate-scroll {
-      animation: none;
-    }
-    
-    * {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
-} 
-
-@keyframes scroll-horizontal {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(-50%);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-@keyframes cosmic-pulse {
-  0%, 100% {
-    box-shadow: 
-      0 0 20px rgba(99, 102, 241, 0.3),
-      0 0 40px rgba(59, 130, 246, 0.2);
-  }
-  50% {
-    box-shadow: 
-      0 0 30px rgba(99, 102, 241, 0.6),
-      0 0 60px rgba(59, 130, 246, 0.4),
-      0 0 90px rgba(16, 185, 129, 0.2);
-  }
-}
+/* ─── Utility Classes ───────────────────────────────────────────────────────── */
 
-@keyframes cosmic-rotate {
-  from {
-    background-position: 0% 50%;
-  }
-  to {
-    background-position: 100% 50%;
-  }
-}
+@layer utilities {
+  .font-serif   { font-family: var(--font-serif); }
+  .font-sans    { font-family: var(--font-sans); }
 
-/* GitHub Projects Integration Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+  .text-paper   { color: var(--color-paper); }
+  .text-ink     { color: var(--color-ink); }
+  .text-muted   { color: var(--color-muted); }
+  .text-oxblood { color: var(--color-oxblood); }
+  .text-accent  { color: var(--color-accent); }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
-}
+  .bg-paper     { background-color: var(--color-paper); }
+  .bg-surface   { background-color: var(--color-surface); }
+  .bg-ink       { background-color: var(--color-ink); }
 
-/* Enhanced pulse animation for loading states */
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
+  .border-hairline { border-color: var(--color-hairline); }
 
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-} 
+  .tracking-caps   { letter-spacing: var(--tracking-caps); }
+  .tracking-tight  { letter-spacing: var(--tracking-tight); }
+  .tracking-wide   { letter-spacing: var(--tracking-wide); }
+
+  .leading-prose  { line-height: var(--leading-prose); }
+  .leading-tight  { line-height: var(--leading-tight); }
+  .leading-snug   { line-height: var(--leading-snug); }
+
+  .col-prose  { max-width: var(--col-prose); }
+  .col-wide   { max-width: var(--col-wide); }
+}

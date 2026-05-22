@@ -1,0 +1,175 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\small{{#1 \vspace{-2pt}}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Mohammad Aatif Shaikh} \\ \vspace{1pt}
+    \small 813-568-5612 $|$
+    \href{mailto:mohammadaatif@usf.edu}{\underline{mohammadaatif@usf.edu}} $|$
+    \href{https://linkedin.com/in/shaikhaatif}{\underline{linkedin.com/in/shaikhaatif}} $|$
+    \href{https://github.com/aatif101}{\underline{github.com/aatif101}} $|$
+    Tampa, FL $|$ US F1 OPT (May 2026)
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of South Florida}{Tampa, FL}
+      {B.S. Computer Science, GPA: 3.6 $|$ Green \& Gold Scholarship}{Aug. 2022 -- May 2026}
+      \resumeItemListStart
+        \resumeItem{Relevant Coursework: Software Engineering, Algorithms, Data Structures, Network Analysis \& ML, Intro to AI}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Pfizer Externship (\href{https://github.com/aatif101/pfizer-externship}{\underline{Link}})}{Mar. 2026 -- Apr. 2026}
+      {Software \& AI/ML Extern}{Remote}
+      \resumeItemListStart
+        \resumeItem{Built a cloud-native document intelligence pipeline on AWS — S3 ingestion, Lambda-triggered processing, CloudWatch observability — achieving \textbf{97.9\% table extraction accuracy} on complex pharmaceutical PDFs.}
+        \resumeItem{Designed agentic orchestration with LangGraph: query decomposition, retrieval evaluation, critic/reflection loops, and human-in-the-loop queues; full Pydantic schema validation throughout.}
+        \resumeItem{Authored complete technical documentation for all deliverables; built and ran evaluation harnesses benchmarking F1, latency, and cost per 1,000 pages against a course baseline.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {CacheAi}{Jul. 2024 -- Aug. 2024}
+      {Software Engineering Intern}{Remote}
+      \resumeItemListStart
+        \resumeItem{Built and tested internal Python APIs and RAG pipelines; wired automated test suites into CI/CD using Docker and GitHub Actions for continuous integration ahead of beta launch.}
+        \resumeItem{Added production monitoring for latency and cost; participated in code reviews, debugging, and QA.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Mozilla \& Infrastructure Docs Collective}{2023 -- 2025}
+      {Open Source Contributor}{}
+      \resumeItemListStart
+        \resumeItem{Merged \textbf{20+ PRs}: Terraform modules, GitHub Actions CI/CD workflows, Ansible playbooks, EKS deployments, and AWS IAM/VPC walkthroughs — all reviewed and accepted by maintainers.}
+        \resumeItem{Contributed CI/CD fixes and DevOps documentation to Firefox DevTools; accepted into Meta MLH SRE Fellowship.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {USF Information Technology}{May 2025 -- Present}
+      {AV Technician \& Workflow Automation}{Tampa, FL}
+      \resumeItemListStart
+        \resumeItem{Designed and shipped a task routing automation system adopted by the full USF IT team; maintained $\sim$99\% uptime across 100+ systems.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{NazScan --- Web Security Scanner} $|$ \emph{Python, async, OWASP, SQL injection, AWS} $|$ \href{https://github.com/aatif101/nazscan}{\underline{Link}}}{2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Async vulnerability scanner covering SQLi, XSS, CSRF, SSRF, and command injection; context-aware payloads, rate limiting, CVSS-style severity scoring; deployed and tested in cloud environments.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{AI-Powered Cloud Autoscaler} $|$ \emph{Python, AWS (EC2, Lambda, CloudWatch), Kubernetes, ML}}{2025}
+          \resumeItemListStart
+            \resumeItem{ML-driven autoscaler predicting workload and right-sizing cloud resources; deployed on Kubernetes with full AWS integration; produced measurable cost reduction.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{MCP Tooling} $|$ \emph{Model Context Protocol, Python, multi-agent systems}}{2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Building custom MCP servers for agent-to-agent communication; experimenting with agent workflow automation at the protocol level.}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, TypeScript, JavaScript, Go, Bash, C\#, C++, SQL} \\
+     \textbf{Cloud (AWS)}{: EC2, Lambda (FaaS), S3, RDS, DynamoDB, CloudWatch, IAM, VPC $|$ pursuing AWS certification} \\
+     \textbf{IaC \& DevOps}{: Terraform, AWS CloudFormation, CDK, Ansible, GitHub Actions, Jenkins, Docker, Kubernetes} \\
+     \textbf{Databases}{: PostgreSQL, SQL Server, DynamoDB, MySQL, Supabase} \\
+     \textbf{Security}{: OWASP (SQLi, XSS, CSRF, SSRF), cloud security best practices, CVSS scoring, CTF}
+    }}
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}

@@ -1,0 +1,189 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+%-------------------------
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Mohammad Aatif Shaikh} \\ \vspace{1pt}
+    \small 813-568-5612 $|$
+    \href{mailto:mohammadaatif@usf.edu}{\underline{mohammadaatif@usf.edu}} $|$
+    \href{https://linkedin.com/in/shaikhaatif}{\underline{linkedin.com/in/shaikhaatif}} $|$
+    \href{https://github.com/aatif101}{\underline{github.com/aatif101}} $|$
+    \small US (F1 OPT, May 2026) $\cdot$ UAE
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of South Florida}{Tampa, FL}
+      {B.S. Computer Science, GPA: 3.6 $|$ Green \& Gold Scholarship}{Aug. 2022 -- May 2026}
+      \resumeItemListStart
+        \resumeItem{Relevant Coursework: Software Engineering, Algorithms, Data Structures, Intro to AI, Network Analysis \& ML}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {USF Information Technology}{May 2025 -- Present}
+      {AV Technician \& Workflow Automation}{Tampa, FL}
+      \resumeItemListStart
+        \resumeItem{Identified coordination gap across 20+ technicians; designed and deployed a task routing and handoff automation system — adopted into the broader USF IT toolkit.}
+        \resumeItem{Triaged and resolved technical issues via support channels; documented resolutions and escalated per established procedures; maintained internal knowledge base with operational runbooks.}
+        \resumeItem{Maintained $\sim$99\% uptime across 100+ lab PCs; supported AV infrastructure serving 200+ classes/week.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Pfizer Externship}{Mar. 2026 -- Apr. 2026}
+      {AI/ML Extern, Pharmaceutical Document Intelligence}{Remote}
+      \resumeItemListStart
+        \resumeItem{Architected an end-to-end document processing pipeline achieving \textbf{97.9\% table extraction accuracy}; built a compliance dashboard delivering color-coded risk reporting to operations teams.}
+        \resumeItem{Designed evaluation harnesses benchmarking F1, latency, and cost; integrated Langfuse observability throughout; maintained full technical documentation across the project lifecycle.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {CacheAi}{Jul. 2024 -- Aug. 2024}
+      {AI/ML Intern}{Remote}
+      \resumeItemListStart
+        \resumeItem{Built and tested internal Python APIs and evaluation pipelines; wired automated tests into CI/CD with Docker and GitHub Actions.}
+        \resumeItem{Added production monitoring for latency and cost; participated in code review, debugging, and QA ahead of beta launch.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Mozilla \& Infrastructure Docs Collective}{2024}
+      {Open Source Contributor}{}
+      \resumeItemListStart
+        \resumeItem{Contributed CI/CD fixes and DevOps documentation to Firefox DevTools via Bugzilla; merged 20+ PRs across Terraform, GitHub Actions, and Ansible; authored onboarding guides that reduced time-to-first-deploy.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {USF Student Government}{May 2024 -- May 2025}
+      {Senator}{Tampa, FL}
+      \resumeItemListStart
+        \resumeItem{Oversaw \$2M+ in student activity funds; served on 4+ committees and drove updates to 10+ statutes.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{NazScan} $|$ \emph{Python, SQL injection, XSS, OWASP, Git} $|$ \href{https://github.com/aatif101/nazscan}{\underline{Link}}}{Jan. 2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Async web vulnerability scanner covering SQLi, XSS, CSRF, SSRF, and command injection; context-aware payloads, CVSS-style severity scoring, and structured remediation guidance.}
+            \resumeItem{Maintained across 3 active development phases with full Git version control and architecture documentation throughout.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{AI-Powered Cloud Autoscaler} $|$ \emph{Python, AWS, Kubernetes, ML} $|$ \href{https://github.com/aatif101}{\underline{Link}}}{2025}
+          \resumeItemListStart
+            \resumeItem{ML-driven autoscaler predicting load and right-sizing cloud resources; deployed on Kubernetes with AWS integrations, producing measurable cost reduction.}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: C\#, Python, JavaScript/TypeScript, SQL, Go, Bash, C++} \\
+     \textbf{Development}{: .NET / C\#, MVC architecture, REST APIs, Git, Visual Studio, SQL Server, PostgreSQL, GitHub Actions, Docker} \\
+     \textbf{IT Operations}{: System monitoring, ticketing \& issue triage, workflow automation, uptime management, customer support} \\
+     \textbf{Cloud \& Infra}{: AWS (EC2, Lambda, S3, CloudWatch), Kubernetes, Terraform, Ansible, Jenkins}
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}

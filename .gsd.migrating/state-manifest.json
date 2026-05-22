@@ -1,0 +1,1083 @@
+{
+  "version": 1,
+  "exported_at": "2026-05-21T17:09:03.850Z",
+  "milestones": [
+    {
+      "id": "M001",
+      "title": "Editorial Portfolio Redesign",
+      "status": "active",
+      "depends_on": [],
+      "created_at": "2026-05-21T17:03:48.329Z",
+      "completed_at": null,
+      "vision": "Replace the existing cosmic terminal portfolio with a premium one-page editorial portfolio: Spectral now as the Plantin-like serif, warm cream paper background, restrained ink palette, smooth Lenis and GSAP scroll choreography, real content from cv.md only, and a designed GitHub activity dashboard that treats the user's public work as the centerpiece.",
+      "success_criteria": [
+        "Homepage no longer uses the matrix rain, cosmic gradient, terminal colors, JetBrains Mono identity, typewriter gimmick, card-grid portfolio pattern, or floating social buttons.",
+        "The page renders as one editorial scroll with Opening, Lede, Selected Work, Experience, GitHub Activity, Things I Find Cool, and Colophon sections.",
+        "Spectral is used as the primary Plantin-like serif; UI labels use a minimal supporting sans only where needed; colors are warm paper, warm ink, muted gray, and restrained oxblood accent.",
+        "Lenis and GSAP ScrollTrigger provide smooth scroll and section choreography while honoring prefers-reduced-motion.",
+        "Selected Work contains only Reliu and NazScan, using the user's exact positioning: Reliu zero to TestFlight ready, NazScan tried building a one command security scanner for vibe-coded repos.",
+        "Personal content is traceable to career-ops/cv.md or explicit user-provided wording; no unsupported companies, roles, projects, or claims are introduced.",
+        "GitHub activity is fetched at build time into a static artifact and rendered as a designed dashboard without exposing tokens to the client bundle.",
+        "The redesigned site builds successfully, runs locally, has no browser console errors, and passes focused accessibility checks for landmarks, keyboard navigation, focus states, contrast, and reduced motion."
+      ],
+      "key_risks": [
+        {
+          "risk": "Visual taste risk: minimal editorial can become plain if typography, spacing, and motion are not tuned together.",
+          "whyItMatters": "The user's core concern is avoiding AI slop; a technically correct rebuild that feels generic fails the goal."
+        },
+        {
+          "risk": "Motion risk: Lenis and GSAP can make the page feel expensive or can harm accessibility and performance if overdone.",
+          "whyItMatters": "The user wants smooth novel-like scroll but the site must remain usable, responsive, and reduced-motion safe."
+        },
+        {
+          "risk": "Data risk: GitHub tokens or API failures could leak secrets or break the static site.",
+          "whyItMatters": "The dashboard is central to the concept, but secret handling and graceful fallback are non-negotiable."
+        },
+        {
+          "risk": "Content trust risk: unsupported resume claims could reappear if older portfolio files or unrelated career files are used.",
+          "whyItMatters": "The user explicitly corrected hallucinated work history and constrained the source of truth to cv.md."
+        }
+      ],
+      "proof_strategy": [
+        {
+          "riskOrUnknown": "Editorial visual taste",
+          "retireIn": "S01",
+          "whatWillBeProven": "the live homepage shell shows the paper, serif, opening spread, lede, and section rhythm without legacy visual noise"
+        },
+        {
+          "riskOrUnknown": "Motion quality and accessibility",
+          "retireIn": "S02",
+          "whatWillBeProven": "Lenis and GSAP scroll choreography works in browser and reduced-motion mode remains readable and non-jarring"
+        },
+        {
+          "riskOrUnknown": "Content trust",
+          "retireIn": "S03",
+          "whatWillBeProven": "selected work and timeline are rendered from curated content traceable to cv.md and user copy only"
+        },
+        {
+          "riskOrUnknown": "GitHub token and API safety",
+          "retireIn": "S04",
+          "whatWillBeProven": "a build-time fetch writes static data with fallback behavior and no token in the client bundle"
+        },
+        {
+          "riskOrUnknown": "Full assembly quality",
+          "retireIn": "S06",
+          "whatWillBeProven": "the final running site passes build, browser assertions, console checks, accessibility checks, and visual review"
+        }
+      ],
+      "verification_contract": "Run npm build and focused tests or scripts for content integrity, GitHub data artifact shape, and reduced-motion behavior. Verify no legacy visual components remain imported by App.js.",
+      "verification_integration": "Run the CRA dev server locally, open the site in browser tools, verify the scroll sequence, section visibility, GitHub dashboard render, no console or network errors, and static fallback behavior when GitHub data is unavailable.",
+      "verification_operational": "Verify the build-time GitHub fetch works with local .env token names, degrades to checked-in fallback data without crashing, and does not include secrets in public build artifacts.",
+      "verification_uat": "User should inspect the live local redesign for taste, especially the opening spread, section pacing, and GitHub dashboard, before deploy polish is considered complete.",
+      "definition_of_done": [
+        "All six slices are complete and their summaries are recorded.",
+        "npm run build passes after the redesign and dependency changes.",
+        "Local browser verification confirms the one-page editorial scroll works with no console errors.",
+        "Reduced-motion mode is verified and remains fully readable.",
+        "Static GitHub activity artifact exists and the dashboard renders without client-side token access.",
+        "Content audit confirms cv.md and explicit user text are the only personal-content sources.",
+        "Old cosmic terminal components are removed from the active app path and no longer visually surface."
+      ],
+      "requirement_coverage": "Covers R001, R002, R003, R004. No known orphan requirements.",
+      "boundary_map_markdown": "### S01 to S02\nProduces:\n- Editorial app shell, design tokens, font loading, and section containers in React/CSS.\nConsumes:\n- Existing CRA and Tailwind setup.\n\n### S02 to S03\nProduces:\n- Motion orchestration utilities and reduced-motion behavior that content sections can use.\nConsumes:\n- S01 section containers.\n\n### S03 to S04\nProduces:\n- Curated portfolio content modules and stable section structure.\nConsumes:\n- cv.md as source of truth plus explicit user project copy.\n\n### S04 to S05\nProduces:\n- Static GitHub activity JSON artifact and React dashboard component.\nConsumes:\n- Local .env token if present, or fallback data.\n\n### S05 to S06\nProduces:\n- Things I Find Cool and final colophon surfaces.\nConsumes:\n- Editorial design system, motion utilities, content modules, and GitHub dashboard.",
+      "sequence": 0
+    }
+  ],
+  "slices": [
+    {
+      "milestone_id": "M001",
+      "id": "S01",
+      "title": "Editorial Shell and Visual Language",
+      "status": "pending",
+      "risk": "high",
+      "depends": [],
+      "demo": "After this: npm start shows a cream editorial homepage with Aatif as the opening identity, no matrix rain or terminal visuals, and empty but correctly paced sections for the full one-page scroll.",
+      "created_at": "2026-05-21T17:05:12.026Z",
+      "completed_at": null,
+      "full_summary_md": "",
+      "full_uat_md": "",
+      "goal": "Replace the active cosmic terminal app path with a live editorial shell that establishes Spectral typography, warm paper color, opening spread, lede, and named section anchors.",
+      "success_criteria": "- App.js no longer imports MatrixRain, cosmic header, old hero, old about, old projects, or old footer.\n- Spectral loads as the primary serif and the root page uses warm paper, ink, muted gray, and oxblood tokens.\n- Sections exist in the final order: opening, lede, work, experience, github, cool, colophon.\n- Page has semantic landmarks, skip link, focus styles, and no generic card-grid shell.\n- npm run build passes.",
+      "proof_level": "integration",
+      "integration_closure": "Rewires the actual React entrypoint and establishes the design surface consumed by every later slice.",
+      "observability_impact": "Build output and browser console are the diagnostic surfaces; no async runtime state yet.",
+      "sequence": 1,
+      "replan_triggered_at": null,
+      "is_sketch": 0,
+      "sketch_scope": ""
+    },
+    {
+      "milestone_id": "M001",
+      "id": "S02",
+      "title": "Scroll Choreography and Reduced Motion",
+      "status": "pending",
+      "risk": "high",
+      "depends": [
+        "S01"
+      ],
+      "demo": "After this: opening identity, lede, selected-work placeholders, and timeline placeholders move with smooth scroll in normal mode and become static readable sections in reduced-motion mode.",
+      "created_at": "2026-05-21T17:05:12.026Z",
+      "completed_at": null,
+      "full_summary_md": "",
+      "full_uat_md": "",
+      "goal": "Add Lenis and GSAP ScrollTrigger choreography for novel-like scroll pacing while preserving a complete reduced-motion experience.",
+      "success_criteria": "- Lenis and GSAP are installed and wired in a contained motion module or hook.\n- Name-to-corner transition, section reveals, and pinned spread behavior are implemented on real section containers.\n- prefers-reduced-motion disables Lenis smoothing and GSAP transforms/pinning without hiding content.\n- Browser verification shows no console errors during scroll.\n- npm run build passes.",
+      "proof_level": "integration",
+      "integration_closure": "Connects motion to the actual page shell so later content inherits the choreography instead of reimplementing it.",
+      "observability_impact": "Motion init errors should be guarded and logged as non-secret console errors during development; reduced-motion state is inspectable via DOM classes or CSS behavior.",
+      "sequence": 2,
+      "replan_triggered_at": null,
+      "is_sketch": 0,
+      "sketch_scope": ""
+    },
+    {
+      "milestone_id": "M001",
+      "id": "S03",
+      "title": "Curated CV Content and Editorial Sections",
+      "status": "pending",
+      "risk": "medium",
+      "depends": [
+        "S02"
+      ],
+      "demo": "After this: the page shows the lede, Reliu and NazScan selected work, experience timeline, education, leadership, and contact details with no unsupported companies or claims.",
+      "created_at": "2026-05-21T17:05:12.026Z",
+      "completed_at": null,
+      "full_summary_md": "",
+      "full_uat_md": "",
+      "goal": "Replace placeholders with trustworthy content drawn only from career-ops/cv.md and explicit user-provided wording.",
+      "success_criteria": "- A content module or JSON file contains curated data traceable to cv.md and explicit user text.\n- Selected Work contains only Reliu and NazScan with the agreed short positioning.\n- Experience timeline includes Pfizer, CacheAi, USF IT, Mozilla, Infrastructure Docs Collective, USF education, and USF Student Government leadership as appropriate.\n- Skills are not rendered as a standalone section or gutter marginalia.\n- Content integrity test or script guards against banned hallucinated company names.\n- npm run build passes.",
+      "proof_level": "contract",
+      "integration_closure": "Provides the stable content data consumed by the final visual components and GitHub dashboard context.",
+      "observability_impact": "Content integrity test output gives future agents a failure surface for accidental unsupported claims.",
+      "sequence": 3,
+      "replan_triggered_at": null,
+      "is_sketch": 0,
+      "sketch_scope": ""
+    },
+    {
+      "milestone_id": "M001",
+      "id": "S04",
+      "title": "Build Time GitHub Activity Dashboard",
+      "status": "pending",
+      "risk": "high",
+      "depends": [
+        "S03"
+      ],
+      "demo": "After this: npm run fetch-github-activity writes a public static data artifact, and the homepage renders a GitHub activity spread using that data or a graceful fallback.",
+      "created_at": "2026-05-21T17:05:12.026Z",
+      "completed_at": null,
+      "full_summary_md": "",
+      "full_uat_md": "",
+      "goal": "Create a safe build-time GitHub activity fetch and render a designed editorial dashboard from static JSON.",
+      "success_criteria": "- Node script reads token from .env without printing it and supports GITHUB_TOKEN_PORTFOLIO or GITHUB_TOKEN.\n- Script fetches public user, repo, event, and contribution-like signals that GitHub REST can support safely.\n- Script writes a sanitized static JSON artifact under src or public with no secrets.\n- React dashboard renders headline stats, recent activity, active repos, and contribution-style visual rhythm in the editorial palette.\n- Failure path writes or preserves a safe fallback and clearly reports a non-secret error.\n- npm run build passes and built files do not contain token values.",
+      "proof_level": "operational",
+      "integration_closure": "Crosses local secrets, GitHub API, build artifacts, and React rendering; it must prove safe end-to-end behavior.",
+      "observability_impact": "Fetch script should report phase, API endpoint class, and fallback usage without logging Authorization headers or token values.",
+      "sequence": 4,
+      "replan_triggered_at": null,
+      "is_sketch": 0,
+      "sketch_scope": ""
+    },
+    {
+      "milestone_id": "M001",
+      "id": "S05",
+      "title": "Things I Find Cool and Colophon",
+      "status": "pending",
+      "risk": "medium",
+      "depends": [
+        "S04"
+      ],
+      "demo": "After this: the page includes a Things I Find Cool editorial list with maintainable seed data and a restrained colophon with real links and font/site meta.",
+      "created_at": "2026-05-21T17:05:12.026Z",
+      "completed_at": null,
+      "full_summary_md": "",
+      "full_uat_md": "",
+      "goal": "Add the user's taste section and final contact colophon without making the site feel like a generic blog or placeholder portfolio.",
+      "success_criteria": "- Things I Find Cool is driven by a small editable content file with placeholder seed entries clearly marked for later replacement but visually complete.\n- The section uses editorial link rows, captions, and hairlines rather than cards.\n- Colophon includes contact links, GitHub, LinkedIn, email, and a minimal type/site note.\n- All links have accessible names, focus states, and safe external-link attributes.\n- npm run build passes.",
+      "proof_level": "integration",
+      "integration_closure": "Completes the final content surfaces downstream of the GitHub dashboard and closes the page narrative.",
+      "observability_impact": "Broken or missing cool-item data should degrade to a tasteful empty state, not a JS crash.",
+      "sequence": 5,
+      "replan_triggered_at": null,
+      "is_sketch": 0,
+      "sketch_scope": ""
+    },
+    {
+      "milestone_id": "M001",
+      "id": "S06",
+      "title": "Polish Verification and Old System Removal",
+      "status": "pending",
+      "risk": "medium",
+      "depends": [
+        "S05"
+      ],
+      "demo": "After this: the fully assembled site builds, runs locally, scrolls smoothly, passes browser checks, and is ready for user taste review before deployment.",
+      "created_at": "2026-05-21T17:05:12.026Z",
+      "completed_at": null,
+      "full_summary_md": "",
+      "full_uat_md": "",
+      "goal": "Tune the full redesign for taste, accessibility, performance, and maintainability, then remove dead legacy paths from the active app.",
+      "success_criteria": "- Dead active imports and unused legacy visual components are removed or quarantined without breaking tests.\n- package.json dependencies reflect the new motion stack and remove unused old motion libraries if safe.\n- Browser verification checks section text, no console errors, no failed network requests, and usable keyboard focus.\n- Reduced-motion mode is explicitly verified.\n- Build output and source are checked for absence of secret token values.\n- npm run build passes.",
+      "proof_level": "final-assembly",
+      "integration_closure": "Exercises the real entrypoint and verifies all prior slices as one assembled portfolio.",
+      "observability_impact": "Final verification evidence records build output, browser console/network status, reduced-motion behavior, and secret-scan result.",
+      "sequence": 6,
+      "replan_triggered_at": null,
+      "is_sketch": 0,
+      "sketch_scope": ""
+    }
+  ],
+  "tasks": [
+    {
+      "milestone_id": "M001",
+      "slice_id": "S01",
+      "id": "T01",
+      "title": "Install editorial design tokens and font loading",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Replace the old Tailwind theme and global CSS with editorial tokens. Load Spectral and a minimal sans in public/index.html or CSS, define CSS variables for paper, ink, muted, oxblood, hairline, add font smoothing, text-wrap, focus-visible, skip-link, and reduced-motion defaults. Remove cosmic and terminal utility classes from the active stylesheet rather than preserving the old visual language.",
+      "estimate": "45m",
+      "files": [
+        "tailwind.config.js",
+        "src/index.css",
+        "public/index.html"
+      ],
+      "verify": "npm run build",
+      "inputs": [
+        "tailwind.config.js",
+        "src/index.css",
+        "public/index.html"
+      ],
+      "expected_output": [
+        "tailwind.config.js",
+        "src/index.css",
+        "public/index.html"
+      ],
+      "observability_impact": "Build and browser console expose CSS or font-loading failures; no secret or external data involved.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S01",
+      "id": "T02",
+      "title": "Wire editorial one page shell into App",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Create a new content-light editorial app shell that renders semantic sections in the agreed order with placeholder content only where later slices will fill data. App.js should import the new page shell and stop importing MatrixRain, Header, HeroSection, AboutSection, EducationExperienceSection, ProjectsSection, and Footer from the old system. Include accessible skip link, main landmark, stable section ids, and an initial header/name corner element prepared for motion.",
+      "estimate": "1h",
+      "files": [
+        "src/App.js",
+        "src/components/EditorialPortfolio.jsx"
+      ],
+      "verify": "npm run build",
+      "inputs": [
+        "src/App.js"
+      ],
+      "expected_output": [
+        "src/App.js",
+        "src/components/EditorialPortfolio.jsx"
+      ],
+      "observability_impact": "Browser console and React render failures reveal shell integration issues.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S01",
+      "id": "T03",
+      "title": "Build visible editorial spreads and shell test",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Implement the opening spread, lede spread, placeholder selected work spread, placeholder experience spread, placeholder GitHub spread, placeholder cool spread, and colophon shell using the new tokens. Keep the look book-like and spacious: no cards, no icons, no gradients, no shadows, no terminal copy. Verify the DOM has all expected sections and old visual imports are gone with a small node:test content test.",
+      "estimate": "1h",
+      "files": [
+        "src/components/EditorialPortfolio.jsx",
+        "src/components/editorial/OpeningSpread.jsx",
+        "src/components/editorial/SectionShell.jsx",
+        "src/__tests__/editorial-shell.test.js"
+      ],
+      "verify": "npm test -- --watchAll=false --testPathPattern=editorial-shell",
+      "inputs": [
+        "src/components/EditorialPortfolio.jsx",
+        "src/index.css"
+      ],
+      "expected_output": [
+        "src/components/EditorialPortfolio.jsx",
+        "src/components/editorial/OpeningSpread.jsx",
+        "src/components/editorial/SectionShell.jsx",
+        "src/__tests__/editorial-shell.test.js"
+      ],
+      "observability_impact": "The shell test gives future agents an immediate failure when legacy imports or missing sections return.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S02",
+      "id": "T01",
+      "title": "Add contained Lenis and GSAP motion hook",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Install Lenis plus gsap. Create a contained useEditorialMotion hook that registers ScrollTrigger, initializes Lenis only when reduced motion is not requested, cleans up on unmount, and exposes a data attribute or class for reduced-motion state. Do not scatter GSAP calls across every component.",
+      "estimate": "1h",
+      "files": [
+        "package.json",
+        "package-lock.json",
+        "src/hooks/useEditorialMotion.js"
+      ],
+      "verify": "npm run build",
+      "inputs": [
+        "package.json"
+      ],
+      "expected_output": [
+        "package.json",
+        "package-lock.json",
+        "src/hooks/useEditorialMotion.js"
+      ],
+      "observability_impact": "The hook should catch initialization failures and console.error a concise non-secret message in development.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S02",
+      "id": "T02",
+      "title": "Wire scroll choreography to real sections",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Apply the motion hook to the editorial page and define data attributes or refs for the opening name, corner identity, section reveal groups, pinned selected-work spreads, and timeline year elements. Implement the name-to-corner transition and reveal choreography in a way that leaves content visible before JS runs and after JS cleanup.",
+      "estimate": "1h 30m",
+      "files": [
+        "src/components/EditorialPortfolio.jsx",
+        "src/hooks/useEditorialMotion.js",
+        "src/index.css"
+      ],
+      "verify": "npm run build",
+      "inputs": [
+        "src/hooks/useEditorialMotion.js"
+      ],
+      "expected_output": [
+        "src/components/EditorialPortfolio.jsx",
+        "src/hooks/useEditorialMotion.js",
+        "src/index.css"
+      ],
+      "observability_impact": "Browser console and visible data-motion-ready state reveal whether choreography initialized.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S02",
+      "id": "T03",
+      "title": "Verify reduced motion fallback",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Add reduced-motion guards and tests. The hook must not create Lenis or ScrollTrigger timelines when matchMedia('(prefers-reduced-motion: reduce)') matches. CSS must avoid hiding content in reduced motion. Add a focused test for hook guard behavior or a lightweight DOM smoke test for reduced-motion readable markup.",
+      "estimate": "1h",
+      "files": [
+        "src/hooks/useEditorialMotion.js",
+        "src/__tests__/editorial-motion.test.js",
+        "src/index.css"
+      ],
+      "verify": "npm test -- --watchAll=false --testPathPattern=editorial-motion",
+      "inputs": [
+        "src/hooks/useEditorialMotion.js"
+      ],
+      "expected_output": [
+        "src/hooks/useEditorialMotion.js",
+        "src/__tests__/editorial-motion.test.js",
+        "src/index.css"
+      ],
+      "observability_impact": "Test failure identifies motion accessibility regressions before browser review.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S03",
+      "id": "T01",
+      "title": "Create trustworthy portfolio content module",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Create a portfolio content module with structured data for identity, lede, selected work, experience, education, leadership, and links. Source only from C:/Users/smati/VS Code Projects/career-ops/cv.md plus explicit user copy from this discussion. Selected Work must only contain Reliu and NazScan, with Reliu positioned as zero to TestFlight ready and NazScan positioned as tried building a one command security scanner for vibe-coded repos.",
+      "estimate": "1h",
+      "files": [
+        "src/content/portfolioContent.js"
+      ],
+      "verify": "npm run build",
+      "inputs": [],
+      "expected_output": [
+        "src/content/portfolioContent.js"
+      ],
+      "observability_impact": "Content module becomes the single inspection surface for personal claims.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S03",
+      "id": "T02",
+      "title": "Render selected work and timeline from content",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Render the content module through the editorial sections. Selected work should be two pinned spreads only. Experience should be a dense editorial timeline with marginal dates, education and leadership folded into the timeline or closing timeline rows, and no separate Skills section or skill tags. Preserve the user's ability to change the lede later by keeping it in the content module.",
+      "estimate": "1h 30m",
+      "files": [
+        "src/components/EditorialPortfolio.jsx",
+        "src/components/editorial/SelectedWork.jsx",
+        "src/components/editorial/ExperienceTimeline.jsx"
+      ],
+      "verify": "npm run build",
+      "inputs": [
+        "src/content/portfolioContent.js"
+      ],
+      "expected_output": [
+        "src/components/EditorialPortfolio.jsx",
+        "src/components/editorial/SelectedWork.jsx",
+        "src/components/editorial/ExperienceTimeline.jsx"
+      ],
+      "observability_impact": "Rendered content can be inspected in the browser and via tests without tracing scattered literals.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S03",
+      "id": "T03",
+      "title": "Guard against unsupported personal content",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Add a content integrity test that imports portfolioContent and verifies the allowed project and experience names while rejecting known hallucinated companies from prior discussion: Equitar, Triedata, Fovus, and Blink. Also verify there is no standalone Skills section label in the content model.",
+      "estimate": "45m",
+      "files": [
+        "src/__tests__/portfolio-content.test.js"
+      ],
+      "verify": "npm test -- --watchAll=false --testPathPattern=portfolio-content",
+      "inputs": [
+        "src/content/portfolioContent.js"
+      ],
+      "expected_output": [
+        "src/__tests__/portfolio-content.test.js"
+      ],
+      "observability_impact": "The test names unsupported claims directly so future drift fails loudly.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S04",
+      "id": "T01",
+      "title": "Build safe GitHub activity fetch script",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Add a Node build-time script that reads .env safely without printing values, accepts GITHUB_TOKEN_PORTFOLIO or GITHUB_TOKEN, queries GitHub REST for aatif101 public profile, repos, events, and aggregate signals, and writes sanitized JSON to src/data/githubActivity.json. Include fallback behavior when token is missing or the API fails. Never log Authorization headers or token substrings.",
+      "estimate": "1h 30m",
+      "files": [
+        "scripts/fetch-github-activity.js",
+        "src/data/githubActivity.json",
+        "package.json"
+      ],
+      "verify": "npm run fetch-github-activity",
+      "inputs": [
+        "package.json"
+      ],
+      "expected_output": [
+        "scripts/fetch-github-activity.js",
+        "src/data/githubActivity.json",
+        "package.json"
+      ],
+      "observability_impact": "Script logs non-secret phases, endpoint classes, fallback state, and output path for debugging.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S04",
+      "id": "T02",
+      "title": "Verify GitHub data artifact safety",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Add tests for the GitHub activity artifact shape and secret redaction constraints. Tests should verify required top-level fields, recent activity array shape, active repos shape, generated timestamp, and absence of token-looking values in the JSON artifact.",
+      "estimate": "1h",
+      "files": [
+        "src/__tests__/github-activity-data.test.js"
+      ],
+      "verify": "npm test -- --watchAll=false --testPathPattern=github-activity-data",
+      "inputs": [
+        "src/data/githubActivity.json"
+      ],
+      "expected_output": [
+        "src/__tests__/github-activity-data.test.js"
+      ],
+      "observability_impact": "Test output isolates data-shape and secret-leak regressions.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S04",
+      "id": "T03",
+      "title": "Render editorial GitHub activity spread",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Render a designed GitHub activity spread from the static artifact. Include one large headline metric, contribution-style data print in cream and oxblood, recent activity lines, active repos, and a small tally line. It should look like an editorial annual-report spread, not GitHub's default green chart and not a dashboard card grid.",
+      "estimate": "1h 30m",
+      "files": [
+        "src/components/editorial/GitHubActivity.jsx",
+        "src/components/EditorialPortfolio.jsx"
+      ],
+      "verify": "npm run build",
+      "inputs": [
+        "src/data/githubActivity.json"
+      ],
+      "expected_output": [
+        "src/components/editorial/GitHubActivity.jsx",
+        "src/components/EditorialPortfolio.jsx"
+      ],
+      "observability_impact": "Dashboard should render fallback labels when the artifact marks fallback mode, making stale or missing data visible without crashing.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S04",
+      "id": "T04",
+      "title": "Add no secret leakage verification",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Add a secret-scan verification script or test that checks source and build output for common GitHub token prefixes and ensures .env remains ignored. Run it after build as part of slice verification. Do not read or print .env values.",
+      "estimate": "45m",
+      "files": [
+        "scripts/verify-no-secrets.js",
+        "package.json"
+      ],
+      "verify": "npm run verify:no-secrets",
+      "inputs": [
+        "package.json"
+      ],
+      "expected_output": [
+        "scripts/verify-no-secrets.js",
+        "package.json"
+      ],
+      "observability_impact": "Secret scan gives a repeatable failure signal before deploy or commit.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S05",
+      "id": "T01",
+      "title": "Create maintainable cool things content",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Create editable cool-items content with 3 tasteful placeholder seed entries marked as replaceable until the user sends the real list. Keep the content model simple: title, url, caption, optional kind. Do not hard-code the entries across components.",
+      "estimate": "30m",
+      "files": [
+        "src/content/coolThings.js"
+      ],
+      "verify": "npm run build",
+      "inputs": [],
+      "expected_output": [
+        "src/content/coolThings.js"
+      ],
+      "observability_impact": "Single content file lets future agents or the user replace placeholder taste links safely.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S05",
+      "id": "T02",
+      "title": "Render Things I Find Cool editorial list",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Render Things I Find Cool as an editorial link list with hairline dividers, Plantin titles, muted captions, generous spacing, and no cards. Provide a quiet empty state if the list is empty. Ensure external links use target blank plus rel noopener noreferrer and have visible focus states.",
+      "estimate": "1h",
+      "files": [
+        "src/components/editorial/CoolThings.jsx",
+        "src/components/EditorialPortfolio.jsx"
+      ],
+      "verify": "npm run build",
+      "inputs": [
+        "src/content/coolThings.js"
+      ],
+      "expected_output": [
+        "src/components/editorial/CoolThings.jsx",
+        "src/components/EditorialPortfolio.jsx"
+      ],
+      "observability_impact": "Empty-state rendering prevents bad data from crashing the page.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S05",
+      "id": "T03",
+      "title": "Build typographic colophon",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Build the final colophon with running prose contact links from the portfolio content module created in S03, email, GitHub, LinkedIn, location if appropriate, and a small site note such as Set in Spectral. Keep it typographic and text-only; no icon row, no CTA button, no card.",
+      "estimate": "45m",
+      "files": [
+        "src/components/editorial/Colophon.jsx",
+        "src/components/EditorialPortfolio.jsx"
+      ],
+      "verify": "npm run build",
+      "inputs": [],
+      "expected_output": [
+        "src/components/editorial/Colophon.jsx",
+        "src/components/EditorialPortfolio.jsx"
+      ],
+      "observability_impact": "Contact links are inspectable by accessible names and href values.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S05",
+      "id": "T04",
+      "title": "Verify editorial links and landmarks",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Add an accessibility-focused test for link attributes and section landmarks across CoolThings and Colophon. Verify external links are safe, email link is mailto, and section labels remain accessible.",
+      "estimate": "45m",
+      "files": [
+        "src/__tests__/editorial-links.test.js"
+      ],
+      "verify": "npm test -- --watchAll=false --testPathPattern=editorial-links",
+      "inputs": [
+        "src/components/editorial/CoolThings.jsx",
+        "src/components/editorial/Colophon.jsx"
+      ],
+      "expected_output": [
+        "src/__tests__/editorial-links.test.js"
+      ],
+      "observability_impact": "Test output catches broken contact and external-link safety regressions.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S06",
+      "id": "T01",
+      "title": "Remove inactive legacy visual system from active path",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Remove or quarantine old active visual-system components and dependencies that are no longer used by App.js, including MatrixRain, cosmic Header/Hero/About/Projects/Footer imports, FloatingSocialButtons active path, and framer-motion if no remaining code imports it. Use search to confirm no active imports before deleting or leaving legacy files inert.",
+      "estimate": "1h",
+      "files": [
+        "src/App.js",
+        "package.json",
+        "package-lock.json",
+        "src/components"
+      ],
+      "verify": "npm run build",
+      "inputs": [
+        "package.json",
+        "src/App.js"
+      ],
+      "expected_output": [
+        "src/App.js",
+        "package.json",
+        "package-lock.json"
+      ],
+      "observability_impact": "Build and dependency graph reveal accidental removal of still-used modules.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S06",
+      "id": "T02",
+      "title": "Polish typography motion and accessibility details",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Run a focused taste and accessibility polish pass: tune type scale, section heights, line lengths, hairlines, focus states, keyboard hit areas, reduced-motion CSS, and scroll pacing. Apply make-interfaces-feel-better principles: no transition all, tabular numbers for dashboard stats, text-wrap balance or pretty, and sparing will-change only on transform or opacity.",
+      "estimate": "1h 30m",
+      "files": [
+        "src/index.css",
+        "src/components/EditorialPortfolio.jsx",
+        "src/components/editorial"
+      ],
+      "verify": "npm run build",
+      "inputs": [
+        "src/index.css"
+      ],
+      "expected_output": [
+        "src/index.css",
+        "src/components/EditorialPortfolio.jsx",
+        "src/components/editorial"
+      ],
+      "observability_impact": "Browser checks and tests expose regressions in focus, motion, or section rendering.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S06",
+      "id": "T03",
+      "title": "Perform live browser verification",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Start the local dev server with bg_shell, verify the page in browser tools, and record explicit browser assertions: key section text visible, no console errors, no failed network requests, contact links present, and keyboard focus visible. Use browser_assert and logs rather than prose-only inspection.",
+      "estimate": "1h",
+      "files": [
+        ".gsd/runtime"
+      ],
+      "verify": "npm run build",
+      "inputs": [
+        "package.json"
+      ],
+      "expected_output": [
+        ".gsd/runtime"
+      ],
+      "observability_impact": "Browser timeline, console logs, network logs, and assertions become final evidence for handoff.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    },
+    {
+      "milestone_id": "M001",
+      "slice_id": "S06",
+      "id": "T04",
+      "title": "Run final integrated verification",
+      "status": "pending",
+      "one_liner": "",
+      "narrative": "",
+      "verification_result": "",
+      "duration": "",
+      "completed_at": null,
+      "blocker_discovered": false,
+      "deviations": "",
+      "known_issues": "",
+      "key_files": [],
+      "key_decisions": [],
+      "full_summary_md": "",
+      "description": "Run final command verification: GitHub fetch, test suite, no-secret scan, and production build. If fetch cannot use the local token due to environment naming, adjust the script to support the detected key name without reading or printing token values. Summarize remaining user taste decisions such as real Plantin license swap and real Things I Find Cool entries.",
+      "estimate": "1h",
+      "files": [
+        "build",
+        "src/data/githubActivity.json",
+        "package.json"
+      ],
+      "verify": "npm run build",
+      "inputs": [
+        "package.json"
+      ],
+      "expected_output": [
+        "build",
+        "src/data/githubActivity.json"
+      ],
+      "observability_impact": "Final output includes build, test, fetch, and secret-scan evidence for next agent or user review.",
+      "full_plan_md": "",
+      "sequence": 0,
+      "blocker_source": "",
+      "escalation_pending": 0,
+      "escalation_awaiting_review": 0,
+      "escalation_artifact_path": null,
+      "escalation_override_applied_at": null
+    }
+  ],
+  "decisions": [],
+  "verification_evidence": []
+}

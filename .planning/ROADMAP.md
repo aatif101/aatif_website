@@ -8,7 +8,7 @@
 
 ## Phases
 
-- [ ] **Phase 1: Design System + Page Skeleton** - Gut old visual layer; establish font, palette, spacing; rebuild Header and page shell
+- [x] **Phase 1: Design System + Page Skeleton** - Gut old visual layer; establish font, palette, spacing; rebuild Header and page shell
 - [ ] **Phase 2: Content Sections** - Build Projects, Experience, Education, Leadership, Skills into the established skeleton
 - [ ] **Phase 3: Links, Responsive, Deploy Verification** - Audit all live links, verify mobile layout, confirm GitHub Pages deploy
 
@@ -31,7 +31,12 @@
   4. The CV summary paragraph renders as flowing prose immediately below the header with no card or box border around it
   5. Scrolling down reveals all section anchors in sequence — smooth scroll works and nav (if present) is unobtrusive
 
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [x] 01-PLAN-01-cleanup-config.md — Purge cosmic/terminal tokens from tailwind.config.js, swap JetBrains Mono for Inter in index.html and index.css, delete MatrixRain/FloatingSocialButtons/HeroSection/AboutSection
+- [x] 01-PLAN-02-header.md — Rebuild Header.js as identity block: name h1, tagline, contact row (email/LinkedIn/GitHub/location/work auth), section nav anchors
+- [x] 01-PLAN-03-summary-shell.md — Create SummarySection.js (CV prose), rewrite App.js single-scroll shell, clean Footer.js, verify build passes
 
 **UI hint**: yes
 
@@ -78,7 +83,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Design System + Page Skeleton | 0/? | Not started | - |
+| 1. Design System + Page Skeleton | 3/3 | ✅ Complete | 2026-05-21 |
 | 2. Content Sections | 0/? | Not started | - |
 | 3. Links, Responsive, Deploy Verification | 0/? | Not started | - |
 
@@ -129,3 +134,4 @@
 ---
 
 *Roadmap created: 2026-04-24*
+*Last updated: 2026-05-21 — Phase 1 complete (3/3 plans executed and verified)*

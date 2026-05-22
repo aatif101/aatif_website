@@ -1,0 +1,183 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+%-------------------------
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Mohammad Aatif Shaikh} \\ \vspace{1pt}
+    \small 813-568-5612 $|$
+    \href{mailto:mohammadaatif@usf.edu}{\underline{mohammadaatif@usf.edu}} $|$
+    \href{https://linkedin.com/in/shaikhaatif}{\underline{linkedin.com/in/shaikhaatif}} $|$
+    \href{https://github.com/aatif101}{\underline{github.com/aatif101}} $|$
+    \small Tampa, FL (Remote) $|$ US Authorized
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of South Florida}{Tampa, FL}
+      {B.S. Computer Science, GPA: 3.6 $|$ Green \& Gold Scholarship}{Aug. 2022 -- May 2026}
+      \resumeItemListStart
+        \resumeItem{Relevant Coursework: Data Structures, Algorithms, Network Analysis \& ML, Software Engineering, Intro to AI}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Pfizer Externship}{Mar. 2026 -- Apr. 2026}
+      {Data \& Document Intelligence Analyst}{Remote}
+      \resumeItemListStart
+        \resumeItem{Collected, cleaned, and structured large volumes of pharmaceutical document data; maintained accurate records across thousands of supplier documents with validated extraction pipelines.}
+        \resumeItem{Built a compliance tracking dashboard (Streamlit) reporting document risk status with color-coded summaries — enabling operations teams to quickly identify and act on flagged records.}
+        \resumeItem{Designed and ran evaluation benchmarks tracking F1 score, latency, and cost per 1,000 pages; documented all findings and methodology for internal reporting.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {USF Information Technology}{May 2025 -- Present}
+      {AV Technician \& Operations Data Support}{Tampa, FL}
+      \resumeItemListStart
+        \resumeItem{Managed and maintained operational records across a 20+ technician team; built a task routing and tracking system later adopted into the broader USF IT toolkit.}
+        \resumeItem{Logged, triaged, and documented technical support issues; ensured data accuracy and proper record-keeping across all resolved and escalated cases.}
+        \resumeItem{Maintained $\sim$99\% uptime across 100+ systems; tracked equipment status and availability using internal data tools.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {CacheAi}{Jul. 2024 -- Aug. 2024}
+      {Data \& Evaluation Analyst (Intern)}{Remote}
+      \resumeItemListStart
+        \resumeItem{Built evaluation pipelines to collect and analyze model performance data across latency, cost, and accuracy metrics; produced structured reports for engineering and product teams.}
+        \resumeItem{Maintained clean, well-documented datasets; identified trends and flagged anomalies to support decision-making ahead of beta launch.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Infrastructure Docs Collective}{2024}
+      {Open Source Contributor}{}
+      \resumeItemListStart
+        \resumeItem{Merged 20+ contributions to technical documentation and data infrastructure guides; ensured accuracy and consistency across cloud and deployment documentation used by distributed teams.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{NazScan — Vulnerability Data Pipeline} $|$ \emph{Python, SQL, async, structured reporting}}{2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Built a data collection and analysis pipeline that scans, categorizes, and scores security findings; outputs structured reports with CVSS-style severity ratings and remediation summaries.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{AI-Powered Cloud Cost Analyzer} $|$ \emph{Python, AWS, ML, data reporting}}{2025}
+          \resumeItemListStart
+            \resumeItem{Collected and analyzed cloud resource usage data to predict load and right-size infrastructure; produced measurable cost reduction through data-driven recommendations.}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Data Tools}{: Python (pandas, NumPy), SQL, Excel/Google Sheets, Streamlit dashboards, Langfuse} \\
+     \textbf{Data Management}{: Dataset cleaning, validation, record-keeping, documentation, knowledge bases} \\
+     \textbf{Reporting}{: Dashboard creation, trend analysis, benchmark reporting, operational summaries} \\
+     \textbf{Cloud \& Systems}{: AWS (S3, CloudWatch), Google Workspace, GitHub, Docker, remote collaboration tools} \\
+     \textbf{Languages}{: Python, SQL, JavaScript, Bash}
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}
