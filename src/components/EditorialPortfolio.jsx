@@ -1,8 +1,11 @@
 import React from 'react';
+import { useEditorialMotion } from '../hooks/useEditorialMotion';
 import OpeningSpread from './editorial/OpeningSpread';
 import SectionShell from './editorial/SectionShell';
 
 export default function EditorialPortfolio() {
+  useEditorialMotion();
+
   return (
     <>
       {/* Accessible skip link — positioned off-screen until focused */}
@@ -14,6 +17,7 @@ export default function EditorialPortfolio() {
       <header
         id="top"
         aria-label="Site identity"
+        data-motion-hero
         style={{
           backgroundColor: 'var(--color-paper)',
           borderBottom: '1px solid var(--color-hairline)',
@@ -74,7 +78,7 @@ export default function EditorialPortfolio() {
                   textTransform: 'uppercase',
                   color: 'var(--color-muted)',
                   textDecoration: 'none',
-                  transition: 'color var(--transition-base)',
+                  transition: 'color var(--duration-base) var(--ease-out)',
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-ink)')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-muted)')}
@@ -88,20 +92,47 @@ export default function EditorialPortfolio() {
 
       {/* ── Main content ────────────────────────────────────────────────────── */}
       <main id="main" tabIndex={-1}>
+        {/* Opening spread gets its own hero entrance via data-motion-hero on the
+            header above; the lede text block gets a staggered sibling reveal */}
         <OpeningSpread />
 
-        <SectionShell id="experience" label="Experience" heading="Work" surface="paper" />
+        <SectionShell
+          id="experience"
+          label="Experience"
+          heading="Work"
+          surface="paper"
+          motionReveal
+        />
 
-        <SectionShell id="projects" label="Projects" heading="Selected work" surface="surface" />
+        <SectionShell
+          id="projects"
+          label="Projects"
+          heading="Selected work"
+          surface="surface"
+          motionReveal
+        />
 
-        <SectionShell id="education" label="Education" heading="Formation" surface="paper" />
+        <SectionShell
+          id="education"
+          label="Education"
+          heading="Formation"
+          surface="paper"
+          motionReveal
+        />
 
-        <SectionShell id="skills" label="Skills" heading="Craft" surface="surface" />
+        <SectionShell
+          id="skills"
+          label="Skills"
+          heading="Craft"
+          surface="surface"
+          motionReveal
+        />
       </main>
 
       {/* ── Footer / colophon ───────────────────────────────────────────────── */}
       <footer
         aria-label="Colophon"
+        data-motion-reveal
         style={{
           backgroundColor: 'var(--color-ink)',
           color: 'var(--color-faint)',

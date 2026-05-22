@@ -22,13 +22,14 @@ const headingStyle = {
 /**
  * Reusable editorial section shell.
  * Props:
- *   id        — anchor id for the <section>
- *   label     — small-caps eyebrow label (e.g. "Experience")
- *   heading   — display heading (e.g. "Work")
- *   surface   — "paper" | "surface" (defaults to "paper")
- *   children  — content slot filled by later slices
+ *   id           — anchor id for the <section>
+ *   label        — small-caps eyebrow label (e.g. "Experience")
+ *   heading      — display heading (e.g. "Work")
+ *   surface      — "paper" | "surface" (defaults to "paper")
+ *   motionReveal — when true, stamps data-motion-reveal for scroll choreography
+ *   children     — content slot filled by later slices
  */
-export default function SectionShell({ id, label, heading, surface = 'paper', children }) {
+export default function SectionShell({ id, label, heading, surface = 'paper', motionReveal = false, children }) {
   const headingId = `${id}-heading`;
   const bg = surface === 'surface' ? 'var(--color-surface)' : 'var(--color-paper)';
 
@@ -36,6 +37,7 @@ export default function SectionShell({ id, label, heading, surface = 'paper', ch
     <section
       id={id}
       aria-labelledby={headingId}
+      {...(motionReveal ? { 'data-motion-reveal': '' } : {})}
       style={{
         backgroundColor: bg,
         padding: 'var(--space-24) var(--space-8)',

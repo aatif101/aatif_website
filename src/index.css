@@ -175,6 +175,25 @@
   outline-offset: 2px;
 }
 
+/* ─── Scroll Choreography ───────────────────────────────────────────────────── */
+
+/* Progressive-enhancement: only hide elements once JS has confirmed motion is
+   live (data-motion-ready stamped by useEditorialMotion). Before JS runs the
+   elements are always visible — no flash-of-hidden-content. */
+
+html[data-motion-ready='true'] [data-motion-hero],
+html[data-motion-ready='true'] [data-motion-reveal] {
+  /* GSAP sets opacity/transform inline; these just prevent a brief visible
+     state between render and the first GSAP fromTo frame. */
+  will-change: opacity, transform;
+}
+
+/* Reduced-motion variant: override any lingering will-change */
+html[data-reduced-motion='true'] [data-motion-hero],
+html[data-reduced-motion='true'] [data-motion-reveal] {
+  will-change: auto;
+}
+
 /* ─── Reduced Motion ────────────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {

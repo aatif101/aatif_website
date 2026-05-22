@@ -15,7 +15,7 @@ export default function OpeningSpread() {
         borderBottom: '1px solid var(--color-hairline)',
       }}
     >
-      <div style={{ maxWidth: 'var(--col-prose)', margin: '0 auto' }}>
+      <div data-motion-hero style={{ maxWidth: 'var(--col-prose)', margin: '0 auto' }}>
         <p
           style={{
             fontFamily: 'var(--font-sans)',
