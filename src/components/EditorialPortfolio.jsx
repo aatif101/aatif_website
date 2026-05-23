@@ -7,6 +7,7 @@ import SelectedWork from './editorial/SelectedWork';
 import GitHubActivity from './editorial/GitHubActivity';
 import ExperienceTimeline from './editorial/ExperienceTimeline';
 import CoolThings from './editorial/CoolThings';
+import Colophon from './editorial/Colophon';
 
 export default function EditorialPortfolio() {
   useEditorialMotion();
@@ -185,50 +186,7 @@ export default function EditorialPortfolio() {
       </main>
 
       {/* ── Footer / colophon ───────────────────────────────────────────────── */}
-      <footer
-        id="contact"
-        aria-label="Contact and colophon"
-        data-motion-reveal
-        style={{
-          backgroundColor: 'var(--color-ink)',
-          color: 'var(--color-faint)',
-          padding: 'var(--space-12) var(--space-8)',
-          textAlign: 'center',
-        }}
-      >
-        <address
-          style={{
-            fontFamily: 'var(--font-sans)',
-            fontSize: 'var(--text-sm)',
-            fontStyle: 'normal',
-            lineHeight: 'var(--leading-relaxed)',
-            margin: '0 0 var(--space-6)',
-          }}
-        >
-          <a href={`mailto:${contact.email}`} style={{ color: 'inherit' }}>
-            {contact.email}
-          </a>
-          {' · '}
-          <a href={contact.linkedin} style={{ color: 'inherit' }}>
-            LinkedIn
-          </a>
-          {' · '}
-          <a href={contact.github} style={{ color: 'inherit' }}>
-            GitHub
-          </a>
-        </address>
-        <p
-          style={{
-            fontFamily: 'var(--font-sans)',
-            fontSize: 'var(--text-xs)',
-            letterSpacing: 'var(--tracking-wide)',
-            textTransform: 'uppercase',
-            margin: 0,
-          }}
-        >
-          {identity.name} &mdash; {new Date().getFullYear()}
-        </p>
-      </footer>
+      <Colophon identity={identity} contact={contact} />
     </>
   );
 }

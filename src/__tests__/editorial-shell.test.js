@@ -63,20 +63,25 @@ describe('EditorialPortfolio — section anchors and trusted content', () => {
     expect(within(section).getByText(/USF Student Government/i)).toBeInTheDocument();
   });
 
-  it('renders contact details in the footer', () => {
+  it('renders typographic contact details and site colophon notes in the footer', () => {
     const footer = screen.getByRole('contentinfo');
-    expect(within(footer).getByText('mohammadaatif@usf.edu')).toHaveAttribute(
+    expect(footer).toHaveAttribute('aria-label', 'Contact and colophon');
+    expect(within(footer).getByText(/contact \/ colophon/i)).toBeInTheDocument();
+    expect(within(footer).getByText(/tampa, fl/i)).toBeInTheDocument();
+    expect(within(footer).getByRole('link', { name: 'mohammadaatif@usf.edu' })).toHaveAttribute(
       'href',
       'mailto:mohammadaatif@usf.edu'
     );
-    expect(within(footer).getByText('LinkedIn')).toHaveAttribute(
+    expect(within(footer).getByRole('link', { name: 'LinkedIn' })).toHaveAttribute(
       'href',
       'https://linkedin.com/in/shaikhaatif'
     );
-    expect(within(footer).getByText('GitHub')).toHaveAttribute(
+    expect(within(footer).getByRole('link', { name: 'GitHub' })).toHaveAttribute(
       'href',
       'https://github.com/aatif101'
     );
+    expect(within(footer).getByText(/set in spectral/i)).toBeInTheDocument();
+    expect(within(footer).queryByRole('button')).not.toBeInTheDocument();
   });
 
   it('renders a skip link targeting #main', () => {
