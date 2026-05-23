@@ -1,0 +1,18 @@
+{
+  "id": "0cbfcaf1-9786-4270-b3dc-09fadbcd747f",
+  "runtime": "node",
+  "purpose": "Diagnose npm command availability for T04 verification",
+  "script_chars": 409,
+  "started_at": "2026-05-23T04:12:59.450Z",
+  "finished_at": "2026-05-23T04:13:00.295Z",
+  "exit_code": 0,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 845,
+  "stdout_bytes": 202,
+  "stderr_bytes": 0,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\0cbfcaf1-9786-4270-b3dc-09fadbcd747f.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\0cbfcaf1-9786-4270-b3dc-09fadbcd747f.stderr"
+}

@@ -1,0 +1,12 @@
+{
+  "command": "npm test -- --watchAll=false --testPathPattern=github-activity-data",
+  "exitCode": 0,
+  "durationMs": 4967,
+  "interestingTail": [
+    "> react-scripts test --watchAll=false --testPathPattern=github-activity-data",
+    "PASS src/__tests__/github-activity-data.test.js",
+    "Test Suites: 1 passed, 1 total",
+    "Tests:       5 passed, 5 total",
+    "Ran all test suites matching /github-activity-data/i."
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "command": "npm run verify:no-secrets",
+  "exitCode": 0,
+  "durationMs": 583,
+  "interestingTail": [
+    "> aatif-portfolio@0.1.0 verify:no-secrets",
+    "> node scripts/verify-no-secrets.js",
+    "{\"phase\":\"verify:no-secrets\",\"scannedFiles\":80,\"checkedBuildOutput\":true,\"dotenvIgnored\":true,\"githubTokenLeakage\":false}"
+  ]
+}

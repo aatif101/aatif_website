@@ -1,0 +1,18 @@
+{
+  "id": "786927c7-c144-4a0b-b45f-180feda47e82",
+  "runtime": "node",
+  "purpose": "T03 verification: portfolio-content integrity test via node child_process",
+  "script_chars": 351,
+  "started_at": "2026-05-23T04:00:26.066Z",
+  "finished_at": "2026-05-23T04:00:26.139Z",
+  "exit_code": 1,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 73,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\786927c7-c144-4a0b-b45f-180feda47e82.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\786927c7-c144-4a0b-b45f-180feda47e82.stderr"
+}

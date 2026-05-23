@@ -1,0 +1,2 @@
+{"cmd":"npm.cmd","status":null,"error":"spawnSync npm.cmd EINVAL"}
+{"cmd":"npm","status":null,"error":"spawnSync npm ENOENT"}

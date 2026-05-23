@@ -1,0 +1,13 @@
+PASS src/__tests__/github-activity-data.test.js
+  githubActivity static data artifact
+    √ exposes the required top-level public artifact fields (3 ms)
+    √ keeps profile and aggregate signal fields renderable without private data (2 ms)
+    √ publishes recent activity entries with only the safe render shape (6 ms)
+    √ publishes active repositories with sanitized public fields only (5 ms)
+    √ does not contain token-looking keys or values anywhere in the committed JSON (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       5 passed, 5 total
+Snapshots:   0 total
+Time:        1.739 s, estimated 2 s
+Ran all test suites matching /github-activity-data/i.

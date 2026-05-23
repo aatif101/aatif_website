@@ -1,0 +1,15 @@
+
+> aatif-portfolio@0.1.0 fetch-github-activity
+> node scripts/fetch-github-activity.js
+
+{"phase":"script:start","outputPath":"src\\data\\githubActivity.json"}
+{"phase":"fetch:init","username":"aatif101"}
+{"phase":"request:start","endpointClass":"profile","apiHost":"api.github.com","authenticated":true}
+{"phase":"request:start","endpointClass":"repos","apiHost":"api.github.com","authenticated":true}
+{"phase":"request:start","endpointClass":"events","apiHost":"api.github.com","authenticated":true}
+{"phase":"request:end","endpointClass":"events","statusCode":401}
+{"phase":"fallback:used","reason":"GitHub events request failed with 401"}
+{"phase":"write:complete","outputPath":"src\\data\\githubActivity.json","fallback":true}
+{"phase":"script:done","fallback":true}
+{"phase":"request:end","endpointClass":"profile","statusCode":401}
+{"phase":"request:end","endpointClass":"repos","statusCode":401}

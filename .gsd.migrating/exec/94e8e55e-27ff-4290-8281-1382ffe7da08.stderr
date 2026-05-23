@@ -1,0 +1,13 @@
+PASS src/__tests__/portfolio-content.test.js
+  portfolio content integrity guard
+    √ keeps selected work constrained to the approved project names (2 ms)
+    √ keeps experience constrained to the approved organization names (1 ms)
+    √ rejects hallucinated companies from prior placeholder drafts (1 ms)
+    √ does not expose a standalone Skills section label in the content model
+
+Test Suites: 1 passed, 1 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        1.884 s
+Ran all test suites matching /portfolio-content/i.
+

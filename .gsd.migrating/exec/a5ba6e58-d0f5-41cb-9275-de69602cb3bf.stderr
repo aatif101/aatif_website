@@ -1,0 +1,229 @@
+FAIL src/__tests__/editorial-shell.test.js
+  EditorialPortfolio — section anchors and trusted content
+    √ renders the identity heading with Aatif’s full trusted name (232 ms)
+    √ renders the #about opening spread section from the content module (103 ms)
+    √ renders exactly two pinned selected-work spreads: Reliu and NazScan (104 ms)
+    × renders the GitHub activity annual-report spread from the static artifact (74 ms)
+    √ renders experience, education, and leadership in one dense timeline (51 ms)
+    √ renders contact details in the footer (64 ms)
+    √ renders a skip link targeting #main (67 ms)
+    √ does not render a separate Skills section or skill tags surface (93 ms)
+  EditorialPortfolio — no legacy terminal visuals or unsupported placeholders
+    √ does not import matrix or terminal components at the component level (2 ms)
+    √ does not render unsupported selected-work placeholders (57 ms)
+
+  ● EditorialPortfolio — section anchors and trusted content › renders the GitHub activity annual-report spread from the static artifact
+
+    TestingLibraryElementError: Found multiple elements with the text: /active repositories/i
+
+    Here are the matching elements:
+
+    Ignored nodes: comments, script, style
+    [36m<p[39m
+      [33mstyle[39m=[32m"font-family: var(--font-sans); line-height: var(--leading-relaxed); max-width: 34rem;"[39m
+    [36m>[39m
+      [0mRecent public events set against [0m
+      [0m22[0m
+      [0m active repositories, drawn at build time into a static, token-free artifact.[0m
+    [36m</p>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<h3[39m
+      [33mid[39m=[32m"github-repos-heading"[39m
+      [33mstyle[39m=[32m"font-family: var(--font-serif); font-weight: 300;"[39m
+    [36m>[39m
+      [0mActive repositories[0m
+    [36m</h3>[39m
+
+    (If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+    Ignored nodes: comments, script, style
+    [36m<section[39m
+      [33maria-labelledby[39m=[32m"github-activity-heading"[39m
+      [33mdata-motion-reveal[39m=[32m"true"[39m
+      [33mid[39m=[32m"github-activity"[39m
+      [33mstyle[39m=[32m"transform: translate(0px, 40px) ; opacity: 0;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mstyle[39m=[32m"max-width: var(--col-wide); margin: 0px auto;"[39m
+      [36m>[39m
+        [36m<p[39m
+          [33mstyle[39m=[32m"font-family: var(--font-sans); letter-spacing: var(--tracking-caps); text-transform: uppercase;"[39m
+        [36m>[39m
+          [0mGitHub activity[0m
+        [36m</p>[39m
+        [36m<h2[39m
+          [33mid[39m=[32m"github-activity-heading"[39m
+          [33mstyle[39m=[32m"font-family: var(--font-serif); font-weight: 300; line-height: var(--leading-tight); letter-spacing: var(--tracking-tight);"[39m
+        [36m>[39m
+          [0mA public engineering ledger[0m
+        [36m</h2>[39m
+        [36m<div[39m
+          [33maria-label[39m=[32m"GitHub activity report"[39m
+          [33mstyle[39m=[32m"display: grid; gap: var(--space-12);"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mstyle[39m=[32m"display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 1.1fr); gap: var(--space-12); align-items: end;"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<p[39m
+                [33mstyle[39m=[32m"font-family: var(--font-sans); letter-spacing: var(--tracking-caps); text-transform: uppercase; margin: 0px;"[39m
+              [36m>[39m
+                [0mPublic GitHub ledger / [0m
+                [0maatif101[0m
+              [36m</p>[39m
+              [36m<p[39m
+                [33maria-label[39m=[32m"27 recent public events"[39m
+                [33mstyle[39m=[32m"font-family: var(--font-serif); font-weight: 300; line-height: 0.86; letter-spacing: -0.08em;"[39m
+              [36m>[39m
+                [0m27[0m
+              [36m</p>[39m
+              [36m<p[39m
+                [33mstyle[39m=[32m"font-family: var(--font-sans); line-height: var(--leading-relaxed); max-width: 34rem;"[39m
+              [36m>[39m
+                [0mRecent public events set against [0m
+                [0m22[0m
+                [0m active repositories, drawn at build time into a static, token-free artifact.[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<aside[39m
+              [33maria-label[39m=[32m"GitHub data status"[39m
+              [33mstyle[39m=[32m"display: grid; gap: var(--space-3); align-self: stretch;"[39m
+            [36m>[39m
+              [36m<p[39m
+                [33mstyle[39m=[32m"font-family: var(--font-sans); letter-spacing: var(--tracking-caps); text-transform: uppercase; margin: 0px;"[39m
+              [36m>[39m
+                [0mLive public artifact[0m
+              [36m</p>[39m
+              [36m<p[39m
+                [33mstyle[39m=[32m"font-family: var(--font-sans); line-height: var(--leading-relaxed); margin: 0px;"[39m
+              [36m>[39m
+                [0mGenerated [0m
+                [0mMay 23, 2026[0m
+                [0m. Source: [0m
+                [0mgithub-rest[0m
+                [0m.[0m
+              [36m</p>[39m
+              [36m<p[39m
+                [33mstyle[39m=[32m"font-family: var(--font-sans); line-height: var(--leading-relaxed); margin: 0px;"[39m
+              [36m>[39m
+                [0mTally: [0m
+                [0m27[0m
+                [0m public repos,[0m
+                [0m [0m
+                [0m24[0m
+                [0m original, [0m
+                [0m7[0m
+                [0m stars,[0m
+                [0m [0m
+                [0m0[0m
+                [0m forks.[0m
+              [36m</p>[39m
+            [36m</aside>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33maria-label[39m=[32m"Contribution-style activity print"[39m
+            [33mstyle[39m=[32m"display: grid; grid-template-columns: repeat(14, minmax(0, 1fr)); gap: 0.35rem;"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 0.72;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 1;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 0.72;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 1;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 1;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 0.72;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 1;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 0.72;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 0.72;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 1;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 0.72;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 0.72;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 1;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 0.72;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 0.72;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 1;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 0.72;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 1;"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mstyle[39m=[32m"min-height: 0.85rem; opacity: 0.72;"[39m
+            [36m/>[39m
+            [36m<...
+
+    [0m [90m 51 |[39m     expect(within(section)[33m.[39mgetByText([35m/live public artifact|fallback data visible/i[39m))[33m.[39mtoBeInTheDocument()[33m;[39m
+     [90m 52 |[39m     expect(within(section)[33m.[39mgetByText([35m/recent public marks/i[39m))[33m.[39mtoBeInTheDocument()[33m;[39m
+    [31m[1m>[22m[39m[90m 53 |[39m     expect(within(section)[33m.[39mgetByText([35m/active repositories/i[39m))[33m.[39mtoBeInTheDocument()[33m;[39m
+     [90m    |[39m                            [31m[1m^[22m[39m
+     [90m 54 |[39m   })[33m;[39m
+     [90m 55 |[39m
+     [90m 56 |[39m   it([32m'renders experience, education, and leadership in one dense timeline'[39m[33m,[39m () [33m=>[39m {[0m
+
+      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:20:35)
+      at getMultipleElementsFoundError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:23:10)
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:55:13
+      at getByText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.<anonymous> (src/__tests__/editorial-shell.test.js:53:28)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 9 passed, 10 total
+Snapshots:   0 total
+Time:        3.797 s
+Ran all test suites within paths "src/__tests__/editorial-shell.test.js".

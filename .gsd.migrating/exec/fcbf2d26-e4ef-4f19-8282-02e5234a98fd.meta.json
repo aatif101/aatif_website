@@ -1,0 +1,18 @@
+{
+  "id": "fcbf2d26-e4ef-4f19-8282-02e5234a98fd",
+  "runtime": "node",
+  "purpose": "T01 focused content integrity test via node runtime",
+  "script_chars": 408,
+  "started_at": "2026-05-23T03:54:59.507Z",
+  "finished_at": "2026-05-23T03:54:59.617Z",
+  "exit_code": 1,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 110,
+  "stdout_bytes": 17,
+  "stderr_bytes": 0,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\fcbf2d26-e4ef-4f19-8282-02e5234a98fd.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\fcbf2d26-e4ef-4f19-8282-02e5234a98fd.stderr"
+}

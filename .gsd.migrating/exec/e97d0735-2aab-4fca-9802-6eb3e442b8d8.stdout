@@ -1,0 +1,71 @@
+## build
+
+> aatif-portfolio@0.1.0 build
+> react-scripts build
+
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  91.51 kB       build\static\js\main.d31a118e.js
+  5.27 kB        build\static\js\57.8543ebea.chunk.js
+  4.8 kB (+3 B)  build\static\css\main.6a3f101c.css
+
+The project was built assuming it is hosted at /aatif_website/.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
+
+build_exit=0
+## editorial_motion_test
+
+> aatif-portfolio@0.1.0 test
+> react-scripts test --watchAll=false --testPathPattern=editorial-motion --forceExit
+
+  console.error
+    Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+    [0m [90m 72 |[39m
+     [90m 73 |[39m   it([32m'stamps data-reduced-motion="true" on <html>'[39m[33m,[39m () [33m=>[39m {
+    [31m[1m>[22m[39m[90m 74 |[39m     renderHook(() [33m=>[39m useEditorialMotion())[33m;[39m
+     [90m    |[39m               [31m[1m^[22m[39m
+     [90m 75 |[39m     expect(document[33m.[39mdocumentElement[33m.[39mgetAttribute([32m'data-reduced-motion'[39m))[33m.[39mtoBe([32m'true'[39m)[33m;[39m
+     [90m 76 |[39m   })[33m;[39m
+     [90m 77 |[39m[0m
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at renderHook (node_modules/@testing-library/react/dist/pure.js:293:7)
+      at Object.<anonymous> (src/__tests__/editorial-motion.test.js:74:15)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+  console.debug
+    [useEditorialMotion] init — heroes: 0 | reveals: 0
+
+      at src/hooks/useEditorialMotion.js:124:19
+
+  console.debug
+    [useEditorialMotion] init — heroes: 0 | reveals: 0
+
+      at src/hooks/useEditorialMotion.js:124:19
+
+  console.debug
+    [useEditorialMotion] init — heroes: 0 | reveals: 0
+
+      at src/hooks/useEditorialMotion.js:124:19
+
+
+editorial_motion_test_exit=0

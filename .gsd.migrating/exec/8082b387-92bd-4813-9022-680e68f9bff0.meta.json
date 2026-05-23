@@ -1,0 +1,18 @@
+{
+  "id": "8082b387-92bd-4813-9022-680e68f9bff0",
+  "runtime": "node",
+  "purpose": "T04 final verification: rebuild after fetch artifact refresh",
+  "script_chars": 397,
+  "started_at": "2026-05-23T04:13:48.906Z",
+  "finished_at": "2026-05-23T04:14:01.746Z",
+  "exit_code": 0,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 12840,
+  "stdout_bytes": 560,
+  "stderr_bytes": 384,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\8082b387-92bd-4813-9022-680e68f9bff0.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\8082b387-92bd-4813-9022-680e68f9bff0.stderr"
+}

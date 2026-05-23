@@ -1,0 +1,18 @@
+{
+  "id": "6e0b143d-ffbc-42dc-a7a6-c5a14929b77b",
+  "runtime": "node",
+  "purpose": "T04 slice verification: no secret leakage after build",
+  "script_chars": 409,
+  "started_at": "2026-05-23T04:13:25.918Z",
+  "finished_at": "2026-05-23T04:13:26.618Z",
+  "exit_code": 0,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 700,
+  "stdout_bytes": 202,
+  "stderr_bytes": 0,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\6e0b143d-ffbc-42dc-a7a6-c5a14929b77b.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\6e0b143d-ffbc-42dc-a7a6-c5a14929b77b.stderr"
+}

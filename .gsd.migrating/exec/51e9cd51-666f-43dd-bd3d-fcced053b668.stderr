@@ -1,0 +1,18 @@
+PASS src/__tests__/editorial-shell.test.js
+  EditorialPortfolio — section anchors and trusted content
+    √ renders the identity heading with Aatif’s full trusted name (299 ms)
+    √ renders the #about opening spread section from the content module (95 ms)
+    √ renders exactly two pinned selected-work spreads: Reliu and NazScan (79 ms)
+    √ renders experience, education, and leadership in one dense timeline (51 ms)
+    √ renders contact details in the footer (60 ms)
+    √ renders a skip link targeting #main (56 ms)
+    √ does not render a separate Skills section or skill tags surface (93 ms)
+  EditorialPortfolio — no legacy terminal visuals or unsupported placeholders
+    √ does not import matrix or terminal components at the component level (1 ms)
+    √ does not render unsupported selected-work placeholders (60 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       9 passed, 9 total
+Snapshots:   0 total
+Time:        3.875 s
+Ran all test suites within paths "src/__tests__/editorial-shell.test.js".

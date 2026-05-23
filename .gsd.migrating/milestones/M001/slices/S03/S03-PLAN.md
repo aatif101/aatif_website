@@ -26,17 +26,17 @@ Provides the stable content data consumed by the final visual components and Git
 
 ## Tasks
 
-- [ ] **T01: Create trustworthy portfolio content module** `est:1h`
+- [x] **T01: Create trustworthy portfolio content module** `est:1h`
   Create a portfolio content module with structured data for identity, lede, selected work, experience, education, leadership, and links. Source only from C:/Users/smati/VS Code Projects/career-ops/cv.md plus explicit user copy from this discussion. Selected Work must only contain Reliu and NazScan, with Reliu positioned as zero to TestFlight ready and NazScan positioned as tried building a one command security scanner for vibe-coded repos.
   - Files: `src/content/portfolioContent.js`
   - Verify: npm run build
 
-- [ ] **T02: Render selected work and timeline from content** `est:1h 30m`
+- [x] **T02: Render selected work and timeline from content** `est:1h 30m`
   Render the content module through the editorial sections. Selected work should be two pinned spreads only. Experience should be a dense editorial timeline with marginal dates, education and leadership folded into the timeline or closing timeline rows, and no separate Skills section or skill tags. Preserve the user's ability to change the lede later by keeping it in the content module.
   - Files: `src/components/EditorialPortfolio.jsx`, `src/components/editorial/SelectedWork.jsx`, `src/components/editorial/ExperienceTimeline.jsx`
   - Verify: npm run build
 
-- [ ] **T03: Guard against unsupported personal content** `est:45m`
+- [x] **T03: Guard against unsupported personal content** `est:45m`
   Add a content integrity test that imports portfolioContent and verifies the allowed project and experience names while rejecting known hallucinated companies from prior discussion: Equitar, Triedata, Fovus, and Blink. Also verify there is no standalone Skills section label in the content model.
   - Files: `src/__tests__/portfolio-content.test.js`
   - Verify: npm test -- --watchAll=false --testPathPattern=portfolio-content

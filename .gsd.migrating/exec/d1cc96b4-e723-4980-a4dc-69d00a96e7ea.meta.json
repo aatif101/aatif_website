@@ -1,0 +1,18 @@
+{
+  "id": "d1cc96b4-e723-4980-a4dc-69d00a96e7ea",
+  "runtime": "bash",
+  "purpose": "T04 verification: no secret leakage script",
+  "script_chars": 25,
+  "started_at": "2026-05-23T04:12:43.786Z",
+  "finished_at": "2026-05-23T04:12:48.747Z",
+  "exit_code": 1,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 4961,
+  "stdout_bytes": 0,
+  "stderr_bytes": 104,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\d1cc96b4-e723-4980-a4dc-69d00a96e7ea.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\d1cc96b4-e723-4980-a4dc-69d00a96e7ea.stderr"
+}

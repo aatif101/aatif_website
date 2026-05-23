@@ -18,16 +18,16 @@
 - [x] **S01: S01** `risk:high` `depends:[]`
   > After this: After this: npm start shows a cream editorial homepage with Aatif as the opening identity, no matrix rain or terminal visuals, and empty but correctly paced sections for the full one-page scroll.
 
-- [ ] **S02: S02** `risk:high` `depends:[]`
+- [x] **S02: S02** `risk:high` `depends:[]`
   > After this: After this: opening identity, lede, selected-work placeholders, and timeline placeholders move with smooth scroll in normal mode and become static readable sections in reduced-motion mode.
 
-- [ ] **S03: Curated CV Content and Editorial Sections** `risk:medium` `depends:[S02]`
+- [x] **S03: S03** `risk:medium` `depends:[]`
   > After this: After this: the page shows the lede, Reliu and NazScan selected work, experience timeline, education, leadership, and contact details with no unsupported companies or claims.
 
-- [ ] **S04: Build Time GitHub Activity Dashboard** `risk:high` `depends:[S03]`
+- [x] **S04: S04** `risk:high` `depends:[]`
   > After this: After this: npm run fetch-github-activity writes a public static data artifact, and the homepage renders a GitHub activity spread using that data or a graceful fallback.
 
-- [ ] **S05: Things I Find Cool and Colophon** `risk:medium` `depends:[S04]`
+- [ ] **S05: S05** `risk:medium` `depends:[]`
   > After this: After this: the page includes a Things I Find Cool editorial list with maintainable seed data and a restrained colophon with real links and font/site meta.
 
 - [ ] **S06: Polish Verification and Old System Removal** `risk:medium` `depends:[S05]`

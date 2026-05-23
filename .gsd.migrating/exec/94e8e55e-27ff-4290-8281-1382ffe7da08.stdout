@@ -1,0 +1,6 @@
+
+> aatif-portfolio@0.1.0 test
+> react-scripts test --watchAll=false --testPathPattern=portfolio-content
+
+
+EXIT_CODE=0

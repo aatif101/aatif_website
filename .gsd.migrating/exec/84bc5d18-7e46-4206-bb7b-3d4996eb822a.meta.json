@@ -1,0 +1,18 @@
+{
+  "id": "84bc5d18-7e46-4206-bb7b-3d4996eb822a",
+  "runtime": "node",
+  "purpose": "T01 focused tests via node child_process on Windows",
+  "script_chars": 447,
+  "started_at": "2026-05-23T04:04:33.379Z",
+  "finished_at": "2026-05-23T04:04:38.323Z",
+  "exit_code": 0,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 4944,
+  "stdout_bytes": 149,
+  "stderr_bytes": 590,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\84bc5d18-7e46-4206-bb7b-3d4996eb822a.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\84bc5d18-7e46-4206-bb7b-3d4996eb822a.stderr"
+}

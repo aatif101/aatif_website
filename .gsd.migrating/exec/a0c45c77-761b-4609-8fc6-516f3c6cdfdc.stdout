@@ -1,0 +1,16 @@
+{
+  "command": "npm run build",
+  "exitCode": 0,
+  "durationMs": 12790,
+  "interestingTail": [
+    "> aatif-portfolio@0.1.0 build",
+    "> react-scripts build",
+    "Creating an optimized production build...",
+    "Compiled successfully.",
+    "File sizes after gzip:",
+    "  98.49 kB (+1.2 kB)  build\\static\\js\\main.b48ff457.js",
+    "  5.27 kB             build\\static\\js\\57.8543ebea.chunk.js",
+    "  4.8 kB              build\\static\\css\\main.81ca8c74.css",
+    "The build folder is ready to be deployed."
+  ]
+}

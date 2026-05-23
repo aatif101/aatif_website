@@ -1,0 +1,35 @@
+Browserslist: browsers data (caniuse-lite) is 11 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 11 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+npm notice
+npm notice New minor version of npm available! 11.6.2 -> 11.15.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.15.0
+npm notice To update run: npm install -g npm@11.15.0
+npm notice
+
+PASS src/__tests__/editorial-motion.test.js
+  useEditorialMotion — reduced-motion guard
+    √ stamps data-reduced-motion="true" on <html> (101 ms)
+    √ does NOT stamp data-motion-ready on <html> (4 ms)
+    √ does NOT construct a Lenis instance (4 ms)
+    √ does NOT call gsap.fromTo (no animation timelines) (3 ms)
+    √ returns reducedMotion: true (2 ms)
+    √ leaves data-motion-reveal elements without GSAP inline opacity (2 ms)
+    √ leaves data-motion-hero elements without GSAP inline opacity (2 ms)
+  useEditorialMotion — normal-motion path
+    √ stamps data-reduced-motion="false" on <html> (13 ms)
+    √ returns reducedMotion: false (3 ms)
+    √ constructs a Lenis instance when motion is allowed (10 ms)
+  useEditorialMotion — CSS accessibility contract
+    √ data-motion-reveal elements are visible before JS motion init (2 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       11 passed, 11 total
+Snapshots:   0 total
+Time:        3.889 s
+Ran all test suites matching /editorial-motion/i.
+Force exiting Jest: Have you considered using `--detectOpenHandles` to detect async operations that kept running after all tests finished?
+

@@ -1,0 +1,18 @@
+{
+  "id": "35e2d497-cf5e-41df-a98f-316a14a9f80b",
+  "runtime": "node",
+  "purpose": "T03 regression after fixing GitHub spread test selector",
+  "script_chars": 401,
+  "started_at": "2026-05-23T04:09:05.161Z",
+  "finished_at": "2026-05-23T04:09:13.274Z",
+  "exit_code": 0,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 8113,
+  "stdout_bytes": 5175,
+  "stderr_bytes": 1128,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\35e2d497-cf5e-41df-a98f-316a14a9f80b.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\35e2d497-cf5e-41df-a98f-316a14a9f80b.stderr"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "457938e1-72e0-4aeb-a2c7-48fd267660f0",
+  "runtime": "node",
+  "purpose": "T01 verification: npm run build via node launcher",
+  "script_chars": 307,
+  "started_at": "2026-05-23T21:15:08.561Z",
+  "finished_at": "2026-05-23T21:15:08.660Z",
+  "exit_code": 1,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 99,
+  "stdout_bytes": 13,
+  "stderr_bytes": 0,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\457938e1-72e0-4aeb-a2c7-48fd267660f0.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\457938e1-72e0-4aeb-a2c7-48fd267660f0.stderr"
+}

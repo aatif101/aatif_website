@@ -1,0 +1,12 @@
+PASS src/__tests__/github-activity-fetch.test.js
+  fetch-github-activity script helpers
+    √ reads portfolio token first without printing or mutating values (2 ms)
+    √ adds Authorization only inside request options when a token exists (1 ms)
+    √ builds a sanitized public activity artifact from GitHub payloads (2 ms)
+    √ provides a graceful fallback shape for missing token or API failure
+
+Test Suites: 1 passed, 1 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        2.374 s
+Ran all test suites within paths "src/__tests__/github-activity-fetch.test.js".

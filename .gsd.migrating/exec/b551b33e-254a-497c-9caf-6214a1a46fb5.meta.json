@@ -1,0 +1,18 @@
+{
+  "id": "b551b33e-254a-497c-9caf-6214a1a46fb5",
+  "runtime": "node",
+  "purpose": "T01 artifact and log safety validation",
+  "script_chars": 1277,
+  "started_at": "2026-05-23T04:04:55.751Z",
+  "finished_at": "2026-05-23T04:04:55.817Z",
+  "exit_code": 0,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 66,
+  "stdout_bytes": 116,
+  "stderr_bytes": 0,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\b551b33e-254a-497c-9caf-6214a1a46fb5.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\b551b33e-254a-497c-9caf-6214a1a46fb5.stderr"
+}

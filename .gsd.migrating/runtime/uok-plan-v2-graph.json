@@ -1,12 +1,12 @@
 {
-  "compiledAt": "2026-05-22T18:49:44.829Z",
+  "compiledAt": "2026-05-23T07:22:30.432Z",
   "milestoneId": "M001",
   "pipeline": {
     "clarifyRoundLimit": 3,
     "researchSynthesized": false,
     "draftContextIncluded": false,
     "finalizedContextIncluded": true,
-    "sourcePhase": "summarizing"
+    "sourcePhase": "executing"
   },
   "nodes": [
     {
@@ -137,19 +137,22 @@
         "unitType": "complete-slice",
         "unitId": "M001.S02",
         "title": "S02",
-        "status": "pending"
+        "status": "complete"
       }
     },
     {
       "id": "execute-task:M001:S03:T01",
       "kind": "unit",
       "dependsOn": [],
-      "writes": [],
+      "writes": [
+        "src/content/portfolioContent.js",
+        "src/__tests__/portfolioContent.test.js"
+      ],
       "metadata": {
         "unitType": "execute-task",
         "unitId": "M001.S03.T01",
-        "title": "Create trustworthy portfolio content module",
-        "status": "pending"
+        "title": "Added a centralized trustworthy portfolio content module sourced from the CV, with selected work constrained to Reliu and NazScan.",
+        "status": "complete"
       }
     },
     {
@@ -158,12 +161,18 @@
       "dependsOn": [
         "execute-task:M001:S03:T01"
       ],
-      "writes": [],
+      "writes": [
+        "src/components/EditorialPortfolio.jsx",
+        "src/components/editorial/OpeningSpread.jsx",
+        "src/components/editorial/SelectedWork.jsx",
+        "src/components/editorial/ExperienceTimeline.jsx",
+        "src/__tests__/editorial-shell.test.js"
+      ],
       "metadata": {
         "unitType": "execute-task",
         "unitId": "M001.S03.T02",
-        "title": "Render selected work and timeline from content",
-        "status": "pending"
+        "title": "Rendered the trusted portfolio content module through selected-work spreads, a combined editorial timeline, and contact details.",
+        "status": "complete"
       }
     },
     {
@@ -172,12 +181,14 @@
       "dependsOn": [
         "execute-task:M001:S03:T02"
       ],
-      "writes": [],
+      "writes": [
+        "src/__tests__/portfolio-content.test.js"
+      ],
       "metadata": {
         "unitType": "execute-task",
         "unitId": "M001.S03.T03",
-        "title": "Guard against unsupported personal content",
-        "status": "pending"
+        "title": "Added a portfolio content integrity test that locks approved project and experience names while rejecting prior hallucinated company claims.",
+        "status": "complete"
       }
     },
     {
@@ -189,20 +200,25 @@
       "metadata": {
         "unitType": "complete-slice",
         "unitId": "M001.S03",
-        "title": "Curated CV Content and Editorial Sections",
-        "status": "pending"
+        "title": "S03",
+        "status": "complete"
       }
     },
     {
       "id": "execute-task:M001:S04:T01",
       "kind": "unit",
       "dependsOn": [],
-      "writes": [],
+      "writes": [
+        "scripts/fetch-github-activity.js",
+        "src/data/githubActivity.json",
+        "src/__tests__/github-activity-fetch.test.js",
+        "package.json"
+      ],
       "metadata": {
         "unitType": "execute-task",
         "unitId": "M001.S04.T01",
-        "title": "Build safe GitHub activity fetch script",
-        "status": "pending"
+        "title": "Added a safe build-time GitHub REST fetch script and npm command that writes sanitized activity data to src/data/githubActivity.json with graceful fallback support.",
+        "status": "complete"
       }
     },
     {
@@ -211,12 +227,14 @@
       "dependsOn": [
         "execute-task:M001:S04:T01"
       ],
-      "writes": [],
+      "writes": [
+        "src/__tests__/github-activity-data.test.js"
+      ],
       "metadata": {
         "unitType": "execute-task",
         "unitId": "M001.S04.T02",
-        "title": "Verify GitHub data artifact safety",
-        "status": "pending"
+        "title": "Added static GitHub activity artifact safety tests covering render shape, timestamps, sanitized event/repo fields, and token-looking leakage patterns.",
+        "status": "complete"
       }
     },
     {
@@ -225,12 +243,16 @@
       "dependsOn": [
         "execute-task:M001:S04:T02"
       ],
-      "writes": [],
+      "writes": [
+        "src/components/editorial/GitHubActivity.jsx",
+        "src/components/EditorialPortfolio.jsx",
+        "src/__tests__/editorial-shell.test.js"
+      ],
       "metadata": {
         "unitType": "execute-task",
         "unitId": "M001.S04.T03",
-        "title": "Render editorial GitHub activity spread",
-        "status": "pending"
+        "title": "Rendered a wide editorial GitHub activity spread from the static artifact and integrated it into the homepage with fallback visibility.",
+        "status": "complete"
       }
     },
     {
@@ -239,12 +261,17 @@
       "dependsOn": [
         "execute-task:M001:S04:T03"
       ],
-      "writes": [],
+      "writes": [
+        "scripts/verify-no-secrets.js",
+        "package.json",
+        "src/data/githubActivity.json",
+        "build/"
+      ],
       "metadata": {
         "unitType": "execute-task",
         "unitId": "M001.S04.T04",
-        "title": "Add no secret leakage verification",
-        "status": "pending"
+        "title": "Added a repeatable no-secret leakage verifier and npm script for source and build output.",
+        "status": "complete"
       }
     },
     {
@@ -256,8 +283,8 @@
       "metadata": {
         "unitType": "complete-slice",
         "unitId": "M001.S04",
-        "title": "Build Time GitHub Activity Dashboard",
-        "status": "pending"
+        "title": "S04",
+        "status": "complete"
       }
     },
     {

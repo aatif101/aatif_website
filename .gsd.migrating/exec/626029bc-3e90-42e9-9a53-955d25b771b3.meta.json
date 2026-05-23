@@ -1,0 +1,18 @@
+{
+  "id": "626029bc-3e90-42e9-9a53-955d25b771b3",
+  "runtime": "node",
+  "purpose": "T04 verification: no secret leakage script via npm",
+  "script_chars": 309,
+  "started_at": "2026-05-23T04:12:53.718Z",
+  "finished_at": "2026-05-23T04:12:53.791Z",
+  "exit_code": 1,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 73,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\626029bc-3e90-42e9-9a53-955d25b771b3.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\626029bc-3e90-42e9-9a53-955d25b771b3.stderr"
+}

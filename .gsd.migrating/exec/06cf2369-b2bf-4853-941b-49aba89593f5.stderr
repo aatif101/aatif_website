@@ -1,0 +1,13 @@
+PASS src/__tests__/portfolioContent.test.js
+  portfolioContent — trustworthy personal claims surface
+    √ exports the required editorial sections (3 ms)
+    √ limits selected work to Reliu and NazScan (1 ms)
+    √ positions Reliu as zero to TestFlight-ready
+    √ positions NazScan as a one-command scanner for vibe-coded repos
+    √ does not reintroduce unsupported selected-work placeholders (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       5 passed, 5 total
+Snapshots:   0 total
+Time:        3.014 s
+Ran all test suites within paths "src/__tests__/portfolioContent.test.js".

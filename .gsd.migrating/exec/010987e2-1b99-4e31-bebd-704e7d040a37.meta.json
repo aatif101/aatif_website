@@ -1,0 +1,18 @@
+{
+  "id": "010987e2-1b99-4e31-bebd-704e7d040a37",
+  "runtime": "bash",
+  "purpose": "T01 focused content integrity test",
+  "script_chars": 84,
+  "started_at": "2026-05-23T03:54:49.959Z",
+  "finished_at": "2026-05-23T03:54:53.364Z",
+  "exit_code": 1,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 3405,
+  "stdout_bytes": 0,
+  "stderr_bytes": 104,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\010987e2-1b99-4e31-bebd-704e7d040a37.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\010987e2-1b99-4e31-bebd-704e7d040a37.stderr"
+}

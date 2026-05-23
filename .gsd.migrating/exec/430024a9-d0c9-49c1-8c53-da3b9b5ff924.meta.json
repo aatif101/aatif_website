@@ -1,0 +1,18 @@
+{
+  "id": "430024a9-d0c9-49c1-8c53-da3b9b5ff924",
+  "runtime": "bash",
+  "purpose": "T01 verification: npm run build after coolThings content",
+  "script_chars": 13,
+  "started_at": "2026-05-23T21:15:01.362Z",
+  "finished_at": "2026-05-23T21:15:02.561Z",
+  "exit_code": 1,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 1199,
+  "stdout_bytes": 0,
+  "stderr_bytes": 104,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\430024a9-d0c9-49c1-8c53-da3b9b5ff924.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\430024a9-d0c9-49c1-8c53-da3b9b5ff924.stderr"
+}

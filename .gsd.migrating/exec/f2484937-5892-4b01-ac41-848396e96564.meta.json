@@ -1,0 +1,18 @@
+{
+  "id": "f2484937-5892-4b01-ac41-848396e96564",
+  "runtime": "bash",
+  "purpose": "S03 T02 targeted editorial content tests",
+  "script_chars": 89,
+  "started_at": "2026-05-23T03:58:26.225Z",
+  "finished_at": "2026-05-23T03:58:28.774Z",
+  "exit_code": 1,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 2549,
+  "stdout_bytes": 0,
+  "stderr_bytes": 104,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\f2484937-5892-4b01-ac41-848396e96564.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\f2484937-5892-4b01-ac41-848396e96564.stderr"
+}

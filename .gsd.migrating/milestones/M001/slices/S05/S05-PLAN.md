@@ -25,7 +25,7 @@ Completes the final content surfaces downstream of the GitHub dashboard and clos
 
 ## Tasks
 
-- [ ] **T01: Create maintainable cool things content** `est:30m`
+- [x] **T01: Create maintainable cool things content** `est:30m`
   Create editable cool-items content with 3 tasteful placeholder seed entries marked as replaceable until the user sends the real list. Keep the content model simple: title, url, caption, optional kind. Do not hard-code the entries across components.
   - Files: `src/content/coolThings.js`
   - Verify: npm run build

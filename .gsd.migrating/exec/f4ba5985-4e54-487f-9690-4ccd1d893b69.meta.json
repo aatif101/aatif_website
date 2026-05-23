@@ -1,0 +1,18 @@
+{
+  "id": "f4ba5985-4e54-487f-9690-4ccd1d893b69",
+  "runtime": "node",
+  "purpose": "S04 slice verification: fetch script logging safety with dummy token",
+  "script_chars": 528,
+  "started_at": "2026-05-23T04:13:41.734Z",
+  "finished_at": "2026-05-23T04:13:42.544Z",
+  "exit_code": 0,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 810,
+  "stdout_bytes": 903,
+  "stderr_bytes": 0,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\f4ba5985-4e54-487f-9690-4ccd1d893b69.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\f4ba5985-4e54-487f-9690-4ccd1d893b69.stderr"
+}

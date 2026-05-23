@@ -1,0 +1,6 @@
+
+> aatif-portfolio@0.1.0 test
+> react-scripts test --watchAll=false --runTestsByPath src/__tests__/github-activity-fetch.test.js
+
+
+[durationMs=4872]

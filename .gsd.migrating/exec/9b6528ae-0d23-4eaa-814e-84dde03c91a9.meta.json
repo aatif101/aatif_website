@@ -1,0 +1,18 @@
+{
+  "id": "9b6528ae-0d23-4eaa-814e-84dde03c91a9",
+  "runtime": "node",
+  "purpose": "S03 T02 diagnose npm command resolution",
+  "script_chars": 344,
+  "started_at": "2026-05-23T03:58:39.204Z",
+  "finished_at": "2026-05-23T03:58:40.078Z",
+  "exit_code": 0,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 874,
+  "stdout_bytes": 114,
+  "stderr_bytes": 264,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\9b6528ae-0d23-4eaa-814e-84dde03c91a9.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\9b6528ae-0d23-4eaa-814e-84dde03c91a9.stderr"
+}

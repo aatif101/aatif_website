@@ -1,0 +1,18 @@
+{
+  "id": "a72d7175-0c1f-475a-820a-3f7543212395",
+  "runtime": "node",
+  "purpose": "T01 inspect node runtime command availability",
+  "script_chars": 334,
+  "started_at": "2026-05-23T03:55:04.833Z",
+  "finished_at": "2026-05-23T03:55:05.973Z",
+  "exit_code": 0,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 1140,
+  "stdout_bytes": 171,
+  "stderr_bytes": 264,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\a72d7175-0c1f-475a-820a-3f7543212395.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\a72d7175-0c1f-475a-820a-3f7543212395.stderr"
+}

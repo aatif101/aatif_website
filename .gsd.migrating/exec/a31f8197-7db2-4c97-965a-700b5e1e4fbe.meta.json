@@ -1,0 +1,18 @@
+{
+  "id": "a31f8197-7db2-4c97-965a-700b5e1e4fbe",
+  "runtime": "node",
+  "purpose": "T03 diagnostic: npm spawn availability",
+  "script_chars": 328,
+  "started_at": "2026-05-23T04:00:31.120Z",
+  "finished_at": "2026-05-23T04:00:31.185Z",
+  "exit_code": 0,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 65,
+  "stdout_bytes": 126,
+  "stderr_bytes": 0,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\a31f8197-7db2-4c97-965a-700b5e1e4fbe.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\a31f8197-7db2-4c97-965a-700b5e1e4fbe.stderr"
+}

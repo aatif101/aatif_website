@@ -1,0 +1,18 @@
+{
+  "id": "51e9cd51-666f-43dd-bd3d-fcced053b668",
+  "runtime": "node",
+  "purpose": "T03 regression: editorial shell renders GitHub spread integration",
+  "script_chars": 401,
+  "started_at": "2026-05-23T04:08:25.804Z",
+  "finished_at": "2026-05-23T04:08:31.996Z",
+  "exit_code": 0,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 6192,
+  "stdout_bytes": 4973,
+  "stderr_bytes": 1033,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\51e9cd51-666f-43dd-bd3d-fcced053b668.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\51e9cd51-666f-43dd-bd3d-fcced053b668.stderr"
+}

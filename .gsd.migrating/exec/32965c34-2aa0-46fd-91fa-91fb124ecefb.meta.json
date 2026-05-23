@@ -1,0 +1,18 @@
+{
+  "id": "32965c34-2aa0-46fd-91fa-91fb124ecefb",
+  "runtime": "bash",
+  "purpose": "T01 focused tests: GitHub activity fetch helpers",
+  "script_chars": 89,
+  "started_at": "2026-05-23T04:04:24.262Z",
+  "finished_at": "2026-05-23T04:04:26.713Z",
+  "exit_code": 1,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 2451,
+  "stdout_bytes": 0,
+  "stderr_bytes": 104,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\32965c34-2aa0-46fd-91fa-91fb124ecefb.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\32965c34-2aa0-46fd-91fa-91fb124ecefb.stderr"
+}

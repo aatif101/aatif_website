@@ -1,0 +1,18 @@
+{
+  "id": "a5ba6e58-d0f5-41cb-9275-de69602cb3bf",
+  "runtime": "node",
+  "purpose": "T03 regression after shell test update",
+  "script_chars": 401,
+  "started_at": "2026-05-23T04:08:46.730Z",
+  "finished_at": "2026-05-23T04:08:52.696Z",
+  "exit_code": 1,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 5966,
+  "stdout_bytes": 5175,
+  "stderr_bytes": 11624,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\a5ba6e58-d0f5-41cb-9275-de69602cb3bf.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\a5ba6e58-d0f5-41cb-9275-de69602cb3bf.stderr"
+}

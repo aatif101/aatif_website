@@ -1,0 +1,17 @@
+
+> aatif-portfolio@0.1.0 fetch-github-activity
+> node scripts/fetch-github-activity.js
+
+{"phase":"script:start","outputPath":"src\\data\\githubActivity.json"}
+{"phase":"fetch:init","username":"aatif101"}
+{"phase":"request:start","endpointClass":"profile","apiHost":"api.github.com","authenticated":true}
+{"phase":"request:start","endpointClass":"repos","apiHost":"api.github.com","authenticated":true}
+{"phase":"request:start","endpointClass":"events","apiHost":"api.github.com","authenticated":true}
+{"phase":"request:end","endpointClass":"profile","statusCode":200,"rateLimitRemaining":"4990"}
+{"phase":"request:end","endpointClass":"events","statusCode":200,"rateLimitRemaining":"4989"}
+{"phase":"request:end","endpointClass":"repos","statusCode":200,"rateLimitRemaining":"4991"}
+{"phase":"fetch:complete","fallback":false,"repositories":12}
+{"phase":"write:complete","outputPath":"src\\data\\githubActivity.json","fallback":false}
+{"phase":"script:done","fallback":false}
+
+[durationMs=1403]
