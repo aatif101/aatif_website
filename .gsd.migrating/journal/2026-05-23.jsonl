@@ -1,0 +1,2 @@
+{"ts":"2026-05-23T03:49:41.897Z","flowId":"auto-orchestrator-1779508180384","seq":1,"eventType":"iteration-start","data":{"source":"auto-orchestrator","name":"resume"}}
+{"ts":"2026-05-23T03:49:42.125Z","flowId":"auto-orchestrator-1779508180384","seq":2,"eventType":"guard-block","data":{"source":"auto-orchestrator","name":"advance-blocked","reason":"Unhandled phase \"summarizing\" — run /gsd doctor to diagnose."}}

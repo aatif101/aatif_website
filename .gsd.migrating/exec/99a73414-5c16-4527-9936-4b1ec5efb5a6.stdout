@@ -1,0 +1,22 @@
+
+> aatif-portfolio@0.1.0 build
+> react-scripts build
+
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  46.51 kB (+41 B)  build\static\js\main.5023886a.js
+  4.73 kB           build\static\css\main.3238a7bc.css
+
+The project was built assuming it is hosted at /aatif_website/.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
+

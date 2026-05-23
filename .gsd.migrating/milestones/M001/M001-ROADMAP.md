@@ -15,10 +15,10 @@
 
 ## Slices
 
-- [ ] **S01: Editorial Shell and Visual Language** `risk:high` `depends:[]`
+- [x] **S01: S01** `risk:high` `depends:[]`
   > After this: After this: npm start shows a cream editorial homepage with Aatif as the opening identity, no matrix rain or terminal visuals, and empty but correctly paced sections for the full one-page scroll.
 
-- [ ] **S02: Scroll Choreography and Reduced Motion** `risk:high` `depends:[S01]`
+- [ ] **S02: S02** `risk:high` `depends:[]`
   > After this: After this: opening identity, lede, selected-work placeholders, and timeline placeholders move with smooth scroll in normal mode and become static readable sections in reduced-motion mode.
 
 - [ ] **S03: Curated CV Content and Editorial Sections** `risk:medium` `depends:[S02]`

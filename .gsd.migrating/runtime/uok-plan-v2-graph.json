@@ -1,0 +1,398 @@
+{
+  "compiledAt": "2026-05-22T18:49:44.829Z",
+  "milestoneId": "M001",
+  "pipeline": {
+    "clarifyRoundLimit": 3,
+    "researchSynthesized": false,
+    "draftContextIncluded": false,
+    "finalizedContextIncluded": true,
+    "sourcePhase": "summarizing"
+  },
+  "nodes": [
+    {
+      "id": "execute-task:M001:S01:T01",
+      "kind": "unit",
+      "dependsOn": [],
+      "writes": [
+        "public/index.html",
+        "src/index.css",
+        "tailwind.config.js"
+      ],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S01.T01",
+        "title": "Replaced Inter-only CSS with Spectral + Inter editorial token system: CSS custom properties for paper/ink/oxblood palette, focus-visible, skip-link, reduced-motion, and Tailwind wired to variables.",
+        "status": "complete"
+      }
+    },
+    {
+      "id": "execute-task:M001:S01:T02",
+      "kind": "unit",
+      "dependsOn": [
+        "execute-task:M001:S01:T01"
+      ],
+      "writes": [
+        "src/App.js",
+        "src/components/EditorialPortfolio.jsx"
+      ],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S01.T02",
+        "title": "Created EditorialPortfolio.jsx one-page shell and rewired App.js to drop all old components, delivering a cream editorial homepage with semantic sections and no terminal/matrix visuals.",
+        "status": "complete"
+      }
+    },
+    {
+      "id": "execute-task:M001:S01:T03",
+      "kind": "unit",
+      "dependsOn": [
+        "execute-task:M001:S01:T02"
+      ],
+      "writes": [
+        "src/components/editorial/OpeningSpread.jsx",
+        "src/components/editorial/SectionShell.jsx",
+        "src/components/EditorialPortfolio.jsx",
+        "src/__tests__/editorial-shell.test.js"
+      ],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S01.T03",
+        "title": "Extracted OpeningSpread and SectionShell editorial components, refactored EditorialPortfolio to use them, and added 10-test shell verification suite (all passing).",
+        "status": "complete"
+      }
+    },
+    {
+      "id": "complete-slice:M001:S01",
+      "kind": "verification",
+      "dependsOn": [
+        "execute-task:M001:S01:T03"
+      ],
+      "metadata": {
+        "unitType": "complete-slice",
+        "unitId": "M001.S01",
+        "title": "S01",
+        "status": "complete"
+      }
+    },
+    {
+      "id": "execute-task:M001:S02:T01",
+      "kind": "unit",
+      "dependsOn": [],
+      "writes": [
+        "src/hooks/useEditorialMotion.js"
+      ],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S02.T01",
+        "title": "Added useEditorialMotion hook: Lenis + GSAP ScrollTrigger init with full reduced-motion guard and cleanup",
+        "status": "complete"
+      }
+    },
+    {
+      "id": "execute-task:M001:S02:T02",
+      "kind": "unit",
+      "dependsOn": [
+        "execute-task:M001:S02:T01"
+      ],
+      "writes": [
+        "src/hooks/useEditorialMotion.js",
+        "src/components/EditorialPortfolio.jsx",
+        "src/components/editorial/SectionShell.jsx",
+        "src/components/editorial/OpeningSpread.jsx",
+        "src/index.css"
+      ],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S02.T02",
+        "title": "Wired useEditorialMotion hook to EditorialPortfolio: hero entrance + scroll-reveal choreography on real sections via data-motion-* attributes",
+        "status": "complete"
+      }
+    },
+    {
+      "id": "execute-task:M001:S02:T03",
+      "kind": "unit",
+      "dependsOn": [
+        "execute-task:M001:S02:T02"
+      ],
+      "writes": [
+        "src/__tests__/editorial-motion.test.js",
+        "__mocks__/lenis.js",
+        "src/setupTests.js",
+        "package.json"
+      ],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S02.T03",
+        "title": "Added 11-test reduced-motion guard suite for useEditorialMotion; fixed Jest ESM blockers for gsap and lenis via moduleNameMapper and manual mock",
+        "status": "complete"
+      }
+    },
+    {
+      "id": "complete-slice:M001:S02",
+      "kind": "verification",
+      "dependsOn": [
+        "execute-task:M001:S02:T03"
+      ],
+      "metadata": {
+        "unitType": "complete-slice",
+        "unitId": "M001.S02",
+        "title": "S02",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "execute-task:M001:S03:T01",
+      "kind": "unit",
+      "dependsOn": [],
+      "writes": [],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S03.T01",
+        "title": "Create trustworthy portfolio content module",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "execute-task:M001:S03:T02",
+      "kind": "unit",
+      "dependsOn": [
+        "execute-task:M001:S03:T01"
+      ],
+      "writes": [],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S03.T02",
+        "title": "Render selected work and timeline from content",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "execute-task:M001:S03:T03",
+      "kind": "unit",
+      "dependsOn": [
+        "execute-task:M001:S03:T02"
+      ],
+      "writes": [],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S03.T03",
+        "title": "Guard against unsupported personal content",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "complete-slice:M001:S03",
+      "kind": "verification",
+      "dependsOn": [
+        "execute-task:M001:S03:T03"
+      ],
+      "metadata": {
+        "unitType": "complete-slice",
+        "unitId": "M001.S03",
+        "title": "Curated CV Content and Editorial Sections",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "execute-task:M001:S04:T01",
+      "kind": "unit",
+      "dependsOn": [],
+      "writes": [],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S04.T01",
+        "title": "Build safe GitHub activity fetch script",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "execute-task:M001:S04:T02",
+      "kind": "unit",
+      "dependsOn": [
+        "execute-task:M001:S04:T01"
+      ],
+      "writes": [],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S04.T02",
+        "title": "Verify GitHub data artifact safety",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "execute-task:M001:S04:T03",
+      "kind": "unit",
+      "dependsOn": [
+        "execute-task:M001:S04:T02"
+      ],
+      "writes": [],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S04.T03",
+        "title": "Render editorial GitHub activity spread",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "execute-task:M001:S04:T04",
+      "kind": "unit",
+      "dependsOn": [
+        "execute-task:M001:S04:T03"
+      ],
+      "writes": [],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S04.T04",
+        "title": "Add no secret leakage verification",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "complete-slice:M001:S04",
+      "kind": "verification",
+      "dependsOn": [
+        "execute-task:M001:S04:T04"
+      ],
+      "metadata": {
+        "unitType": "complete-slice",
+        "unitId": "M001.S04",
+        "title": "Build Time GitHub Activity Dashboard",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "execute-task:M001:S05:T01",
+      "kind": "unit",
+      "dependsOn": [],
+      "writes": [],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S05.T01",
+        "title": "Create maintainable cool things content",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "execute-task:M001:S05:T02",
+      "kind": "unit",
+      "dependsOn": [
+        "execute-task:M001:S05:T01"
+      ],
+      "writes": [],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S05.T02",
+        "title": "Render Things I Find Cool editorial list",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "execute-task:M001:S05:T03",
+      "kind": "unit",
+      "dependsOn": [
+        "execute-task:M001:S05:T02"
+      ],
+      "writes": [],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S05.T03",
+        "title": "Build typographic colophon",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "execute-task:M001:S05:T04",
+      "kind": "unit",
+      "dependsOn": [
+        "execute-task:M001:S05:T03"
+      ],
+      "writes": [],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S05.T04",
+        "title": "Verify editorial links and landmarks",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "complete-slice:M001:S05",
+      "kind": "verification",
+      "dependsOn": [
+        "execute-task:M001:S05:T04"
+      ],
+      "metadata": {
+        "unitType": "complete-slice",
+        "unitId": "M001.S05",
+        "title": "Things I Find Cool and Colophon",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "execute-task:M001:S06:T01",
+      "kind": "unit",
+      "dependsOn": [],
+      "writes": [],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S06.T01",
+        "title": "Remove inactive legacy visual system from active path",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "execute-task:M001:S06:T02",
+      "kind": "unit",
+      "dependsOn": [
+        "execute-task:M001:S06:T01"
+      ],
+      "writes": [],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S06.T02",
+        "title": "Polish typography motion and accessibility details",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "execute-task:M001:S06:T03",
+      "kind": "unit",
+      "dependsOn": [
+        "execute-task:M001:S06:T02"
+      ],
+      "writes": [],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S06.T03",
+        "title": "Perform live browser verification",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "execute-task:M001:S06:T04",
+      "kind": "unit",
+      "dependsOn": [
+        "execute-task:M001:S06:T03"
+      ],
+      "writes": [],
+      "metadata": {
+        "unitType": "execute-task",
+        "unitId": "M001.S06.T04",
+        "title": "Run final integrated verification",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "complete-slice:M001:S06",
+      "kind": "verification",
+      "dependsOn": [
+        "execute-task:M001:S06:T04"
+      ],
+      "metadata": {
+        "unitType": "complete-slice",
+        "unitId": "M001.S06",
+        "title": "Polish Verification and Old System Removal",
+        "status": "pending"
+      }
+    }
+  ]
+}

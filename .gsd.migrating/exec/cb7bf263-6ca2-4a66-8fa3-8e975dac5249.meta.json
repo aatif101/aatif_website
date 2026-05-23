@@ -1,0 +1,18 @@
+{
+  "id": "cb7bf263-6ca2-4a66-8fa3-8e975dac5249",
+  "runtime": "node",
+  "purpose": "S01 slice verification: editorial-shell tests",
+  "script_chars": 539,
+  "started_at": "2026-05-22T18:33:16.915Z",
+  "finished_at": "2026-05-22T18:33:23.134Z",
+  "exit_code": 0,
+  "signal": null,
+  "timed_out": false,
+  "duration_ms": 6219,
+  "stdout_bytes": 1606,
+  "stderr_bytes": 955,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "stdout_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\cb7bf263-6ca2-4a66-8fa3-8e975dac5249.stdout",
+  "stderr_path": "C:\\Users\\smati\\VS Code Projects\\aatif_website\\.gsd\\exec\\cb7bf263-6ca2-4a66-8fa3-8e975dac5249.stderr"
+}

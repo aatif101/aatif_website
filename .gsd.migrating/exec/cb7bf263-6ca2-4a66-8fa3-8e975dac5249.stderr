@@ -1,0 +1,20 @@
+PASS src/__tests__/editorial-shell.test.js
+  EditorialPortfolio — section anchors
+    √ renders the identity heading with "Aatif" (171 ms)
+    √ renders the #about opening spread section (17 ms)
+    √ renders the #experience section (12 ms)
+    √ renders the #projects section (13 ms)
+    √ renders the #education section (11 ms)
+    √ renders the #skills section (11 ms)
+    √ renders the colophon footer (12 ms)
+    √ renders a skip link targeting #main (13 ms)
+    √ renders the lede headline (11 ms)
+  EditorialPortfolio — no legacy terminal visuals
+    √ does not import matrix or terminal components at the component level (2 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       10 passed, 10 total
+Snapshots:   0 total
+Time:        3.003 s
+Ran all test suites matching /editorial-shell/i.
+Force exiting Jest: Have you considered using `--detectOpenHandles` to detect async operations that kept running after all tests finished?
