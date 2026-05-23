@@ -114,6 +114,31 @@ describe('EditorialPortfolio — no legacy terminal visuals or unsupported place
     expect(src).not.toMatch(/lenis/i);
   });
 
+  it('keeps retired visual-system files and dependencies out of the active app', () => {
+    const fs = require('fs');
+    const path = require('path');
+    const appSrc = fs.readFileSync(path.resolve(__dirname, '../App.js'), 'utf8');
+    const packageJson = fs.readFileSync(path.resolve(__dirname, '../../package.json'), 'utf8');
+    const packageLock = fs.readFileSync(path.resolve(__dirname, '../../package-lock.json'), 'utf8');
+    const retiredFiles = [
+      '../components/Header.js',
+      '../components/Footer.js',
+      '../components/EducationExperienceSection.js',
+      '../components/ProjectsSection.js',
+      '../components/LoadingSkeleton.js',
+      '../components/ResumeSection.js',
+      '../components/SummarySection.js',
+    ];
+
+    expect(appSrc).not.toMatch(/MatrixRain|FloatingSocialButtons|framer-motion/);
+    expect(appSrc).not.toMatch(/\.\/components\/(Header|Hero|About|Projects|Footer)/);
+    expect(packageJson).not.toMatch(/framer-motion/);
+    expect(packageLock).not.toMatch(/framer-motion/);
+    retiredFiles.forEach((file) => {
+      expect(fs.existsSync(path.resolve(__dirname, file))).toBe(false);
+    });
+  });
+
   it('does not render unsupported selected-work placeholders', () => {
     render(<EditorialPortfolio />);
     expect(screen.queryByText(/MedFlow/i)).not.toBeInTheDocument();
