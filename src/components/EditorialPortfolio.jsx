@@ -4,6 +4,7 @@ import portfolioContent from '../content/portfolioContent';
 import OpeningSpread from './editorial/OpeningSpread';
 import SectionShell from './editorial/SectionShell';
 import SelectedWork from './editorial/SelectedWork';
+import GitHubActivity from './editorial/GitHubActivity';
 import ExperienceTimeline from './editorial/ExperienceTimeline';
 
 export default function EditorialPortfolio() {
@@ -75,6 +76,7 @@ export default function EditorialPortfolio() {
             {[
               ['About', '#about'],
               ['Selected work', '#selected-work'],
+              ['GitHub', '#github-activity'],
               ['Timeline', '#timeline'],
               ['Contact', '#contact'],
             ].map(([label, href]) => (
@@ -113,6 +115,47 @@ export default function EditorialPortfolio() {
         >
           <SelectedWork works={selectedWork} />
         </SectionShell>
+
+        <section
+          id="github-activity"
+          aria-labelledby="github-activity-heading"
+          data-motion-reveal
+          style={{
+            backgroundColor: 'var(--color-paper)',
+            padding: 'var(--space-24) var(--space-8)',
+            borderBottom: '1px solid var(--color-hairline)',
+          }}
+        >
+          <div style={{ maxWidth: 'var(--col-wide)', margin: '0 auto' }}>
+            <p
+              style={{
+                fontFamily: 'var(--font-sans)',
+                fontSize: 'var(--text-xs)',
+                letterSpacing: 'var(--tracking-caps)',
+                textTransform: 'uppercase',
+                color: 'var(--color-muted)',
+                marginBottom: 'var(--space-4)',
+              }}
+            >
+              GitHub activity
+            </p>
+            <h2
+              id="github-activity-heading"
+              style={{
+                fontFamily: 'var(--font-serif)',
+                fontSize: 'var(--text-3xl)',
+                fontWeight: 300,
+                lineHeight: 'var(--leading-tight)',
+                letterSpacing: 'var(--tracking-tight)',
+                color: 'var(--color-ink)',
+                margin: '0 0 var(--space-16)',
+              }}
+            >
+              A public engineering ledger
+            </h2>
+            <GitHubActivity />
+          </div>
+        </section>
 
         <SectionShell
           id="timeline"

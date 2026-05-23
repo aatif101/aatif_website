@@ -40,6 +40,19 @@ describe('EditorialPortfolio — section anchors and trusted content', () => {
     expect(within(section).getByText(/one-command security scanner for vibe-coded repos/i)).toBeInTheDocument();
   });
 
+  it('renders the GitHub activity annual-report spread from the static artifact', () => {
+    const section = document.getElementById('github-activity');
+    expect(section).toBeInTheDocument();
+
+    expect(
+      within(section).getByRole('heading', { level: 2, name: /a public engineering ledger/i })
+    ).toBeInTheDocument();
+    expect(within(section).getByLabelText(/github activity report/i)).toBeInTheDocument();
+    expect(within(section).getByText(/live public artifact|fallback data visible/i)).toBeInTheDocument();
+    expect(within(section).getByRole('heading', { level: 3, name: /recent public marks/i })).toBeInTheDocument();
+    expect(within(section).getByRole('heading', { level: 3, name: /active repositories/i })).toBeInTheDocument();
+  });
+
   it('renders experience, education, and leadership in one dense timeline', () => {
     const section = document.getElementById('timeline');
     expect(section).toBeInTheDocument();
