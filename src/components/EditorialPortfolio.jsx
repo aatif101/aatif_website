@@ -1,10 +1,15 @@
 import React from 'react';
 import { useEditorialMotion } from '../hooks/useEditorialMotion';
+import portfolioContent from '../content/portfolioContent';
 import OpeningSpread from './editorial/OpeningSpread';
 import SectionShell from './editorial/SectionShell';
+import SelectedWork from './editorial/SelectedWork';
+import ExperienceTimeline from './editorial/ExperienceTimeline';
 
 export default function EditorialPortfolio() {
   useEditorialMotion();
+
+  const { identity, selectedWork, experience, education, leadership, contact } = portfolioContent;
 
   return (
     <>
@@ -57,7 +62,7 @@ export default function EditorialPortfolio() {
               margin: 0,
             }}
           >
-            Aatif Siddiqui
+            {identity.name}
           </h1>
           <nav
             aria-label="Page sections"
@@ -67,10 +72,15 @@ export default function EditorialPortfolio() {
               gap: 'var(--space-6)',
             }}
           >
-            {['About', 'Experience', 'Projects', 'Education', 'Skills'].map((label) => (
+            {[
+              ['About', '#about'],
+              ['Selected work', '#selected-work'],
+              ['Timeline', '#timeline'],
+              ['Contact', '#contact'],
+            ].map(([label, href]) => (
               <a
                 key={label}
-                href={`#${label.toLowerCase()}`}
+                href={href}
                 style={{
                   fontFamily: 'var(--font-sans)',
                   fontSize: 'var(--text-sm)',
@@ -92,46 +102,37 @@ export default function EditorialPortfolio() {
 
       {/* ── Main content ────────────────────────────────────────────────────── */}
       <main id="main" tabIndex={-1}>
-        {/* Opening spread gets its own hero entrance via data-motion-hero on the
-            header above; the lede text block gets a staggered sibling reveal */}
         <OpeningSpread />
 
         <SectionShell
-          id="experience"
-          label="Experience"
-          heading="Work"
-          surface="paper"
-          motionReveal
-        />
-
-        <SectionShell
-          id="projects"
-          label="Projects"
-          heading="Selected work"
+          id="selected-work"
+          label="Selected work"
+          heading="Two pinned spreads"
           surface="surface"
           motionReveal
-        />
+        >
+          <SelectedWork works={selectedWork} />
+        </SectionShell>
 
         <SectionShell
-          id="education"
-          label="Education"
-          heading="Formation"
+          id="timeline"
+          label="Timeline"
+          heading="Experience, education, leadership"
           surface="paper"
           motionReveal
-        />
-
-        <SectionShell
-          id="skills"
-          label="Skills"
-          heading="Craft"
-          surface="surface"
-          motionReveal
-        />
+        >
+          <ExperienceTimeline
+            experience={experience}
+            education={education}
+            leadership={leadership}
+          />
+        </SectionShell>
       </main>
 
       {/* ── Footer / colophon ───────────────────────────────────────────────── */}
       <footer
-        aria-label="Colophon"
+        id="contact"
+        aria-label="Contact and colophon"
         data-motion-reveal
         style={{
           backgroundColor: 'var(--color-ink)',
@@ -140,6 +141,27 @@ export default function EditorialPortfolio() {
           textAlign: 'center',
         }}
       >
+        <address
+          style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize: 'var(--text-sm)',
+            fontStyle: 'normal',
+            lineHeight: 'var(--leading-relaxed)',
+            margin: '0 0 var(--space-6)',
+          }}
+        >
+          <a href={`mailto:${contact.email}`} style={{ color: 'inherit' }}>
+            {contact.email}
+          </a>
+          {' · '}
+          <a href={contact.linkedin} style={{ color: 'inherit' }}>
+            LinkedIn
+          </a>
+          {' · '}
+          <a href={contact.github} style={{ color: 'inherit' }}>
+            GitHub
+          </a>
+        </address>
         <p
           style={{
             fontFamily: 'var(--font-sans)',
@@ -149,7 +171,7 @@ export default function EditorialPortfolio() {
             margin: 0,
           }}
         >
-          Aatif Siddiqui &mdash; {new Date().getFullYear()}
+          {identity.name} &mdash; {new Date().getFullYear()}
         </p>
       </footer>
     </>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import EditorialPortfolio from '../components/EditorialPortfolio';
 
@@ -8,38 +8,62 @@ import EditorialPortfolio from '../components/EditorialPortfolio';
  * These run after every build to catch legacy imports or missing sections.
  */
 
-describe('EditorialPortfolio — section anchors', () => {
+describe('EditorialPortfolio — section anchors and trusted content', () => {
   beforeEach(() => {
     render(<EditorialPortfolio />);
   });
 
-  it('renders the identity heading with "Aatif"', () => {
+  it('renders the identity heading with Aatif’s full trusted name', () => {
     const h1 = screen.getByRole('heading', { level: 1 });
-    expect(h1).toHaveTextContent('Aatif');
+    expect(h1).toHaveTextContent('Mohammad Aatif Shaikh');
   });
 
-  it('renders the #about opening spread section', () => {
+  it('renders the #about opening spread section from the content module', () => {
     expect(document.getElementById('about')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', {
+        level: 2,
+        name: /building applied ai systems with security taste and shipping urgency/i,
+      })
+    ).toBeInTheDocument();
   });
 
-  it('renders the #experience section', () => {
-    expect(document.getElementById('experience')).toBeInTheDocument();
+  it('renders exactly two pinned selected-work spreads: Reliu and NazScan', () => {
+    const section = document.getElementById('selected-work');
+    expect(section).toBeInTheDocument();
+
+    const articles = within(section).getAllByRole('article');
+    expect(articles).toHaveLength(2);
+    expect(within(section).getByText('Reliu')).toBeInTheDocument();
+    expect(within(section).getByText('NazScan')).toBeInTheDocument();
+    expect(within(section).getByText(/TestFlight-ready build in 3 days/i)).toBeInTheDocument();
+    expect(within(section).getByText(/one-command security scanner for vibe-coded repos/i)).toBeInTheDocument();
   });
 
-  it('renders the #projects section', () => {
-    expect(document.getElementById('projects')).toBeInTheDocument();
+  it('renders experience, education, and leadership in one dense timeline', () => {
+    const section = document.getElementById('timeline');
+    expect(section).toBeInTheDocument();
+
+    expect(within(section).getByText(/AI\/ML Extern/i)).toBeInTheDocument();
+    expect(within(section).getByText(/CacheAi/i)).toBeInTheDocument();
+    expect(within(section).getByText(/B\.S\. Computer Science/i)).toBeInTheDocument();
+    expect(within(section).getByText(/USF Student Government/i)).toBeInTheDocument();
   });
 
-  it('renders the #education section', () => {
-    expect(document.getElementById('education')).toBeInTheDocument();
-  });
-
-  it('renders the #skills section', () => {
-    expect(document.getElementById('skills')).toBeInTheDocument();
-  });
-
-  it('renders the colophon footer', () => {
-    expect(screen.getByRole('contentinfo')).toBeInTheDocument();
+  it('renders contact details in the footer', () => {
+    const footer = screen.getByRole('contentinfo');
+    expect(within(footer).getByText('mohammadaatif@usf.edu')).toHaveAttribute(
+      'href',
+      'mailto:mohammadaatif@usf.edu'
+    );
+    expect(within(footer).getByText('LinkedIn')).toHaveAttribute(
+      'href',
+      'https://linkedin.com/in/shaikhaatif'
+    );
+    expect(within(footer).getByText('GitHub')).toHaveAttribute(
+      'href',
+      'https://github.com/aatif101'
+    );
   });
 
   it('renders a skip link targeting #main', () => {
@@ -47,12 +71,14 @@ describe('EditorialPortfolio — section anchors', () => {
     expect(skipLink).toHaveAttribute('href', '#main');
   });
 
-  it('renders the lede headline', () => {
-    expect(screen.getByText(/building things that feel/i)).toBeInTheDocument();
+  it('does not render a separate Skills section or skill tags surface', () => {
+    expect(document.getElementById('skills')).not.toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: /^Craft$/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /^Skills$/i })).not.toBeInTheDocument();
   });
 });
 
-describe('EditorialPortfolio — no legacy terminal visuals', () => {
+describe('EditorialPortfolio — no legacy terminal visuals or unsupported placeholders', () => {
   it('does not import matrix or terminal components at the component level', () => {
     // Read the source file content and assert no terminal/matrix references
     const fs = require('fs');
@@ -68,5 +94,13 @@ describe('EditorialPortfolio — no legacy terminal visuals', () => {
     expect(src).not.toMatch(/framer.motion/i);
     expect(src).not.toMatch(/gsap/i);
     expect(src).not.toMatch(/lenis/i);
+  });
+
+  it('does not render unsupported selected-work placeholders', () => {
+    render(<EditorialPortfolio />);
+    expect(screen.queryByText(/MedFlow/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/LinkedInWrapped/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/LawyerUp/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Autoscaler/i)).not.toBeInTheDocument();
   });
 });

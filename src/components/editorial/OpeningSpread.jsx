@@ -1,10 +1,13 @@
 import React from 'react';
+import portfolioContent from '../../content/portfolioContent';
 
 /**
  * Opening spread — the lede section of the one-page portfolio.
  * Book-like: no cards, no icons, no gradients, no shadows.
  */
 export default function OpeningSpread() {
+  const { lede, identity } = portfolioContent;
+
   return (
     <section
       id="about"
@@ -26,7 +29,7 @@ export default function OpeningSpread() {
             marginBottom: 'var(--space-8)',
           }}
         >
-          Software Engineer &mdash; Toronto, Canada
+          {lede.eyebrow} &mdash; {identity.location}
         </p>
 
         <h2
@@ -41,22 +44,24 @@ export default function OpeningSpread() {
             margin: '0 0 var(--space-8)',
           }}
         >
-          Building things that feel&nbsp;right.
+          {lede.title}
         </h2>
 
-        <p
-          style={{
-            fontFamily: 'var(--font-serif)',
-            fontSize: 'var(--text-lg)',
-            lineHeight: 'var(--leading-prose)',
-            color: 'var(--color-ink)',
-            maxWidth: '52ch',
-            margin: 0,
-          }}
-        >
-          Full-stack developer with a focus on clean interfaces, thoughtful systems, and work that
-          holds up.
-        </p>
+        {lede.body.map((paragraph) => (
+          <p
+            key={paragraph}
+            style={{
+              fontFamily: 'var(--font-serif)',
+              fontSize: 'var(--text-lg)',
+              lineHeight: 'var(--leading-prose)',
+              color: 'var(--color-ink)',
+              maxWidth: '52ch',
+              margin: '0 0 var(--space-5)',
+            }}
+          >
+            {paragraph}
+          </p>
+        ))}
       </div>
     </section>
   );
