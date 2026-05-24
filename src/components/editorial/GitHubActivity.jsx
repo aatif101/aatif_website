@@ -71,6 +71,7 @@ export default function GitHubActivity({ activity = githubActivity }) {
   return (
     <div aria-label="GitHub activity report" style={{ display: 'grid', gap: 'var(--space-12)' }}>
       <div
+        className="editorial-two-column"
         style={{
           display: 'grid',
           gridTemplateColumns: 'minmax(0, 0.9fr) minmax(18rem, 1.1fr)',
@@ -80,7 +81,7 @@ export default function GitHubActivity({ activity = githubActivity }) {
       >
         <div>
           <p style={eyebrowStyle}>Public GitHub ledger / {activity?.username || profile.login || 'aatif101'}</p>
-          <p aria-label={`${headlineMetric} recent public events`} style={serifMetricStyle}>
+          <p className="editorial-tabular" aria-label={`${headlineMetric} recent public events`} style={serifMetricStyle}>
             {headlineMetric}
           </p>
           <p
@@ -151,6 +152,7 @@ export default function GitHubActivity({ activity = githubActivity }) {
       </div>
 
       <div
+        className="editorial-ledger-grid"
         style={{
           display: 'grid',
           gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
@@ -173,7 +175,7 @@ export default function GitHubActivity({ activity = githubActivity }) {
             {recentActivity.length > 0 ? (
               recentActivity.map((event) => (
                 <li key={event.id} style={{ display: 'grid', gridTemplateColumns: '7rem 1fr', gap: 'var(--space-4)' }}>
-                  <time dateTime={event.createdAt} style={eyebrowStyle}>
+                  <time dateTime={event.createdAt} className="editorial-tabular" style={eyebrowStyle}>
                     {formatDate(event.createdAt)}
                   </time>
                   <span style={{ ...quietSansStyle, color: 'var(--color-ink)' }}>
@@ -204,6 +206,7 @@ export default function GitHubActivity({ activity = githubActivity }) {
               repos.map((repo) => (
                 <li key={repo.fullName}>
                   <a
+                    className="editorial-text-link"
                     href={repo.htmlUrl}
                     style={{
                       display: 'flex',

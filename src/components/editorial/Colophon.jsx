@@ -71,7 +71,7 @@ export default function Colophon({ identity = {}, contact = {} }) {
           <p style={proseStyle}>
             {name} is reachable{location ? ` from ${location}` : ''} by{' '}
             {email ? (
-              <a href={`mailto:${email}`} style={linkStyle}>
+              <a href={`mailto:${email}`} className="editorial-text-link" style={linkStyle}>
                 {email}
               </a>
             ) : (
@@ -80,7 +80,7 @@ export default function Colophon({ identity = {}, contact = {} }) {
             {linkedin ? (
               <>
                 , on{' '}
-                <a href={linkedin} style={linkStyle}>
+                <a href={linkedin} className="editorial-text-link" style={linkStyle}>
                   LinkedIn
                 </a>
               </>
@@ -88,7 +88,7 @@ export default function Colophon({ identity = {}, contact = {} }) {
             {github ? (
               <>
                 , and through{' '}
-                <a href={github} style={linkStyle}>
+                <a href={github} className="editorial-text-link" style={linkStyle}>
                   GitHub
                 </a>
               </>

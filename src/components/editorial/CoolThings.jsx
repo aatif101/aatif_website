@@ -105,8 +105,8 @@ export default function CoolThings({ items = defaultCoolThings }) {
   return (
     <div aria-label="Things I find cool" style={listStyle}>
       {normalizedItems.map((item, index) => (
-        <article key={item.id} style={itemStyle}>
-          <aside aria-hidden="true" style={indexStyle}>
+        <article key={item.id} className="editorial-list-row" style={itemStyle}>
+          <aside aria-hidden="true" className="editorial-tabular" style={indexStyle}>
             {String(index + 1).padStart(2, '0')}
           </aside>
           <div>
@@ -114,6 +114,7 @@ export default function CoolThings({ items = defaultCoolThings }) {
             <h3 style={titleStyle}>
               {item.url ? (
                 <a
+                  className="editorial-text-link"
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"

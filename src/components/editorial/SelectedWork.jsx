@@ -39,9 +39,9 @@ export default function SelectedWork({ works }) {
   return (
     <div aria-label="Pinned selected work">
       {works.map((work, index) => (
-        <article key={work.id} style={spreadStyle}>
+        <article key={work.id} className="editorial-work-spread" style={spreadStyle}>
           <aside style={metaStyle} aria-label={`${work.name} metadata`}>
-            <div>{String(index + 1).padStart(2, '0')}</div>
+            <div className="editorial-tabular">{String(index + 1).padStart(2, '0')}</div>
             <div>{work.role}</div>
             <div>{work.status}</div>
           </aside>
@@ -53,6 +53,7 @@ export default function SelectedWork({ works }) {
             <h3 style={titleStyle}>
               {work.href ? (
                 <a
+                  className="editorial-text-link"
                   href={work.href}
                   style={{ color: 'inherit', textDecorationColor: 'var(--color-oxblood)' }}
                 >

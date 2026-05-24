@@ -33,12 +33,14 @@ export default function EditorialPortfolio() {
         }}
       >
         <div
+          className="editorial-header-inner"
           style={{
             maxWidth: 'var(--col-wide)',
             margin: '0 auto',
             display: 'flex',
             alignItems: 'baseline',
             gap: 'var(--space-4)',
+            flexWrap: 'wrap',
           }}
         >
           <span
@@ -68,11 +70,13 @@ export default function EditorialPortfolio() {
             {identity.name}
           </h1>
           <nav
+            className="editorial-nav"
             aria-label="Page sections"
             style={{
               marginLeft: 'auto',
               display: 'flex',
-              gap: 'var(--space-6)',
+              gap: 'var(--space-4)',
+              flexWrap: 'wrap',
             }}
           >
             {[
@@ -84,6 +88,7 @@ export default function EditorialPortfolio() {
               ['Contact', '#contact'],
             ].map(([label, href]) => (
               <a
+                className="editorial-nav-link"
                 key={label}
                 href={href}
                 style={{
@@ -93,7 +98,7 @@ export default function EditorialPortfolio() {
                   textTransform: 'uppercase',
                   color: 'var(--color-muted)',
                   textDecoration: 'none',
-                  transition: 'color var(--duration-base) var(--ease-out)',
+                  padding: '0 var(--space-2)',
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-ink)')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-muted)')}
@@ -121,6 +126,7 @@ export default function EditorialPortfolio() {
 
         <section
           id="github-activity"
+          className="editorial-ledger-section"
           aria-labelledby="github-activity-heading"
           data-motion-reveal
           style={{

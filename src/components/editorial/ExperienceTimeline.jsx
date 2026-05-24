@@ -33,8 +33,8 @@ const headingStyle = {
 
 function TimelineRow({ item }) {
   return (
-    <article style={rowStyle}>
-      <aside style={dateStyle}>{item.period || 'Ongoing'}</aside>
+    <article className="editorial-timeline-row" style={rowStyle}>
+      <aside className="editorial-tabular" style={dateStyle}>{item.period || 'Ongoing'}</aside>
       <div>
         <p
           style={{
