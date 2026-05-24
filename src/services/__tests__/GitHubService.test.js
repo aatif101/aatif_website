@@ -103,7 +103,7 @@ describe('GitHubService', () => {
 
     test('should exclude forked repositories by default', () => {
       const filtered = GitHubService.filterRepositories(mockProjects);
-      expect(filtered).toHaveLength(3);
+      expect(filtered).toHaveLength(2);
       expect(filtered.find(p => p.id === 2)).toBeUndefined();
     });
 
