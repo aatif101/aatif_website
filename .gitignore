@@ -49,3 +49,6 @@ vendor/
 coverage/
 .cache/
 tmp/
+
+# GSD session artifacts
+gsd-session-*.html
