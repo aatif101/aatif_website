@@ -6,7 +6,6 @@ import SectionShell from './editorial/SectionShell';
 import SelectedWork from './editorial/SelectedWork';
 import GitHubActivity from './editorial/GitHubActivity';
 import ExperienceTimeline from './editorial/ExperienceTimeline';
-import CoolThings from './editorial/CoolThings';
 import Colophon from './editorial/Colophon';
 
 export default function EditorialPortfolio() {
@@ -84,7 +83,6 @@ export default function EditorialPortfolio() {
               ['Selected work', '#selected-work'],
               ['GitHub', '#github-activity'],
               ['Timeline', '#timeline'],
-              ['Cool things', '#cool-things'],
               ['Contact', '#contact'],
             ].map(([label, href]) => (
               <a
@@ -117,7 +115,7 @@ export default function EditorialPortfolio() {
         <SectionShell
           id="selected-work"
           label="Selected work"
-          heading="Two pinned spreads"
+          heading="Things I've built"
           surface="surface"
           motionReveal
         >
@@ -160,7 +158,7 @@ export default function EditorialPortfolio() {
                 margin: '0 0 var(--space-16)',
               }}
             >
-              A public engineering ledger
+              What I'm doing on GitHub
             </h2>
             <GitHubActivity />
           </div>
@@ -178,16 +176,6 @@ export default function EditorialPortfolio() {
             education={education}
             leadership={leadership}
           />
-        </SectionShell>
-
-        <SectionShell
-          id="cool-things"
-          label="Things I find cool"
-          heading="A taste ledger"
-          surface="surface"
-          motionReveal
-        >
-          <CoolThings />
         </SectionShell>
       </main>
 

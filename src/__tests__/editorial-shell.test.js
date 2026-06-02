@@ -23,7 +23,7 @@ describe('EditorialPortfolio — section anchors and trusted content', () => {
     expect(
       screen.getByRole('heading', {
         level: 2,
-        name: /building applied ai systems with security taste and shipping urgency/i,
+        name: /i build ai systems, security tools, and whatever i'm curious about next/i,
       })
     ).toBeInTheDocument();
   });
@@ -45,7 +45,7 @@ describe('EditorialPortfolio — section anchors and trusted content', () => {
     expect(section).toBeInTheDocument();
 
     expect(
-      within(section).getByRole('heading', { level: 2, name: /a public engineering ledger/i })
+      within(section).getByRole('heading', { level: 2, name: /what i'm doing on github/i })
     ).toBeInTheDocument();
     expect(within(section).getByLabelText(/github activity report/i)).toBeInTheDocument();
     expect(within(section).getByText(/live public artifact|fallback data visible/i)).toBeInTheDocument();

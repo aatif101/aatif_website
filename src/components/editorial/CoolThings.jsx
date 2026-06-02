@@ -97,7 +97,7 @@ export default function CoolThings({ items = defaultCoolThings }) {
   if (normalizedItems.length === 0) {
     return (
       <p role="status" style={emptyStateStyle}>
-        The taste ledger is being edited. Check back for a slower, stranger list soon.
+        This list is being edited. Check back for a slower, stranger set of things soon.
       </p>
     );
   }

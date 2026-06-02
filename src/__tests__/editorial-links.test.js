@@ -64,23 +64,14 @@ describe('Editorial links and landmarks', () => {
     render(<EditorialPortfolio />);
 
     const pageNavigation = screen.getByRole('navigation', { name: 'Page sections' });
-    const coolSection = document.getElementById('cool-things');
     const contactFooter = screen.getByRole('contentinfo', { name: 'Contact and colophon' });
 
-    expect(within(pageNavigation).getByRole('link', { name: 'Cool things' })).toHaveAttribute(
-      'href',
-      '#cool-things'
-    );
     expect(within(pageNavigation).getByRole('link', { name: 'Contact' })).toHaveAttribute(
       'href',
       '#contact'
     );
-    expect(coolSection).toHaveAttribute('aria-labelledby', 'cool-things-heading');
-    expect(within(coolSection).getByRole('heading', { level: 2, name: 'A taste ledger' })).toHaveAttribute(
-      'id',
-      'cool-things-heading'
-    );
-    expect(within(coolSection).getByLabelText('Things I find cool')).toBeInTheDocument();
+    expect(within(pageNavigation).queryByRole('link', { name: 'Cool things' })).not.toBeInTheDocument();
+    expect(document.getElementById('cool-things')).not.toBeInTheDocument();
     expect(contactFooter).toHaveAttribute('id', 'contact');
   });
 });

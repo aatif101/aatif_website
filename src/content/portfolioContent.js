@@ -8,7 +8,7 @@ export const portfolioContent = {
     name: 'Mohammad Aatif Shaikh',
     shortName: 'Aatif',
     location: 'Tampa, FL',
-    headline: 'AI-native builder with security instincts',
+    headline: 'Curious builder, still figuring it out in public',
     targetRoles: ['Applied AI', 'LLMOps', 'AI security'],
     workAuthorization: ['US (F1; CPT/OPT eligible, Dec 2026)', 'UAE', 'India'],
   },
@@ -22,10 +22,11 @@ export const portfolioContent = {
 
   lede: {
     eyebrow: 'Computer Science senior at the University of South Florida',
-    title: 'Building applied AI systems with security taste and shipping urgency.',
+    title: "I build AI systems, security tools, and whatever I'm curious about next.",
+    proof: ['20+ projects', 'NazScan — 63 commits', 'Pfizer externship', 'Vision desktop agent'],
     body: [
-      'AI-native builder with security instincts. CS senior graduating in Dec 2026 who has shipped agentic document intelligence, LLM evaluation, vulnerability scanning, and MCP tooling work.',
-      'Uses Claude Code and Cursor daily as force multipliers, targeting applied AI, LLMOps, and AI security roles at early-stage companies.',
+      'Agentic document intelligence for Pfizer. A security scanner at 63 commits. A vision-based desktop agent — and a couple dozen other things I built to find out if I could.',
+      "I'm still learning in public, and I ship while I do it. What I want next is simple: something of mine running in real production, with real users on it.",
     ],
   },
 
@@ -53,7 +54,7 @@ export const portfolioContent = {
       status: 'In active development, Phase 3/5',
       href: 'https://github.com/aatif101/nazscan',
       summary:
-        'Tried building a one-command security scanner for vibe-coded repos: an async web vulnerability scanner with OWASP coverage, scope boundaries, and AI-assisted triage planned next.',
+        'I wanted to know if I could build a real security scanner, so I started one — a one-command security scanner for vibe-coded repos. Async, OWASP coverage, scope boundaries, with AI-assisted triage coming next. Phase 3 of 5 and still going.',
       details: [
         'Covers SQLi, XSS, CSRF, SSRF, open redirects, directory traversal, command injection, insecure headers, SSL/TLS misconfigurations, and subdomain enumeration.',
         'Includes a custom payload library with context-aware injection, crawler/spider module with auth flow handling and scope boundaries.',

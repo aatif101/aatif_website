@@ -36,16 +36,50 @@ export default function OpeningSpread() {
           id="about-heading"
           style={{
             fontFamily: 'var(--font-serif)',
-            fontSize: 'var(--text-4xl)',
-            fontWeight: 300,
+            fontSize: 'var(--text-2xl)',
+            fontWeight: 400,
             lineHeight: 'var(--leading-tight)',
             letterSpacing: 'var(--tracking-tight)',
             color: 'var(--color-ink)',
-            margin: '0 0 var(--space-8)',
+            margin: '0 0 var(--space-6)',
+            maxWidth: '20ch',
           }}
         >
           {lede.title}
         </h2>
+
+        {lede.proof && (
+          <ul
+            aria-label="Quick proof points"
+            style={{
+              listStyle: 'none',
+              margin: '0 0 var(--space-8)',
+              padding: 0,
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: 'var(--space-2) var(--space-4)',
+              fontFamily: 'var(--font-sans)',
+              fontSize: 'var(--text-xs)',
+              letterSpacing: 'var(--tracking-caps)',
+              textTransform: 'uppercase',
+              color: 'var(--color-muted)',
+            }}
+          >
+            {lede.proof.map((point, i) => (
+              <li
+                key={point}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 'var(--space-4)',
+                }}
+              >
+                {i > 0 && <span aria-hidden="true" style={{ color: 'var(--color-hairline)' }}>/</span>}
+                {point}
+              </li>
+            ))}
+          </ul>
+        )}
 
         {lede.body.map((paragraph) => (
           <p
