@@ -1,22 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#fafaf8" />
-    <meta
-      name="description"
-      content="Mohammad Aatif Shaikh — AI-native builder with security instincts"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <title>Mohammad Aatif Shaikh</title>
-  </head>
-  <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Mohammad Aatif Shaikh · AI engineer</title>
+  <meta name="description" content="I build AI systems that hold up with real users on them. Open to new-grad AI engineering roles starting early 2027.">
+  <link rel="canonical" href="https://aatif101.github.io/aatif_website/">
+  <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mohammad Aatif Shaikh · AI engineer">
+  <meta property="og:description" content="I build AI systems that hold up with real users on them.">
+  <meta property="og:url" content="https://aatif101.github.io/aatif_website/">
+  <meta property="og:image" content="https://aatif101.github.io/aatif_website/social.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mohammad Aatif Shaikh. I build AI systems that hold up with real users on them.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mohammad Aatif Shaikh · AI engineer">
+  <meta name="twitter:description" content="I build AI systems that hold up with real users on them.">
+  <meta name="twitter:image" content="https://aatif101.github.io/aatif_website/social.png">
+  <meta name="twitter:image:alt" content="Mohammad Aatif Shaikh. I build AI systems that hold up with real users on them.">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      try {
+        var saved = localStorage.getItem('portfolio-theme');
+        if (saved === 'light' || saved === 'dark') {
+          theme = saved;
+          root.dataset.manual = '';
+        }
+      } catch {}
+      root.dataset.theme = theme;
+    })();
+  </script>
+</head>
+<body><div id="root"></div></body>
 </html>
