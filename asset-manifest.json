@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/aatif_website/static/css/main.6b564a00.css",
-    "main.js": "/aatif_website/static/js/main.4a34f3d1.js",
-    "static/js/57.8543ebea.chunk.js": "/aatif_website/static/js/57.8543ebea.chunk.js",
+    "main.css": "/aatif_website/static/css/main.cae93e72.css",
+    "main.js": "/aatif_website/static/js/main.ab102453.js",
+    "static/media/geist.woff2": "/aatif_website/static/media/geist.ee5d167b615cdb197f4a.woff2",
+    "static/media/geist-mono.woff2": "/aatif_website/static/media/geist-mono.8915f32bc9d51b44d11a.woff2",
     "index.html": "/aatif_website/index.html",
-    "main.6b564a00.css.map": "/aatif_website/static/css/main.6b564a00.css.map",
-    "main.4a34f3d1.js.map": "/aatif_website/static/js/main.4a34f3d1.js.map",
-    "57.8543ebea.chunk.js.map": "/aatif_website/static/js/57.8543ebea.chunk.js.map"
+    "main.cae93e72.css.map": "/aatif_website/static/css/main.cae93e72.css.map",
+    "main.ab102453.js.map": "/aatif_website/static/js/main.ab102453.js.map"
   },
   "entrypoints": [
-    "static/css/main.6b564a00.css",
-    "static/js/main.4a34f3d1.js"
+    "static/css/main.cae93e72.css",
+    "static/js/main.ab102453.js"
   ]
 }
