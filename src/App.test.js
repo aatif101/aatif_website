@@ -14,7 +14,7 @@ test('the work grid leads directly to the projects', () => {
   render(<App />);
   expect(screen.getAllByRole('article')).toHaveLength(4);
   expect(screen.getByRole('link', { name: 'Live site ↗' }).href).toBe('https://easya.fyi/');
-  expect(screen.getByRole('link', { name: 'Resume TODO' }).pathname).toMatch(/\/resume\.pdf$/);
+  expect(screen.getByRole('link', { name: 'Resume' }).pathname).toMatch(/\/resume\.pdf$/);
 });
 
 test('the dark mode control persists an explicit choice', () => {

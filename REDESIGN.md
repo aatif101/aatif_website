@@ -35,7 +35,7 @@ Left: a 10px orange square, then **Aatif Shaikh** (links to top). Right: Work ·
 - Row: circular photo (64px, `reference/photo.jpg`, object-position 50% 38%, 1px border) next to **Aatif Shaikh** / `CS @ USF · Graduating Dec 2026 · Tampa, FL` (mono, muted)
 - H1: **I build AI systems that hold up with real users on them.**
 - Paragraph: I’ve learned a lot shipping projects solo, but I've hit the ceiling of what I can learn building alone. I'm looking for a team where I can work on someone else's hard problem, next to engineers who are better than me. Open to new-grad AI engineering roles starting early 2027.
-- Buttons: **Email me** (filled accent → mailto:smatif.t@gmail.com) · **Resume** (→ `/resume.pdf`, [PLACEHOLDER: Aatif supplies the updated PDF]) · **GitHub** (github.com/aatif101) · **LinkedIn** (linkedin.com/in/shaikhaatif)
+- Buttons: **Email me** (filled accent → mailto:smatif.t@gmail.com) · **Resume** (→ `/resume.pdf`, updated November 2026 resume) · **GitHub** (github.com/aatif101) · **LinkedIn** (linkedin.com/in/shaikhaatif)
 
 ### Selected work (2×2 grid; 1 column under 760px)
 

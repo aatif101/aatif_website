@@ -50,7 +50,7 @@ function Hero() {
           Email me
         </a>
         <a className="button" href={process.env.PUBLIC_URL + "/resume.pdf"}>
-          Resume <small className="todo">TODO</small>
+          Resume
         </a>
         <a className="button" href="https://github.com/aatif101">
           GitHub
