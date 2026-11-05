@@ -79,7 +79,7 @@ function Work() {
           <div className="card-body">
             <div className="row card-heading">
               <h3 className="title">Easy-A</h3>
-              <span className="pill">1,000+ visits in 3 hours</span>
+              <span className="pill">2,400+ page views, month one</span>
             </div>
             <p className="description">
               See which USF professors give the most A's in every class, compare
